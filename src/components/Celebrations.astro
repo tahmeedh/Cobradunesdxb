@@ -1,0 +1,252 @@
+---
+const occasions = [
+  { icon: "🎂", label: "Birthdays"        },
+  { icon: "💍", label: "Proposals"        },
+  { icon: "💑", label: "Anniversaries"    },
+  { icon: "🏢", label: "Corporate Events" },
+  { icon: "👰", label: "Hen/Stag Parties" },
+  { icon: "🎓", label: "Graduations"      },
+  { icon: "🌍", label: "Tourist Groups"   },
+  { icon: "🏆", label: "Team Building"    },
+];
+
+const packages = [
+  {
+    name:  "Romantic Desert Escape",
+    for:   "Couples",
+    price: "From AED 1,200",
+    icon:  "fas fa-heart",
+    color: "text-pink-400",
+    border:"border-pink-400/30",
+    includes: [
+      "Private 2-hour sunset buggy ride",
+      "Rose petal & candle desert setup",
+      "Gourmet picnic basket",
+      "Professional photography (30 min)",
+      "Chilled beverages & chocolates",
+      "Hotel transfers (optional)",
+    ],
+  },
+  {
+    name:  "Desert Birthday Bash",
+    for:   "Groups up to 20",
+    price: "From AED 2,500",
+    icon:  "fas fa-birthday-cake",
+    color: "text-yellow-400",
+    border:"border-yellow-400/30",
+    includes: [
+      "1-hour group buggy convoy",
+      "Custom birthday cake & decoration",
+      "Catered desert feast",
+      "Bonfire & live music",
+      "Group photography session",
+      "Balloon arch & personalized banner",
+    ],
+    featured: true,
+  },
+  {
+    name:  "Corporate Desert Team Build",
+    for:   "Teams up to 50",
+    price: "From AED 5,000",
+    icon:  "fas fa-briefcase",
+    color: "text-blue-400",
+    border:"border-blue-400/30",
+    includes: [
+      "Guided group buggy experience",
+      "Branded activation options",
+      "Desert BBQ & catering",
+      "Team challenges & activities",
+      "Professional event coordination",
+      "Full AV & photography package",
+    ],
+  },
+];
+---
+
+<section id="celebrations" class="section-padding bg-[#0D0D0D] relative overflow-hidden">
+
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 bg-stripes opacity-30"></div>
+  <div class="blur-orb w-[500px] h-[500px] bg-yellow-400/4 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"></div>
+
+  <!-- Top/Bottom borders -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Make It Unforgettable</span>
+      <h2 class="section-title text-5xl md:text-7xl text-white mt-3">
+        DESERT <span class="text-gradient-gold">CELEBRATIONS</span>
+      </h2>
+      <div class="gold-line mt-4 mb-6"></div>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Turn the golden sands of Dubai into the backdrop for your most special moments.
+        We specialise in crafting bespoke desert celebration experiences.
+      </p>
+    </div>
+
+    <!-- Occasions pill cloud -->
+    <div class="flex flex-wrap justify-center gap-3 mb-16" data-aos="fade-up" data-aos-delay="100">
+      {occasions.map(o => (
+        <div class="flex items-center gap-2 px-4 py-2.5 glass border border-yellow-400/15 rounded-full text-gray-300 text-sm font-medium hover:border-yellow-400/40 hover:text-yellow-400 transition-all duration-300 cursor-default">
+          <span class="text-lg">{o.icon}</span>
+          {o.label}
+        </div>
+      ))}
+    </div>
+
+    <!-- Two-column: Image + Description -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+
+      <!-- Left: Visual -->
+      <div class="relative" data-aos="fade-right">
+        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-gradient-to-br from-yellow-400/10 to-orange-500/10 border border-yellow-400/15">
+          <!-- Desert celebration illustration -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center">
+              <!-- Campfire SVG -->
+              <svg viewBox="0 0 200 160" class="w-48 h-36 mx-auto mb-4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Stars -->
+                <circle cx="20" cy="20" r="2" fill="#FFD700" opacity="0.8"/>
+                <circle cx="50" cy="10" r="1.5" fill="#FFD700" opacity="0.6"/>
+                <circle cx="80" cy="15" r="2" fill="#FFD700" opacity="0.9"/>
+                <circle cx="120" cy="8" r="1.5" fill="#FFD700" opacity="0.7"/>
+                <circle cx="160" cy="18" r="2" fill="#FFD700" opacity="0.5"/>
+                <circle cx="185" cy="10" r="1.5" fill="#FFD700" opacity="0.8"/>
+                <circle cx="170" cy="35" r="1" fill="#FFD700" opacity="0.6"/>
+                <!-- Moon -->
+                <path d="M30 30 Q38 22 46 30 Q38 38 30 30Z" fill="#FFD700" opacity="0.9"/>
+                <!-- Dunes -->
+                <path d="M0 130 Q50 80 100 100 Q150 120 200 90 L200 160 L0 160Z" fill="#D4A94A" opacity="0.3"/>
+                <path d="M0 145 Q60 110 120 125 Q160 135 200 115 L200 160 L0 160Z" fill="#C2912A" opacity="0.5"/>
+                <!-- Campfire -->
+                <ellipse cx="100" cy="148" rx="25" ry="5" fill="#8B6914" opacity="0.8"/>
+                <rect x="88" y="128" width="6" height="22" rx="2" fill="#5C3D11" opacity="0.9"/>
+                <rect x="100" y="130" width="6" height="20" rx="2" fill="#5C3D11" opacity="0.9" transform="rotate(-10 103 140)"/>
+                <rect x="110" y="132" width="6" height="18" rx="2" fill="#5C3D11" opacity="0.9" transform="rotate(8 113 141)"/>
+                <!-- Flames -->
+                <path d="M95 130 Q93 118 98 110 Q103 102 100 95 Q107 103 108 112 Q110 120 106 128Z" fill="#FF6B35" opacity="0.9"/>
+                <path d="M100 125 Q98 115 102 108 Q106 100 104 94 Q110 103 109 112 Q108 120 105 125Z" fill="#FFD700" opacity="0.9"/>
+                <!-- People silhouettes -->
+                <ellipse cx="72" cy="143" rx="6" ry="12" fill="#1A1A1A" opacity="0.9"/>
+                <circle cx="72" cy="128" r="5" fill="#1A1A1A" opacity="0.9"/>
+                <ellipse cx="128" cy="143" rx="6" ry="12" fill="#1A1A1A" opacity="0.9"/>
+                <circle cx="128" cy="128" r="5" fill="#1A1A1A" opacity="0.9"/>
+                <!-- Stars around fire -->
+                <path d="M100 85 L102 92 L109 92 L103 97 L106 104 L100 99 L94 104 L97 97 L91 92 L98 92Z" fill="#FFD700" opacity="0.6" transform="scale(0.5) translate(100,80)"/>
+              </svg>
+              <p class="text-yellow-400/60 text-sm font-medium tracking-wide">DESERT CELEBRATION AWAITS</p>
+            </div>
+          </div>
+
+          <!-- Floating achievement badges -->
+          <div class="absolute top-4 left-4 glass border border-yellow-400/30 rounded-xl px-3 py-2 shadow-gold">
+            <div class="text-yellow-400 font-bold text-sm">⭐ 5-Star Events</div>
+            <div class="text-gray-400 text-xs">Since 2019</div>
+          </div>
+          <div class="absolute bottom-4 right-4 glass border border-yellow-400/30 rounded-xl px-3 py-2 shadow-gold">
+            <div class="text-yellow-400 font-bold text-sm">500+ Events</div>
+            <div class="text-gray-400 text-xs">Successfully Hosted</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Content -->
+      <div data-aos="fade-left">
+        <h3 class="section-title text-4xl md:text-5xl text-white mb-4">
+          YOUR EVENT,<br/>
+          <span class="text-gradient-gold">OUR CANVAS</span>
+        </h3>
+        <p class="text-gray-400 leading-relaxed mb-6">
+          The desert provides a breathtaking natural backdrop unlike any other venue on earth.
+          At Cobra Dunes DXB, we transform the golden sands of Dubai into personalised celebration
+          spaces that reflect your style and create memories that endure forever.
+        </p>
+        <p class="text-gray-400 leading-relaxed mb-8">
+          From intimate romantic escapes for two to large corporate gatherings of 50+,
+          our dedicated events team handles every detail — so you can focus on living the moment.
+        </p>
+
+        <!-- Feature list -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          {[
+            "Full Event Planning",
+            "Custom Decoration",
+            "Desert Catering",
+            "Photography & Video",
+            "Live Entertainment",
+            "Hotel Transfers",
+            "Safety Coordination",
+            "24/7 Support",
+          ].map(f => (
+            <div class="flex items-center gap-2 text-gray-300 text-sm">
+              <div class="w-5 h-5 rounded bg-yellow-400/15 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check text-yellow-400 text-xs"></i>
+              </div>
+              {f}
+            </div>
+          ))}
+        </div>
+
+        <a
+          href="https://wa.me/971XXXXXXXXX?text=Hi! I want to plan a desert celebration event"
+          target="_blank"
+          rel="noopener"
+          class="btn-gold inline-flex items-center gap-2 px-6 py-3.5 rounded-xl shine"
+        >
+          <i class="fab fa-whatsapp text-lg"></i>
+          <span class="font-display text-lg">Plan Your Celebration</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Celebration Packages -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {packages.map((pkg, i) => (
+        <div
+          class={`relative border-gradient rounded-2xl p-6 bg-[#161616] hover:-translate-y-2 transition-all duration-400 ${pkg.featured ? 'ring-2 ring-yellow-400/50' : ''}`}
+          data-aos="fade-up"
+          data-aos-delay={i * 100}
+        >
+          {pkg.featured && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="btn-gold text-xs font-bold px-4 py-1 rounded-full">Most Popular</span>
+            </div>
+          )}
+
+          <div class={`w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400/20 to-transparent border ${pkg.border} flex items-center justify-center mb-4`}>
+            <i class={`${pkg.icon} ${pkg.color} text-xl`}></i>
+          </div>
+
+          <h4 class="font-display text-xl text-white mb-1">{pkg.name}</h4>
+          <p class="text-gray-500 text-sm mb-2">For {pkg.for}</p>
+          <p class={`font-racing text-xl ${pkg.color} mb-5`}>{pkg.price}</p>
+
+          <ul class="space-y-2 mb-6">
+            {pkg.includes.map(item => (
+              <li class="flex items-start gap-2 text-sm text-gray-300">
+                <i class="fas fa-check text-yellow-400/70 text-xs mt-0.5 flex-shrink-0"></i>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={`https://wa.me/971XXXXXXXXX?text=Hi! I'm interested in the ${pkg.name} package`}
+            target="_blank"
+            rel="noopener"
+            class={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-display tracking-wide transition-all duration-300 ${pkg.featured ? 'btn-gold shine' : 'btn-outline'}`}
+          >
+            <i class="fas fa-calendar-plus"></i>
+            Enquire Now
+          </a>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

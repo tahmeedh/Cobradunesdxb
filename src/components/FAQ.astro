@@ -1,0 +1,170 @@
+---
+const faqs = [
+  {
+    q: "Do I need a driving license to drive a dune buggy?",
+    a: "No driving license is required to operate our dune buggies in the private desert area. You must be at least 18 years old to drive solo (16+ with parent/guardian present). All guests receive a comprehensive safety briefing and practice session before heading to the dunes.",
+    category: "Requirements",
+  },
+  {
+    q: "Is dune buggy riding safe for beginners?",
+    a: "Absolutely! Safety is our #1 priority at Cobra Dunes DXB. Every experience begins with a thorough safety briefing from our certified instructors. You'll wear a full helmet, goggles, and gloves. Our guides accompany every group and maintain radio contact. Our equipment is serviced after every single tour.",
+    category: "Safety",
+  },
+  {
+    q: "What should I wear for a desert buggy experience?",
+    a: "We recommend comfortable, breathable clothing — long trousers and a t-shirt work well. Wear closed-toe shoes (sneakers or boots, no sandals or flip-flops). We provide helmets, goggles, and gloves. In summer (June–September), lightweight, moisture-wicking clothes are ideal. In winter evenings, bring a light jacket.",
+    category: "Preparation",
+  },
+  {
+    q: "Can children participate in dune buggy rides?",
+    a: "Children aged 8+ can participate as passengers in our 2 or 4-seater buggies. The minimum driving age is 16 years (with parental consent and guardian present) and 18+ to drive unaccompanied. We have special family packages designed specifically for parents with younger children.",
+    category: "Family",
+  },
+  {
+    q: "Where exactly is Cobra Dunes DXB located?",
+    a: "Our desert basecamp is located in the Al Lahbab desert area (Big Red), approximately 45 minutes from Dubai city centre, near Al Marmoom Desert Conservation Reserve. We can share the exact Google Maps pin upon booking confirmation. Hotel transfers from Dubai are available for an additional fee.",
+    category: "Location",
+  },
+  {
+    q: "What is your cancellation and rescheduling policy?",
+    a: "We understand plans change! Free rescheduling is available with at least 24 hours notice before your booking time. Cancellations made 24+ hours in advance receive a full refund. Cancellations within 24 hours or no-shows may be subject to a 50% cancellation fee. We're always flexible for genuine emergencies — just reach out via WhatsApp.",
+    category: "Booking",
+  },
+  {
+    q: "How many people can ride together?",
+    a: "We offer 1-seater, 2-seater, 4-seater, and 6-seater buggies to accommodate groups of all sizes. For large groups of 10+ people, we can arrange convoy experiences where multiple buggies ride together with a dedicated guide. Our maximum single-group capacity is 50+ people for corporate events.",
+    category: "Groups",
+  },
+  {
+    q: "What is the best time of year to visit?",
+    a: "Dubai's desert is magical year-round, but the ideal weather is October through April with temperatures between 18–30°C. Summer months (May–September) are hot (40°C+) but our early morning sunrise tours are comfortable and have a completely different magical atmosphere. All our vehicles are designed for desert conditions.",
+    category: "Planning",
+  },
+  {
+    q: "Do you offer photography and videography services?",
+    a: "Yes! We offer add-on photography packages. Our in-house photographer can join your experience to capture professional-grade shots and video footage of your adventure. Prices start from AED 299 for a 30-minute session. GoPro cameras are also available for rent. Ask us about our social media content packages!",
+    category: "Photography",
+  },
+  {
+    q: "Can we bring our own food and drinks?",
+    a: "You're welcome to bring your own snacks and water. All our packages include at least water and light refreshments. Our premium packages include desert snacks. For celebrations, we offer full catering services including traditional Emirati cuisine, BBQ spreads, and customised menus. Alcohol is not permitted in the desert.",
+    category: "Catering",
+  },
+];
+
+const categories = [...new Set(faqs.map(f => f.category))];
+---
+
+<section id="faq" class="section-padding bg-[#111111] relative overflow-hidden">
+
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
+  <div class="blur-orb w-96 h-96 bg-yellow-400/5 top-20 left-0"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Everything You Need to Know</span>
+      <h2 class="section-title text-5xl md:text-7xl text-white mt-3">
+        FREQUENTLY <span class="text-gradient-gold">ASKED</span>
+      </h2>
+      <div class="gold-line mt-4 mb-6"></div>
+      <p class="text-gray-400 text-lg max-w-xl mx-auto">
+        Got a question? We've answered the most common ones below.
+        Still unsure? WhatsApp us anytime.
+      </p>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="space-y-3" id="faq-container">
+      {faqs.map((faq, i) => (
+        <div
+          class="faq-item glass border border-yellow-400/10 rounded-xl overflow-hidden hover:border-yellow-400/25 transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay={Math.min(i * 40, 300)}
+        >
+          <button
+            class="faq-trigger w-full text-left px-6 py-4 flex items-start justify-between gap-4 group"
+            aria-expanded="false"
+          >
+            <div class="flex items-start gap-3 flex-grow">
+              <!-- Category badge -->
+              <span class="text-xs px-2 py-0.5 rounded bg-yellow-400/10 text-yellow-400/70 font-medium flex-shrink-0 mt-0.5 hidden sm:block">
+                {faq.category}
+              </span>
+              <span class="text-white text-sm md:text-base font-semibold group-hover:text-yellow-400 transition-colors duration-200">
+                {faq.q}
+              </span>
+            </div>
+            <div class="faq-icon w-6 h-6 rounded-full border border-yellow-400/30 flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300 group-hover:border-yellow-400/60">
+              <i class="fas fa-plus text-yellow-400 text-xs transition-transform duration-300"></i>
+            </div>
+          </button>
+
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-400 ease-in-out">
+            <div class="px-6 pb-5">
+              <div class="w-full h-px bg-yellow-400/10 mb-4"></div>
+              <p class="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Still have questions CTA -->
+    <div class="mt-12 text-center glass border border-yellow-400/20 rounded-2xl p-8" data-aos="fade-up">
+      <div class="text-3xl mb-3">💬</div>
+      <h3 class="font-display text-xl text-white mb-2">Still Have Questions?</h3>
+      <p class="text-gray-400 text-sm mb-6">Our team responds to WhatsApp messages within minutes, 7 days a week.</p>
+      <a
+        href="https://wa.me/971XXXXXXXXX?text=Hi! I have a question about Cobra Dunes DXB"
+        target="_blank"
+        rel="noopener"
+        class="btn-gold inline-flex items-center gap-2 px-6 py-3 rounded-xl shine"
+      >
+        <i class="fab fa-whatsapp text-lg"></i>
+        <span class="font-display">Ask on WhatsApp</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // FAQ Accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('.faq-trigger') as HTMLButtonElement;
+    const answer  = item.querySelector('.faq-answer') as HTMLElement;
+    const icon    = item.querySelector('.faq-icon i') as HTMLElement;
+
+    trigger?.addEventListener('click', () => {
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all
+      faqItems.forEach(other => {
+        const otherTrigger = other.querySelector('.faq-trigger') as HTMLButtonElement;
+        const otherAnswer  = other.querySelector('.faq-answer') as HTMLElement;
+        const otherIcon    = other.querySelector('.faq-icon i') as HTMLElement;
+
+        otherTrigger?.setAttribute('aria-expanded', 'false');
+        if (otherAnswer) otherAnswer.style.maxHeight = '0';
+        if (otherIcon) {
+          otherIcon.style.transform = 'rotate(0deg)';
+          otherIcon.classList.remove('fa-minus');
+          otherIcon.classList.add('fa-plus');
+        }
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        trigger.setAttribute('aria-expanded', 'true');
+        if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+        if (icon) {
+          icon.style.transform = 'rotate(45deg)';
+        }
+      }
+    });
+  });
+</script>

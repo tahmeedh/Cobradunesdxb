@@ -1,0 +1,254 @@
+---
+const buggies = [
+  {
+    id: "can-am-x3",
+    name: "Can-Am Maverick X3",
+    seats: "2-Seater",
+    engine: "900cc Turbo",
+    power: "120 HP",
+    speed: "120 km/h",
+    price: "599",
+    tag: "Most Popular",
+    tagColor: "bg-yellow-400 text-black",
+    description: "The ultimate desert performance machine. Turbocharged power meets precision handling for the most exhilarating dune experience.",
+    features: ["Turbocharged Engine", "Fox Live Valve Suspension", "Bead-Lock Wheels", "Full Roll Cage", "Harness Belts", "Bluetooth Audio"],
+    color: "#D4AF37",
+    gradient: "from-yellow-500/20 to-orange-500/10",
+    image: "/images/can-am-x3.jpg",
+    badge: "🏆",
+  },
+  {
+    id: "can-am-x3-max",
+    name: "Can-Am X3 MAX",
+    seats: "4-Seater",
+    engine: "900cc Turbo",
+    power: "120 HP",
+    speed: "120 km/h",
+    price: "899",
+    tag: "Family Favourite",
+    tagColor: "bg-green-500 text-white",
+    description: "The iconic 4-seater that fits the whole family. Experience the thrill of dune bashing without leaving anyone behind.",
+    features: ["4 Full Harness Seats", "Extended Chassis", "Fox Suspension", "Full Safety Cage", "Rear-Facing Seats", "Cargo Space"],
+    color: "#4ADE80",
+    gradient: "from-green-500/20 to-emerald-500/10",
+    image: "/images/can-am-x3-max.jpg",
+    badge: "👨‍👩‍👧‍👦",
+  },
+  {
+    id: "polaris-rzr-pro",
+    name: "Polaris RZR Pro XP",
+    seats: "2-Seater",
+    engine: "1000cc",
+    power: "110 HP",
+    speed: "110 km/h",
+    price: "549",
+    tag: "Top Performer",
+    tagColor: "bg-blue-500 text-white",
+    description: "Legendary Polaris performance engineered for the harshest terrains. Intuitive handling for beginners and pros alike.",
+    features: ["1000cc Engine", "Walker Evans Shocks", "Electronic Power Steering", "4WD System", "Digitial Dashboard", "Winch"],
+    color: "#60A5FA",
+    gradient: "from-blue-500/20 to-sky-500/10",
+    image: "/images/polaris-rzr-pro.jpg",
+    badge: "⚡",
+  },
+  {
+    id: "polaris-rzr-4",
+    name: "Polaris RZR Pro XP 4",
+    seats: "4-Seater",
+    engine: "1000cc",
+    power: "110 HP",
+    speed: "110 km/h",
+    price: "799",
+    tag: "Best Value",
+    tagColor: "bg-purple-500 text-white",
+    description: "Take on Dubai's biggest dunes with four adventure-seekers. The Polaris RZR 4 delivers legendary capability for groups.",
+    features: ["4 Bucket Seats", "Walker Evans Shocks", "EPS Steering", "4WD System", "Rear Storage", "Audio System"],
+    color: "#A855F7",
+    gradient: "from-purple-500/20 to-violet-500/10",
+    image: "/images/polaris-rzr-4.jpg",
+    badge: "🎯",
+  },
+  {
+    id: "yamaha-yxz",
+    name: "Yamaha YXZ1000R",
+    seats: "2-Seater",
+    engine: "998cc Triple",
+    power: "112 HP",
+    speed: "115 km/h",
+    price: "499",
+    tag: "Sport Edition",
+    tagColor: "bg-red-500 text-white",
+    description: "Yamaha's track-inspired sports buggy with a pure mechanical feel. Manual 5-speed transmission for the true enthusiast.",
+    features: ["3-Cylinder Engine", "Manual 5-Speed", "Sport Suspension", "Bead-Lock Rims", "Roll Cage", "Racing Harness"],
+    color: "#EF4444",
+    gradient: "from-red-500/20 to-rose-500/10",
+    image: "/images/yamaha-yxz.jpg",
+    badge: "🎸",
+  },
+  {
+    id: "can-am-defender",
+    name: "Can-Am Defender MAX",
+    seats: "6-Seater",
+    engine: "976cc",
+    power: "82 HP",
+    speed: "95 km/h",
+    price: "1099",
+    tag: "Group Special",
+    tagColor: "bg-amber-500 text-black",
+    description: "The perfect choice for large groups and corporate events. Massive capacity meets impressive desert capability.",
+    features: ["6 Full Seats", "Pro-Torq CVT", "Smart-Lok 4WD", "Extended Length", "High Roof", "Corporate Ready"],
+    color: "#F59E0B",
+    gradient: "from-amber-500/20 to-yellow-500/10",
+    image: "/images/can-am-defender.jpg",
+    badge: "🏢",
+  },
+];
+---
+
+<section id="fleet" class="section-padding bg-[#0D0D0D] relative overflow-hidden">
+
+  <!-- Background elements -->
+  <div class="blur-orb w-[600px] h-[600px] bg-yellow-400/3 top-1/4 left-1/2 -translate-x-1/2"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Premium Off-Road Machines</span>
+      <h2 class="section-title text-5xl md:text-7xl text-white mt-3">
+        OUR <span class="text-gradient-gold">FLEET</span>
+      </h2>
+      <div class="gold-line mt-4 mb-6"></div>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Choose from our fleet of premium, meticulously maintained desert buggies —
+        each built to conquer Dubai's most challenging dunes.
+      </p>
+    </div>
+
+    <!-- Buggy Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+      {buggies.map((buggy, i) => (
+        <div
+          class={`relative border-gradient rounded-2xl overflow-hidden card-3d group cursor-pointer bg-[#161616]`}
+          data-aos="fade-up"
+          data-aos-delay={i * 80}
+        >
+          <!-- Tag -->
+          <div class="absolute top-4 right-4 z-10">
+            <span class={`${buggy.tagColor} text-xs font-bold px-3 py-1 rounded-full shadow-lg`}>
+              {buggy.tag}
+            </span>
+          </div>
+
+          <!-- Emoji badge -->
+          <div class="absolute top-4 left-4 z-10 text-2xl">{buggy.badge}</div>
+
+          <!-- Image Area -->
+          <div class={`relative h-52 bg-gradient-to-br ${buggy.gradient} flex items-center justify-center overflow-hidden`}>
+            <!-- Buggy SVG illustration (placeholder) -->
+            <div class="relative w-full h-full flex items-center justify-center">
+              <!-- Silhouette SVG of buggy -->
+              <svg viewBox="0 0 300 150" class="w-64 h-32 opacity-40 transition-all duration-500 group-hover:opacity-70 group-hover:scale-105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="40" y="50" width="220" height="60" rx="10" fill={buggy.color} opacity="0.3"/>
+                <rect x="60" y="30" width="140" height="50" rx="8" fill={buggy.color} opacity="0.5"/>
+                <circle cx="80" cy="120" r="25" fill={buggy.color} opacity="0.8"/>
+                <circle cx="80" cy="120" r="12" fill="#0D0D0D"/>
+                <circle cx="220" cy="120" r="25" fill={buggy.color} opacity="0.8"/>
+                <circle cx="220" cy="120" r="12" fill="#0D0D0D"/>
+                <line x1="40" y1="70" x2="10" y2="55" stroke={buggy.color} stroke-width="4" stroke-linecap="round"/>
+                <line x1="260" y1="70" x2="290" y2="55" stroke={buggy.color} stroke-width="4" stroke-linecap="round"/>
+                <rect x="80" y="38" width="20" height="30" rx="3" fill={buggy.color} opacity="0.9"/>
+                <rect x="140" y="35" width="20" height="30" rx="3" fill={buggy.color} opacity="0.9"/>
+                <rect x="200" y="38" width="20" height="30" rx="3" fill={buggy.color} opacity="0.9"/>
+              </svg>
+              <!-- Glow -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                   style={`background: radial-gradient(ellipse at center, ${buggy.color}15 0%, transparent 70%);`}></div>
+            </div>
+
+            <!-- Color accent line -->
+            <div class="absolute bottom-0 left-0 right-0 h-1" style={`background: linear-gradient(90deg, transparent, ${buggy.color}, transparent);`}></div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6">
+            <!-- Name & Seats -->
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-display text-xl text-white leading-tight">{buggy.name}</h3>
+                <span class="flex items-center gap-1.5 text-gray-400 text-sm mt-1">
+                  <i class="fas fa-users text-xs" style={`color: ${buggy.color};`}></i>
+                  {buggy.seats}
+                </span>
+              </div>
+              <div class="text-right">
+                <div class="font-racing text-2xl text-yellow-400">AED {buggy.price}</div>
+                <div class="text-gray-500 text-xs">per hour</div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">{buggy.description}</p>
+
+            <!-- Specs Grid -->
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              {[
+                { label: "Engine", value: buggy.engine },
+                { label: "Power",  value: buggy.power  },
+                { label: "Speed",  value: buggy.speed  },
+              ].map(spec => (
+                <div class="text-center p-2 rounded-lg bg-black/30 border border-yellow-400/10">
+                  <div class="text-yellow-400/80 text-xs font-bold leading-tight">{spec.value}</div>
+                  <div class="text-gray-600 text-xs">{spec.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Features -->
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              {buggy.features.slice(0, 4).map(f => (
+                <span class="text-xs px-2 py-0.5 rounded-md bg-yellow-400/10 text-yellow-400/80 border border-yellow-400/10 font-medium">
+                  {f}
+                </span>
+              ))}
+              {buggy.features.length > 4 && (
+                <span class="text-xs px-2 py-0.5 rounded-md bg-gray-800 text-gray-500">
+                  +{buggy.features.length - 4} more
+                </span>
+              )}
+            </div>
+
+            <!-- Book CTA -->
+            <a
+              href={`https://wa.me/971XXXXXXXXX?text=Hi! I want to book the ${buggy.name} for a desert adventure`}
+              target="_blank"
+              rel="noopener"
+              class="btn-gold w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm shine"
+            >
+              <i class="fab fa-whatsapp text-base"></i>
+              <span class="font-display tracking-wide">Book {buggy.name}</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Fleet CTA Banner -->
+    <div class="mt-12 text-center" data-aos="fade-up">
+      <div class="glass border border-yellow-400/20 rounded-2xl p-8 max-w-2xl mx-auto">
+        <h3 class="font-display text-2xl text-white mb-2">Not sure which buggy to choose?</h3>
+        <p class="text-gray-400 mb-6">Our desert adventure experts will help you pick the perfect machine for your group and experience level.</p>
+        <a
+          href="https://wa.me/971XXXXXXXXX?text=Hi! I need help choosing the right buggy for my group"
+          target="_blank"
+          rel="noopener"
+          class="btn-gold inline-flex items-center gap-2 px-6 py-3 rounded-xl shine"
+        >
+          <i class="fab fa-whatsapp text-lg"></i>
+          <span class="font-display">Get Expert Advice</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

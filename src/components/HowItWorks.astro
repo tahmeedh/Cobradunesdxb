@@ -1,0 +1,170 @@
+---
+const steps = [
+  {
+    step:   "01",
+    icon:   "fas fa-search",
+    title:  "Choose Your Adventure",
+    desc:   "Browse our fleet and experiences. Pick the buggy model, number of seats, and experience duration that fits your group perfectly.",
+    color:  "from-yellow-400 to-amber-500",
+    delay:  0,
+  },
+  {
+    step:   "02",
+    icon:   "fas fa-calendar-check",
+    title:  "Book in 60 Seconds",
+    desc:   "Reserve your spot via WhatsApp, our booking form, or direct call. Instant confirmation with flexible reschedule policy (24h notice).",
+    color:  "from-orange-400 to-red-500",
+    delay:  100,
+  },
+  {
+    step:   "03",
+    icon:   "fas fa-shield-alt",
+    title:  "Gear Up & Get Trained",
+    desc:   "Arrive at our desert basecamp, receive your safety briefing, professional helmet, gloves, and goggles. Our certified instructors ensure you're ready.",
+    color:  "from-green-400 to-emerald-500",
+    delay:  200,
+  },
+  {
+    step:   "04",
+    icon:   "fas fa-flag-checkered",
+    title:  "Conquer the Dunes!",
+    desc:   "Hit the golden sands of Dubai! Your expert guide leads the way through towering dunes, epic valleys, and unforgettable desert landscapes.",
+    color:  "from-blue-400 to-purple-500",
+    delay:  300,
+  },
+];
+
+const faqs_mini = [
+  { q: "Do I need a driving license?",   a: "No driving license required! Our briefing & training covers everything." },
+  { q: "Is it safe for beginners?",      a: "Absolutely. We provide full safety gear, training, and an expert guide stays with you throughout." },
+  { q: "What should I wear?",            a: "Comfortable clothes, closed-toe shoes. We provide helmets, goggles & gloves." },
+  { q: "Can kids join?",                 a: "Children 8+ can ride as passengers. Minimum 16 years to drive (with parental consent)." },
+];
+---
+
+<section id="how-it-works" class="section-padding bg-[#111111] relative overflow-hidden">
+
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
+  <div class="blur-orb w-96 h-96 bg-yellow-400/5 top-20 right-20"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Simple & Seamless</span>
+      <h2 class="section-title text-5xl md:text-7xl text-white mt-3">
+        HOW IT <span class="text-gradient-gold">WORKS</span>
+      </h2>
+      <div class="gold-line mt-4 mb-6"></div>
+      <p class="text-gray-400 text-lg max-w-xl mx-auto">
+        Getting behind the wheel of a dune buggy in Dubai is easier than you think.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="relative">
+      <!-- Connecting line (desktop) -->
+      <div class="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent z-0"></div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {steps.map((step) => (
+          <div
+            class="relative text-center group"
+            data-aos="fade-up"
+            data-aos-delay={step.delay}
+          >
+            <!-- Step number + icon circle -->
+            <div class="relative inline-block mb-6">
+              <!-- Outer ring -->
+              <div class={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br ${step.color} p-0.5 shadow-lg group-hover:shadow-yellow-400/30 transition-all duration-400`}>
+                <div class="w-full h-full rounded-full bg-[#111111] flex items-center justify-center">
+                  <i class={`${step.icon} text-2xl text-white group-hover:scale-110 transition-transform duration-300`}></i>
+                </div>
+              </div>
+              <!-- Step badge -->
+              <div class={`absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center`}>
+                <span class="text-white font-bold text-xs">{step.step}</span>
+              </div>
+            </div>
+
+            <h3 class="font-display text-xl text-white mb-3 group-hover:text-yellow-400 transition-colors duration-300">
+              {step.title}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mini FAQ + Quick Book Banner -->
+    <div class="mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- Mini FAQ -->
+      <div data-aos="fade-right">
+        <h3 class="font-display text-2xl text-white mb-6 flex items-center gap-2">
+          <i class="fas fa-question-circle text-yellow-400"></i>
+          Quick Answers
+        </h3>
+        <div class="space-y-3">
+          {faqs_mini.map((faq, i) => (
+            <div class="glass border border-yellow-400/10 rounded-xl p-4 hover:border-yellow-400/30 transition-all duration-300 group" data-aos="fade-right" data-aos-delay={i * 60}>
+              <div class="font-semibold text-white text-sm mb-1 group-hover:text-yellow-400 transition-colors">
+                <i class="fas fa-check-circle text-yellow-400/60 mr-2 text-xs"></i>
+                {faq.q}
+              </div>
+              <div class="text-gray-400 text-sm pl-5">{faq.a}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Quick book / WhatsApp CTA -->
+      <div data-aos="fade-left">
+        <div class="h-full glass border border-yellow-400/20 rounded-2xl p-8 flex flex-col justify-between bg-gradient-to-br from-yellow-400/5 to-transparent">
+          <div>
+            <div class="text-4xl mb-4">🏜️</div>
+            <h3 class="font-display text-2xl text-white mb-3">Ready to Ride?</h3>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              Our team is available 7 days a week to help you plan the perfect desert adventure.
+              Get a personalised quote in minutes via WhatsApp.
+            </p>
+
+            <div class="space-y-3 mb-6">
+              {[
+                { icon: "fab fa-whatsapp", text: "Instant WhatsApp booking", color: "text-green-400" },
+                { icon: "fas fa-clock",    text: "24/7 customer support",    color: "text-blue-400"  },
+                { icon: "fas fa-exchange", text: "Free rescheduling (24h)",  color: "text-yellow-400"},
+                { icon: "fas fa-shield",   text: "Fully insured adventures", color: "text-purple-400"},
+              ].map(item => (
+                <div class="flex items-center gap-3 text-gray-300 text-sm">
+                  <i class={`${item.icon} ${item.color} text-base w-5 text-center`}></i>
+                  {item.text}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <a
+              href="https://wa.me/971XXXXXXXXX?text=Hi! I want to book a desert buggy adventure"
+              target="_blank"
+              rel="noopener"
+              class="btn-gold flex items-center justify-center gap-2 py-3.5 rounded-xl shine"
+            >
+              <i class="fab fa-whatsapp text-xl"></i>
+              <span class="font-display text-lg">Book via WhatsApp</span>
+            </a>
+            <a
+              href="#contact"
+              class="btn-outline flex items-center justify-center gap-2 py-3 rounded-xl text-sm"
+            >
+              <i class="fas fa-envelope"></i>
+              <span class="font-display">Send an Enquiry</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

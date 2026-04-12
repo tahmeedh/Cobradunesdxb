@@ -1,0 +1,179 @@
+---
+const experiences = [
+  {
+    icon:      "fas fa-sun",
+    iconColor: "text-amber-400",
+    bg:        "from-amber-500/20 to-orange-500/10",
+    title:     "Sunrise Dune Safari",
+    subtitle:  "2 Hours | From AED 499",
+    desc:      "Begin your day with golden horizons and cool desert air. Our sunrise tours offer a magical, peaceful experience as the dunes glow with morning light.",
+    highlights: ["Early morning pick-up", "Golden hour photography", "Professional guide", "Tea & dates included"],
+    tag:       "Morning Adventure",
+    tagColor:  "text-amber-400 bg-amber-400/10 border-amber-400/20",
+    delay:     0,
+  },
+  {
+    icon:      "fas fa-moon",
+    iconColor: "text-purple-400",
+    bg:        "from-purple-500/20 to-indigo-500/10",
+    title:     "Sunset Desert Tour",
+    subtitle:  "3 Hours | From AED 699",
+    desc:      "Chase the legendary Dubai sunset across the rolling dunes. Finish with a traditional Bedouin-style bonfire and refreshments under the stars.",
+    highlights: ["Sunset views", "Bonfire experience", "Traditional refreshments", "Night sky photography"],
+    tag:       "Most Popular",
+    tagColor:  "text-purple-400 bg-purple-400/10 border-purple-400/20",
+    delay:     80,
+  },
+  {
+    icon:      "fas fa-crown",
+    iconColor: "text-yellow-400",
+    bg:        "from-yellow-500/20 to-gold-500/10",
+    title:     "VIP Full Day Adventure",
+    subtitle:  "8 Hours | From AED 1,999",
+    desc:      "The ultimate desert experience. A full day of unrestricted dune driving, gourmet desert lunch, swimming at an oasis, and personalised guide.",
+    highlights: ["Full 8 hours driving", "Gourmet desert lunch", "Private guide", "Hotel transfers"],
+    tag:       "Premium",
+    tagColor:  "text-yellow-400 bg-yellow-400/10 border-yellow-400/20",
+    delay:     160,
+  },
+  {
+    icon:      "fas fa-star",
+    iconColor: "text-pink-400",
+    bg:        "from-pink-500/20 to-rose-500/10",
+    title:     "Desert Celebrations",
+    subtitle:  "Custom | Enquire Now",
+    desc:      "Birthdays, anniversaries, proposals, corporate events — we craft bespoke desert experiences that create memories lasting a lifetime.",
+    highlights: ["Fully customisable", "Decoration service", "Catering options", "Photography package"],
+    tag:       "Private Events",
+    tagColor:  "text-pink-400 bg-pink-400/10 border-pink-400/20",
+    delay:     240,
+  },
+  {
+    icon:      "fas fa-bolt",
+    iconColor: "text-green-400",
+    bg:        "from-green-500/20 to-emerald-500/10",
+    title:     "Dune Bashing Combo",
+    subtitle:  "4 Hours | From AED 899",
+    desc:      "The ultimate adrenaline package combining guided 4x4 dune bashing with self-drive buggy exploration for the thrill-seeker in you.",
+    highlights: ["4x4 dune bashing", "Buggy self-drive", "Quad bikes add-on", "GoPro rental available"],
+    tag:       "Adrenaline Rush",
+    tagColor:  "text-green-400 bg-green-400/10 border-green-400/20",
+    delay:     320,
+  },
+  {
+    icon:      "fas fa-moon",
+    iconColor: "text-blue-400",
+    bg:        "from-blue-500/20 to-cyan-500/10",
+    title:     "Night Desert Experience",
+    subtitle:  "3 Hours | From AED 799",
+    desc:      "Navigate the mystical dunes under a canvas of stars. Our night experiences are equipped with powerful LED light bars for safe, exhilarating night driving.",
+    highlights: ["LED light bars", "Night vision", "Stargazing session", "Desert dinner option"],
+    tag:       "After Dark",
+    tagColor:  "text-blue-400 bg-blue-400/10 border-blue-400/20",
+    delay:     400,
+  },
+];
+---
+
+<section id="experiences" class="section-padding bg-[#111111] relative overflow-hidden">
+
+  <!-- Top gradient border -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
+
+  <!-- Blur orbs -->
+  <div class="blur-orb w-96 h-96 bg-yellow-400/5 top-0 right-0"></div>
+  <div class="blur-orb w-80 h-80 bg-orange-500/5 bottom-0 left-0"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Desert Adventures Await</span>
+      <h2 class="section-title text-5xl md:text-7xl text-white mt-3">
+        DESERT <span class="text-gradient-gold">EXPERIENCES</span>
+      </h2>
+      <div class="gold-line mt-4 mb-6"></div>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        From sunrise to starlit skies, we've crafted experiences that transform ordinary days
+        into extraordinary desert memories.
+      </p>
+    </div>
+
+    <!-- Experiences Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {experiences.map((exp) => (
+        <div
+          class="group relative border-gradient rounded-2xl overflow-hidden bg-[#161616] hover:-translate-y-2 transition-all duration-400"
+          data-aos="fade-up"
+          data-aos-delay={exp.delay}
+        >
+          <!-- Top Icon Area -->
+          <div class={`relative h-32 bg-gradient-to-br ${exp.bg} flex items-center justify-center`}>
+            <!-- Icon -->
+            <div class="w-16 h-16 rounded-2xl glass border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-400">
+              <i class={`${exp.icon} ${exp.iconColor} text-2xl`}></i>
+            </div>
+            <!-- Tag -->
+            <div class="absolute top-3 right-3">
+              <span class={`text-xs font-bold px-2.5 py-1 rounded-full border ${exp.tagColor}`}>
+                {exp.tag}
+              </span>
+            </div>
+            <!-- Bottom gradient -->
+            <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#161616] to-transparent"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6">
+            <h3 class="font-display text-xl text-white mb-1 group-hover:text-yellow-400 transition-colors duration-300">
+              {exp.title}
+            </h3>
+            <p class="text-yellow-400/70 text-sm font-semibold mb-3">{exp.subtitle}</p>
+            <p class="text-gray-400 text-sm leading-relaxed mb-5">{exp.desc}</p>
+
+            <!-- Highlights -->
+            <ul class="space-y-1.5 mb-6">
+              {exp.highlights.map(h => (
+                <li class="flex items-center gap-2 text-gray-300 text-sm">
+                  <i class="fas fa-check text-yellow-400 text-xs flex-shrink-0"></i>
+                  {h}
+                </li>
+              ))}
+            </ul>
+
+            <!-- Book CTA -->
+            <a
+              href={`https://wa.me/971XXXXXXXXX?text=Hi! I'm interested in the ${exp.title} experience`}
+              target="_blank"
+              rel="noopener"
+              class="btn-outline w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm group/btn"
+            >
+              <i class="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform"></i>
+              <span class="font-display tracking-wide">Book This Experience</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Custom experience banner -->
+    <div class="mt-12 relative rounded-2xl overflow-hidden" data-aos="fade-up">
+      <div class="bg-gradient-to-r from-yellow-400/10 via-yellow-400/5 to-transparent border border-yellow-400/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="font-display text-2xl text-white mb-2">Looking for something unique?</h3>
+          <p class="text-gray-400">We create fully customised desert adventures for any occasion, group size, or budget.</p>
+        </div>
+        <a
+          href="https://wa.me/971XXXXXXXXX?text=Hi! I want a custom desert adventure experience"
+          target="_blank"
+          rel="noopener"
+          class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl whitespace-nowrap shine flex-shrink-0"
+        >
+          <i class="fas fa-magic"></i>
+          <span class="font-display">Create Custom Experience</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

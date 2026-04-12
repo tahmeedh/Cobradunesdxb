@@ -1,0 +1,108 @@
+---
+const stats = [
+  { icon: "fas fa-users",      number: 5000,  suffix: "+", label: "Happy Adventurers",   color: "from-yellow-400 to-yellow-600" },
+  { icon: "fas fa-car",        number: 10,    suffix: "+", label: "Premium Buggies",      color: "from-orange-400 to-red-500"   },
+  { icon: "fas fa-star",       number: 4.9,   suffix: "★", label: "Google Rating",        color: "from-yellow-300 to-yellow-500" },
+  { icon: "fas fa-calendar",   number: 5,     suffix: "+", label: "Years of Excellence",  color: "from-amber-400 to-orange-500" },
+  { icon: "fas fa-trophy",     number: 100,   suffix: "%", label: "Safety Record",        color: "from-green-400 to-emerald-500"},
+  { icon: "fas fa-map-marker", number: 1,     suffix: "#", label: "Desert Experience",    color: "from-yellow-400 to-amber-600" },
+];
+---
+
+<section class="relative bg-[#0D0D0D] py-16 md:py-24 overflow-hidden">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 bg-stripes opacity-50"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50"></div>
+
+  <!-- Gold line top -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent"></div>
+
+  <!-- Blur orbs -->
+  <div class="blur-orb w-96 h-96 bg-yellow-400/5 -top-20 -left-20"></div>
+  <div class="blur-orb w-80 h-80 bg-orange-500/5 -bottom-10 -right-10"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section label -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">By The Numbers</span>
+      <h2 class="section-title text-4xl md:text-5xl text-white mt-2">
+        COBRA DUNES <span class="text-gradient-gold">LEGACY</span>
+      </h2>
+      <div class="gold-line mt-4"></div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+      {stats.map((stat, i) => (
+        <div
+          class="relative text-center group"
+          data-aos="zoom-in"
+          data-aos-delay={i * 80}
+        >
+          <div class="glass border border-yellow-400/10 rounded-2xl p-6 hover:border-yellow-400/40 transition-all duration-400 hover:-translate-y-1">
+            <!-- Icon -->
+            <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} mx-auto mb-4 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+              <i class={`${stat.icon} text-white text-lg`}></i>
+            </div>
+
+            <!-- Number -->
+            <div
+              class="font-racing text-3xl md:text-4xl text-yellow-400 leading-none counter-value"
+              data-target={stat.number}
+              data-suffix={stat.suffix}
+              data-decimal={stat.number % 1 !== 0 ? '1' : '0'}
+            >
+              0{stat.suffix}
+            </div>
+
+            <!-- Label -->
+            <div class="text-gray-400 text-xs md:text-sm font-medium mt-2 leading-tight">
+              {stat.label}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animated Counter
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter-value');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const el     = entry.target as HTMLElement;
+        const target = parseFloat(el.dataset.target || '0');
+        const suffix = el.dataset.suffix || '';
+        const dec    = parseInt(el.dataset.decimal || '0');
+
+        const duration = 2000;
+        const start    = performance.now();
+
+        const update = (time: number) => {
+          const elapsed  = time - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased    = 1 - Math.pow(1 - progress, 3);
+          const current  = target * eased;
+
+          el.textContent = (dec ? current.toFixed(1) : Math.round(current).toLocaleString()) + suffix;
+
+          if (progress < 1) requestAnimationFrame(update);
+        };
+
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => observer.observe(c));
+  }
+
+  document.addEventListener('DOMContentLoaded', animateCounters);
+</script>

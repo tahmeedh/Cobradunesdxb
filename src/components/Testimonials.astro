@@ -1,0 +1,212 @@
+---
+const testimonials = [
+  {
+    name:     "Ahmed Al-Mansouri",
+    location: "Dubai, UAE",
+    flag:     "🇦🇪",
+    rating:   5,
+    date:     "March 2024",
+    text:     "Absolutely incredible experience! Booked the Can-Am Maverick for my birthday and the Cobra Dunes team went above and beyond. The buggy was in perfect condition, our guide Omar was phenomenal, and the sunset views were absolutely breathtaking. Already planning my next visit!",
+    tag:      "Birthday Celebration",
+    avatar:   "A",
+    color:    "bg-yellow-500",
+  },
+  {
+    name:     "Sarah Thompson",
+    location: "London, UK",
+    flag:     "🇬🇧",
+    rating:   5,
+    date:     "February 2024",
+    text:     "This was hands-down the highlight of our Dubai trip. I was nervous as a first-timer but the safety briefing was so thorough and the instructors were incredibly patient and professional. The Polaris RZR was so much fun to drive! Book this immediately if you're in Dubai.",
+    tag:      "First-Time Rider",
+    avatar:   "S",
+    color:    "bg-pink-500",
+  },
+  {
+    name:     "Marco Bertolucci",
+    location: "Milan, Italy",
+    flag:     "🇮🇹",
+    rating:   5,
+    date:     "January 2024",
+    text:     "We organised a corporate team building with Cobra Dunes for 35 people. The organisation was flawless — from logistics to catering to the buggy convoy itself. Our entire team is still talking about it 3 months later. Will definitely be back for our next corporate event!",
+    tag:      "Corporate Event",
+    avatar:   "M",
+    color:    "bg-blue-500",
+  },
+  {
+    name:     "Priya Sharma",
+    location: "Mumbai, India",
+    flag:     "🇮🇳",
+    rating:   5,
+    date:     "December 2023",
+    text:     "Surprised my husband with a desert anniversary experience and Cobra Dunes absolutely nailed it. They set up the most romantic campfire setup, had our names in the sand, and the private sunset buggy ride was something from a movie. 100% perfect!",
+    tag:      "Anniversary",
+    avatar:   "P",
+    color:    "bg-purple-500",
+  },
+  {
+    name:     "James O'Connor",
+    location: "Dublin, Ireland",
+    flag:     "🇮🇪",
+    rating:   5,
+    date:     "November 2023",
+    text:     "Did the night desert experience and WOW. Driving a Polaris RZR with massive LED bars through the dunes at night under a full moon is something I'll never forget. The safety precautions were top-notch. An absolute must-do in Dubai. 10/10!",
+    tag:      "Night Experience",
+    avatar:   "J",
+    color:    "bg-green-500",
+  },
+  {
+    name:     "Fatima Al-Zahrawi",
+    location: "Abu Dhabi, UAE",
+    flag:     "🇦🇪",
+    rating:   5,
+    date:     "October 2023",
+    text:     "Booked the 4-seater Can-Am for our family. My kids (10 and 14) had the absolute time of their lives. The guide was patient with the younger ones and made everyone feel comfortable. The facilities at the base camp were spotless. Truly world-class service!",
+    tag:      "Family Adventure",
+    avatar:   "F",
+    color:    "bg-amber-500",
+  },
+];
+---
+
+<section id="testimonials" class="section-padding bg-[#111111] relative overflow-hidden">
+
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
+  <div class="blur-orb w-96 h-96 bg-yellow-400/5 top-1/2 left-0"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">What Our Adventurers Say</span>
+      <h2 class="section-title text-5xl md:text-7xl text-white mt-3">
+        REAL <span class="text-gradient-gold">REVIEWS</span>
+      </h2>
+      <div class="gold-line mt-4 mb-6"></div>
+
+      <!-- Overall rating display -->
+      <div class="inline-flex items-center gap-4 glass border border-yellow-400/20 rounded-2xl px-6 py-3">
+        <div class="text-center">
+          <div class="font-racing text-4xl text-yellow-400">4.9</div>
+          <div class="text-gray-500 text-xs">out of 5</div>
+        </div>
+        <div class="w-px h-10 bg-yellow-400/20"></div>
+        <div>
+          <div class="flex gap-1 mb-1">
+            {[1,2,3,4,5].map(() => (
+              <i class="fas fa-star text-yellow-400 text-sm"></i>
+            ))}
+          </div>
+          <div class="text-gray-400 text-xs">Based on 847 reviews</div>
+        </div>
+        <div class="w-px h-10 bg-yellow-400/20"></div>
+        <div class="flex gap-2">
+          <img src="https://www.gstatic.com/images/branding/googleg/1x/googleg_32dp.png" alt="Google" class="w-5 h-5 opacity-70"/>
+          <span class="text-gray-400 text-xs self-center">Google Reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swiper Testimonials -->
+    <div class="swiper testimonials-swiper" data-aos="fade-up">
+      <div class="swiper-wrapper pb-12">
+        {testimonials.map(t => (
+          <div class="swiper-slide h-auto">
+            <div class="glass border border-yellow-400/10 rounded-2xl p-6 md:p-8 h-full flex flex-col hover:border-yellow-400/30 transition-all duration-300 group">
+
+              <!-- Top: Avatar + name + tag -->
+              <div class="flex items-start justify-between mb-5">
+                <div class="flex items-center gap-3">
+                  <!-- Avatar -->
+                  <div class={`w-12 h-12 rounded-full ${t.color} flex items-center justify-center text-white font-bold text-lg flex-shrink-0`}>
+                    {t.avatar}
+                  </div>
+                  <div>
+                    <div class="font-semibold text-white">{t.name}</div>
+                    <div class="text-gray-500 text-xs flex items-center gap-1">
+                      <span>{t.flag}</span>
+                      {t.location}
+                    </div>
+                  </div>
+                </div>
+                <span class="text-xs px-2 py-1 rounded-md bg-yellow-400/10 text-yellow-400/70 border border-yellow-400/10 font-medium hidden sm:block">
+                  {t.tag}
+                </span>
+              </div>
+
+              <!-- Stars + date -->
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex gap-1">
+                  {Array.from({ length: t.rating }).map(() => (
+                    <i class="fas fa-star text-yellow-400 text-xs"></i>
+                  ))}
+                </div>
+                <span class="text-gray-600 text-xs">{t.date}</span>
+              </div>
+
+              <!-- Quote icon -->
+              <i class="fas fa-quote-left text-yellow-400/20 text-3xl mb-3"></i>
+
+              <!-- Review text -->
+              <p class="text-gray-300 text-sm leading-relaxed flex-grow">{t.text}</p>
+
+              <!-- Verified badge -->
+              <div class="flex items-center gap-1.5 mt-4 pt-4 border-t border-yellow-400/10">
+                <i class="fas fa-check-circle text-green-400 text-xs"></i>
+                <span class="text-gray-500 text-xs">Verified Guest Experience</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Swiper navigation -->
+      <div class="swiper-button-prev !text-yellow-400 !w-10 !h-10 !bg-black/60 !rounded-full after:!text-sm border border-yellow-400/30 hover:!border-yellow-400/60 transition-all"></div>
+      <div class="swiper-button-next !text-yellow-400 !w-10 !h-10 !bg-black/60 !rounded-full after:!text-sm border border-yellow-400/30 hover:!border-yellow-400/60 transition-all"></div>
+      <div class="swiper-pagination !bottom-0 [&_.swiper-pagination-bullet]:!bg-yellow-400/40 [&_.swiper-pagination-bullet-active]:!bg-yellow-400"></div>
+    </div>
+
+    <!-- CTA: Leave a review -->
+    <div class="text-center mt-12" data-aos="fade-up">
+      <p class="text-gray-500 text-sm mb-4">Had an experience with us? We'd love to hear from you!</p>
+      <a
+        href="https://g.page/cobradunesdxb/review"
+        target="_blank"
+        rel="noopener"
+        class="btn-outline inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm"
+      >
+        <i class="fas fa-star text-yellow-400"></i>
+        <span class="font-display">Leave a Google Review</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Initialize Swiper for testimonials
+  if (typeof Swiper !== 'undefined') {
+    new Swiper('.testimonials-swiper', {
+      slidesPerView:  1,
+      spaceBetween:   24,
+      loop:           true,
+      autoplay: {
+        delay:            4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el:        '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640:  { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    });
+  }
+</script>

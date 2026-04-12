@@ -1,0 +1,255 @@
+---
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+
+  <!-- Video Background -->
+  <div class="absolute inset-0 z-0">
+    <video
+      id="hero-video"
+      class="w-full h-full object-cover opacity-60"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/hero-poster.jpg"
+    >
+      <!-- Replace src with your actual video file -->
+      <source src="/videos/desert-buggy.mp4" type="video/mp4" />
+      <!-- Fallback: pexels dune buggy video -->
+      <source src="https://videos.pexels.com/video-files/3994819/3994819-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Gradient Overlays -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/90"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30"></div>
+    <!-- Bottom fade -->
+    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0D0D0D] to-transparent"></div>
+  </div>
+
+  <!-- Three.js Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Floating badge -->
+  <div class="float-badge absolute top-28 right-4 md:right-10 z-10 hidden sm:block">
+    <div class="glass border border-yellow-400/40 rounded-2xl px-4 py-3 text-center backdrop-blur-xl shadow-gold">
+      <div class="flex items-center gap-1 justify-center mb-1">
+        {[1,2,3,4,5].map(() => (
+          <i class="fas fa-star text-yellow-400 text-xs"></i>
+        ))}
+      </div>
+      <div class="font-racing text-yellow-400 text-lg leading-none">4.9</div>
+      <div class="text-xs text-gray-400 font-medium">847 Reviews</div>
+    </div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pt-20">
+
+    <!-- Pre-title label -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-yellow-400/30 text-yellow-400 text-xs md:text-sm font-semibold tracking-widest uppercase mb-6 md:mb-8"
+         id="hero-badge">
+      <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
+      Dubai's #1 Desert Adventure Company
+    </div>
+
+    <!-- Main Headline -->
+    <h1 id="hero-title" class="font-racing text-white leading-none mb-4 md:mb-6"
+        style="font-size: clamp(3.5rem, 12vw, 10rem);">
+      COBRA
+      <span class="text-gradient-gold block" style="font-size: clamp(3rem, 10vw, 8.5rem);">DUNES DXB</span>
+    </h1>
+
+    <!-- Sub-headline -->
+    <p id="hero-sub" class="text-lg md:text-2xl lg:text-3xl text-gray-200 font-display tracking-wide mb-4 max-w-3xl mx-auto">
+      Dubai's Premier <span class="text-yellow-400">Dune Buggy Rental</span> &<br class="hidden md:block"/>
+      Desert Adventure Experience
+    </p>
+
+    <!-- Description -->
+    <p id="hero-desc" class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed">
+      Conquer the golden sands of Dubai behind the wheel of our premium off-road machines.
+      From adrenaline-fueled dune bashing to exclusive desert celebrations —
+      we deliver <strong class="text-gray-200">unforgettable adventures</strong>.
+    </p>
+
+    <!-- Feature Pills -->
+    <div id="hero-pills" class="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-10">
+      {[
+        { icon: "fas fa-car",       text: "Self-Drive Buggies" },
+        { icon: "fas fa-shield-alt",text: "Safety Trained" },
+        { icon: "fas fa-users",     text: "All Ages Welcome" },
+        { icon: "fas fa-clock",     text: "30 Min – Full Day" },
+        { icon: "fas fa-trophy",    text: "Premium Fleet" },
+      ].map(pill => (
+        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass border border-yellow-400/20 text-xs md:text-sm text-gray-300 font-medium">
+          <i class={`${pill.icon} text-yellow-400 text-xs`}></i>
+          {pill.text}
+        </span>
+      ))}
+    </div>
+
+    <!-- CTA Buttons -->
+    <div id="hero-ctas" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="https://wa.me/971XXXXXXXXX?text=Hi! I want to book a desert adventure"
+        target="_blank"
+        rel="noopener"
+        class="btn-gold flex items-center gap-3 px-8 py-4 rounded-xl text-lg shine w-full sm:w-auto justify-center"
+      >
+        <i class="fab fa-whatsapp text-xl"></i>
+        <span class="font-display tracking-wide">Book Your Adventure</span>
+      </a>
+      <a
+        href="#fleet"
+        class="btn-outline flex items-center gap-3 px-8 py-4 rounded-xl text-lg w-full sm:w-auto justify-center"
+      >
+        <i class="fas fa-car-side"></i>
+        <span class="font-display tracking-wide">Explore Our Fleet</span>
+      </a>
+    </div>
+
+    <!-- Quick stats strip -->
+    <div class="grid grid-cols-3 gap-4 md:gap-8 mt-12 md:mt-16 max-w-lg mx-auto">
+      {[
+        { num: "5000+", label: "Adventurers" },
+        { num: "4.9★",  label: "Rating" },
+        { num: "10+",   label: "Buggies" },
+      ].map(stat => (
+        <div class="text-center">
+          <div class="font-racing text-yellow-400 text-2xl md:text-3xl">{stat.num}</div>
+          <div class="text-gray-500 text-xs md:text-sm font-medium">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400">
+    <span class="text-xs tracking-widest uppercase font-medium opacity-60">Scroll</span>
+    <div class="w-6 h-10 rounded-full border-2 border-yellow-400/40 flex justify-center pt-2">
+      <div class="w-1 h-3 rounded-full bg-yellow-400 animate-bounce"></div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  // Three.js Sand Particle System
+  (function() {
+    const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let particles: Array<{
+      x: number; y: number; size: number;
+      speedX: number; speedY: number;
+      opacity: number; life: number;
+    }> = [];
+
+    const resize = () => {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    const goldColors = [
+      'rgba(212,175,55,',
+      'rgba(255,215,0,',
+      'rgba(210,180,140,',
+      'rgba(255,200,100,',
+    ];
+
+    function createParticle() {
+      return {
+        x:      Math.random() * canvas.width,
+        y:      canvas.height + 10,
+        size:   Math.random() * 3 + 0.5,
+        speedX: (Math.random() - 0.5) * 1.5,
+        speedY: -(Math.random() * 1.5 + 0.5),
+        opacity: Math.random() * 0.6 + 0.2,
+        life:   0,
+      };
+    }
+
+    for (let i = 0; i < 60; i++) {
+      const p = createParticle();
+      p.y = Math.random() * canvas.height;
+      particles.push(p);
+    }
+
+    let frame = 0;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      ctx!.clearRect(0, 0, canvas.width, canvas.height);
+
+      frame++;
+      if (frame % 3 === 0 && particles.length < 100) {
+        particles.push(createParticle());
+      }
+
+      particles = particles.filter(p => {
+        p.x += p.speedX;
+        p.y += p.speedY;
+        p.life++;
+        p.speedX += (Math.random() - 0.5) * 0.05;
+
+        const progress = p.life / 200;
+        const alpha = p.opacity * (1 - Math.pow(progress * 2 - 1, 2));
+
+        const color = goldColors[Math.floor(Math.random() * goldColors.length)];
+        ctx!.beginPath();
+        ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx!.fillStyle = `${color}${Math.max(0, alpha)})`;
+        ctx!.fill();
+
+        return p.y > -10 && p.life < 300;
+      });
+    }
+
+    animate();
+  })();
+
+  // GSAP Hero Entrance Animations
+  (function() {
+    if (typeof gsap === 'undefined') return;
+
+    const tl = gsap.timeline({ delay: 0.3 });
+
+    tl.fromTo('#hero-badge',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
+    )
+    .fromTo('#hero-title',
+      { opacity: 0, y: 60, scale: 0.9 },
+      { opacity: 1, y: 0, scale: 1, duration: 1, ease: 'power3.out' },
+      '-=0.4'
+    )
+    .fromTo('#hero-sub',
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+      '-=0.6'
+    )
+    .fromTo('#hero-desc',
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+      '-=0.5'
+    )
+    .fromTo('#hero-pills',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+      '-=0.4'
+    )
+    .fromTo('#hero-ctas',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+      '-=0.3'
+    );
+  })();
+</script>

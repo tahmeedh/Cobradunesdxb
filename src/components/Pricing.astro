@@ -1,0 +1,214 @@
+---
+const plans = [
+  {
+    name:        "Explorer",
+    tagline:     "Perfect for first-timers",
+    price:       "399",
+    duration:    "30 Minutes",
+    icon:        "fas fa-compass",
+    color:       "text-blue-400",
+    borderColor: "border-blue-400/30",
+    bg:          "from-blue-500/10 to-transparent",
+    features: [
+      "1 × 2-Seater Buggy",
+      "30 mins desert track",
+      "Safety briefing & gear",
+      "Expert guide",
+      "Helmet + goggles",
+      "Basic photo stop",
+    ],
+    notIncluded: ["Hotel transfer", "Catering", "Extended route"],
+    cta:         "Book Explorer",
+  },
+  {
+    name:        "Adventurer",
+    tagline:     "Our most popular package",
+    price:       "699",
+    duration:    "2 Hours",
+    icon:        "fas fa-star",
+    color:       "text-yellow-400",
+    borderColor: "border-yellow-400/50",
+    bg:          "from-yellow-500/15 to-transparent",
+    featured:    true,
+    features: [
+      "Choice of any 2-seater buggy",
+      "2 hours open dune driving",
+      "Professional safety training",
+      "Expert certified guide",
+      "Full safety gear kit",
+      "Designated photo/video stops",
+      "Refreshments included",
+      "GoPro mount (bring your own)",
+    ],
+    notIncluded: ["Hotel transfer", "Catering"],
+    cta:         "Book Adventurer",
+  },
+  {
+    name:        "Dune Master",
+    tagline:     "The complete experience",
+    price:       "1,299",
+    duration:    "4 Hours",
+    icon:        "fas fa-crown",
+    color:       "text-orange-400",
+    borderColor: "border-orange-400/30",
+    bg:          "from-orange-500/10 to-transparent",
+    features: [
+      "Any buggy model (incl. 4-seater)",
+      "4 hours unrestricted driving",
+      "Advanced route with big dunes",
+      "Dedicated guide throughout",
+      "Full premium safety gear",
+      "Professional photo session",
+      "Desert snacks & beverages",
+      "GoPro rental available (+AED 99)",
+      "Free rescheduling",
+    ],
+    notIncluded: ["Hotel transfer"],
+    cta:         "Book Dune Master",
+  },
+];
+---
+
+<section id="pricing" class="section-padding bg-[#0D0D0D] relative overflow-hidden">
+
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
+  <div class="blur-orb w-96 h-96 bg-yellow-400/5 top-20 right-0"></div>
+  <div class="blur-orb w-80 h-80 bg-orange-500/5 bottom-20 left-0"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Transparent Pricing</span>
+      <h2 class="section-title text-5xl md:text-7xl text-white mt-3">
+        ADVENTURE <span class="text-gradient-gold">PACKAGES</span>
+      </h2>
+      <div class="gold-line mt-4 mb-6"></div>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+        Simple, transparent pricing with no hidden fees.
+        All packages include full safety gear, briefing, and a professional guide.
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      {plans.map((plan, i) => (
+        <div
+          class={`relative rounded-2xl overflow-hidden border bg-[#161616] ${plan.borderColor} ${plan.featured ? 'ring-2 ring-yellow-400/60 scale-105 z-10' : ''} hover:-translate-y-2 transition-all duration-400 flex flex-col`}
+          data-aos="fade-up"
+          data-aos-delay={i * 100}
+        >
+          <!-- Featured label -->
+          {plan.featured && (
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-gold"></div>
+          )}
+          {plan.featured && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+              <span class="btn-gold text-xs font-bold px-4 py-1 rounded-full shadow-gold">
+                ⭐ Most Popular
+              </span>
+            </div>
+          )}
+
+          <!-- Card Top -->
+          <div class={`bg-gradient-to-br ${plan.bg} p-6 pt-8`}>
+            <!-- Icon -->
+            <div class={`w-12 h-12 rounded-xl glass border ${plan.borderColor} flex items-center justify-center mb-4`}>
+              <i class={`${plan.icon} ${plan.color} text-xl`}></i>
+            </div>
+
+            <h3 class="font-racing text-2xl text-white mb-1">{plan.name}</h3>
+            <p class="text-gray-500 text-sm mb-4">{plan.tagline}</p>
+
+            <!-- Price -->
+            <div class="flex items-end gap-1 mb-1">
+              <span class="text-gray-500 text-sm self-start mt-2">AED</span>
+              <span class={`font-racing text-5xl ${plan.color} leading-none`}>{plan.price}</span>
+            </div>
+            <p class="text-gray-500 text-sm">
+              <i class="fas fa-clock text-xs mr-1"></i>
+              {plan.duration} experience
+            </p>
+          </div>
+
+          <!-- Features -->
+          <div class="p-6 flex-grow">
+            <ul class="space-y-2.5 mb-6">
+              {plan.features.map(f => (
+                <li class="flex items-start gap-2 text-sm text-gray-300">
+                  <i class="fas fa-check text-yellow-400 text-xs mt-0.5 flex-shrink-0"></i>
+                  {f}
+                </li>
+              ))}
+              {plan.notIncluded.map(f => (
+                <li class="flex items-start gap-2 text-sm text-gray-600 line-through">
+                  <i class="fas fa-times text-gray-700 text-xs mt-0.5 flex-shrink-0"></i>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA -->
+          <div class="px-6 pb-6">
+            <a
+              href={`https://wa.me/971XXXXXXXXX?text=Hi! I want to book the ${plan.name} package - AED ${plan.price}`}
+              target="_blank"
+              rel="noopener"
+              class={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-display tracking-wide text-sm transition-all duration-300 ${plan.featured ? 'btn-gold shine' : 'btn-outline'}`}
+            >
+              <i class="fab fa-whatsapp text-base"></i>
+              {plan.cta}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Custom / VIP note -->
+    <div class="mt-12 text-center" data-aos="fade-up">
+      <div class="glass border border-yellow-400/20 rounded-2xl p-6 max-w-3xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-4">
+          <div class="text-4xl">👑</div>
+          <div class="text-left md:text-left flex-grow">
+            <h4 class="font-display text-xl text-white mb-1">Need a Custom Quote?</h4>
+            <p class="text-gray-400 text-sm">
+              For groups of 4+, celebrations, corporate events, or VIP full-day packages starting at AED 1,999 —
+              contact us directly for a tailored quote.
+            </p>
+          </div>
+          <a
+            href="https://wa.me/971XXXXXXXXX?text=Hi! I need a custom quote for a group/event"
+            target="_blank"
+            rel="noopener"
+            class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl whitespace-nowrap shine flex-shrink-0"
+          >
+            <i class="fab fa-whatsapp"></i>
+            <span class="font-display">Get Custom Quote</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- What's always included -->
+    <div class="mt-8" data-aos="fade-up">
+      <h4 class="text-center text-gray-400 text-sm mb-4 uppercase tracking-widest font-semibold">Every Package Includes</h4>
+      <div class="flex flex-wrap justify-center gap-4">
+        {[
+          { icon: "fas fa-hard-hat",     text: "Helmet & Goggles"   },
+          { icon: "fas fa-gloves",       text: "Protective Gloves"  },
+          { icon: "fas fa-user-shield",  text: "Safety Briefing"    },
+          { icon: "fas fa-map",          text: "Expert Guide"       },
+          { icon: "fas fa-tint",         text: "Water"              },
+          { icon: "fas fa-first-aid",    text: "First Aid on Site"  },
+        ].map(item => (
+          <div class="flex items-center gap-2 px-4 py-2 glass border border-yellow-400/10 rounded-full text-xs text-gray-400">
+            <i class={`${item.icon} text-yellow-400 text-xs`}></i>
+            {item.text}
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

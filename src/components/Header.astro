@@ -1,0 +1,222 @@
+---
+const navLinks = [
+  { label: "Home",         href: "#hero" },
+  { label: "Fleet",        href: "#fleet" },
+  { label: "Experiences",  href: "#experiences" },
+  { label: "Celebrations", href: "#celebrations" },
+  { label: "Pricing",      href: "#pricing" },
+  { label: "Reviews",      href: "#testimonials" },
+  { label: "Contact",      href: "#contact" },
+];
+---
+
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <!-- Top Bar -->
+  <div id="top-bar" class="bg-yellow-400/10 border-b border-yellow-400/20 py-1.5 px-4 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between text-xs">
+      <div class="flex items-center gap-4 text-yellow-400/80">
+        <a href="tel:+97155XXXXXXX" class="flex items-center gap-1.5 hover:text-yellow-400 transition-colors">
+          <i class="fas fa-phone text-[10px]"></i>
+          <span class="hidden sm:block">+971 55 XXX XXXX</span>
+        </a>
+        <a href="mailto:info@cobradunesdxb.com" class="flex items-center gap-1.5 hover:text-yellow-400 transition-colors hidden md:flex">
+          <i class="fas fa-envelope text-[10px]"></i>
+          info@cobradunesdxb.com
+        </a>
+        <span class="flex items-center gap-1.5 text-yellow-400/60 hidden sm:flex">
+          <i class="fas fa-map-marker-alt text-[10px]"></i>
+          Dubai, UAE
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/971XXXXXXXXX?text=Hi! I want to book a desert buggy experience" target="_blank" rel="noopener"
+           class="flex items-center gap-1.5 text-green-400 hover:text-green-300 transition-colors text-xs font-semibold">
+          <i class="fab fa-whatsapp"></i>
+          <span class="hidden sm:block">WhatsApp</span>
+        </a>
+        <div class="flex items-center gap-2 text-yellow-400/60">
+          <a href="https://instagram.com/cobradunesdxb" target="_blank" rel="noopener" class="hover:text-yellow-400 transition-colors">
+            <i class="fab fa-instagram text-xs"></i>
+          </a>
+          <a href="https://tiktok.com/@cobradunesdxb" target="_blank" rel="noopener" class="hover:text-yellow-400 transition-colors">
+            <i class="fab fa-tiktok text-xs"></i>
+          </a>
+          <a href="https://facebook.com/cobradunesdxb" target="_blank" rel="noopener" class="hover:text-yellow-400 transition-colors">
+            <i class="fab fa-facebook text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Nav -->
+  <nav id="main-nav" class="transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group flex-shrink-0">
+          <div class="relative">
+            <div class="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-lg group-hover:shadow-yellow-400/50 transition-all duration-300">
+              <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="md:w-8 md:h-8">
+                <!-- Cobra logo SVG -->
+                <path d="M20 4C20 4 8 10 8 22C8 30 14 36 20 36C26 36 32 30 32 22C32 10 20 4 20 4Z" fill="#0D0D0D" stroke="#D4AF37" stroke-width="1.5"/>
+                <path d="M20 8C20 8 12 13 12 22C12 28 16 32 20 32" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M20 8C20 8 28 13 28 22C28 28 24 32 20 32" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="16" cy="18" r="2.5" fill="#D4AF37"/>
+                <circle cx="24" cy="18" r="2.5" fill="#D4AF37"/>
+                <path d="M17 27 Q20 31 23 27" stroke="#D4AF37" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                <path d="M20 4 L18 8 M20 4 L22 8" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping"></div>
+          </div>
+          <div class="hidden sm:block">
+            <div class="font-racing text-xl md:text-2xl text-white leading-none">COBRA</div>
+            <div class="font-racing text-sm md:text-base text-gradient-gold leading-none tracking-widest">DUNES DXB</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center gap-1">
+          {navLinks.map(link => (
+            <a
+              href={link.href}
+              class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-yellow-400 transition-all duration-200 rounded-lg hover:bg-yellow-400/5 relative group font-display tracking-wide"
+            >
+              {link.label}
+              <span class="absolute bottom-1 left-3 right-3 h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
+            </a>
+          ))}
+        </div>
+
+        <!-- CTA Button + Mobile Menu -->
+        <div class="flex items-center gap-3">
+          <a
+            href="https://wa.me/971XXXXXXXXX?text=Hi! I want to book a dune buggy adventure"
+            target="_blank"
+            rel="noopener"
+            class="btn-gold hidden sm:flex items-center gap-2 px-4 md:px-6 py-2.5 rounded-lg text-sm shine"
+          >
+            <i class="fas fa-calendar-check"></i>
+            <span class="font-display tracking-wide">Book Now</span>
+          </a>
+
+          <!-- Hamburger -->
+          <button
+            id="mobile-menu-btn"
+            aria-label="Toggle navigation menu"
+            class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg glass border border-yellow-400/20 gap-1.5 transition-all hover:border-yellow-400/50"
+          >
+            <span class="hamburger-line block w-5 h-0.5 bg-yellow-400 transition-all duration-300"></span>
+            <span class="hamburger-line block w-5 h-0.5 bg-yellow-400 transition-all duration-300"></span>
+            <span class="hamburger-line block w-5 h-0.5 bg-yellow-400 transition-all duration-300"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden max-h-0 overflow-hidden transition-all duration-500 glass-dark border-t border-yellow-400/10">
+      <div class="px-4 py-4 space-y-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-yellow-400 hover:bg-yellow-400/5 rounded-lg transition-all duration-200 font-display tracking-wide text-lg"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 opacity-50"></span>
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="https://wa.me/971XXXXXXXXX?text=Hi! I want to book a dune buggy adventure"
+          target="_blank"
+          rel="noopener"
+          class="btn-gold flex items-center justify-center gap-2 w-full py-3 rounded-lg mt-3 text-base"
+        >
+          <i class="fab fa-whatsapp"></i>
+          Book via WhatsApp
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Header scroll effect
+  const header     = document.getElementById('main-header');
+  const topBar     = document.getElementById('top-bar');
+  const mainNav    = document.getElementById('main-nav');
+  const menuBtn    = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const lines      = document.querySelectorAll('.hamburger-line');
+
+  let menuOpen = false;
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 80;
+
+    if (scrolled) {
+      mainNav.style.background = 'rgba(13,13,13,0.95)';
+      mainNav.style.backdropFilter = 'blur(20px)';
+      mainNav.style.borderBottom = '1px solid rgba(212,175,55,0.15)';
+      topBar!.style.height = '0';
+      topBar!.style.overflow = 'hidden';
+      topBar!.style.padding = '0';
+    } else {
+      mainNav.style.background = 'transparent';
+      mainNav.style.backdropFilter = 'none';
+      mainNav.style.borderBottom = 'none';
+      topBar!.style.height = '';
+      topBar!.style.overflow = '';
+      topBar!.style.padding = '';
+    }
+  });
+
+  // Mobile menu toggle
+  menuBtn?.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+
+    if (menuOpen) {
+      mobileMenu!.style.maxHeight = mobileMenu!.scrollHeight + 'px';
+      lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      lines[1].style.opacity   = '0';
+      lines[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      mobileMenu!.style.maxHeight = '0';
+      lines[0].style.transform = '';
+      lines[1].style.opacity   = '';
+      lines[2].style.transform = '';
+    }
+  });
+
+  // Close menu on link click
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu!.style.maxHeight = '0';
+      lines[0].style.transform = '';
+      lines[1].style.opacity   = '';
+      lines[2].style.transform = '';
+    });
+  });
+
+  // Active nav link highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          link.classList.remove('text-yellow-400');
+          if (link.getAttribute('href') === `#${entry.target.id}`) {
+            link.classList.add('text-yellow-400');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(section => observer.observe(section));
+</script>

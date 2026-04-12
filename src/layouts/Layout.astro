@@ -1,0 +1,434 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  keywords?: string;
+}
+
+const {
+  title = "Cobra Dunes DXB | #1 Dune Buggy Rental Dubai | Desert Adventure Tours UAE",
+  description = "Experience Dubai's most thrilling dune buggy rentals with Cobra Dunes DXB. Premium Polaris RZR, Can-Am Maverick & off-road buggy tours across Big Red Desert. Book your desert adventure today! ✓ Self-drive ✓ Safety Trained ✓ All Ages",
+  image = "/og-image.jpg",
+  url = "https://cobradunesdxb.com",
+  keywords = "dune buggy Dubai, buggy rental Dubai, desert buggy tour Dubai, 4x4 adventure Dubai, sand dune buggy UAE, off-road buggy Dubai, desert safari buggy Dubai, Polaris RZR rental Dubai, Can-Am Maverick Dubai, cobra dunes DXB, buggy tour Big Red Dubai, desert celebrations Dubai, adventure activities Dubai, dune bashing Dubai, self-drive buggy Dubai, 4WD desert experience UAE, buggy rental near me Dubai, Al Lahbab desert buggy, private desert tour Dubai, VIP desert safari Dubai"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Cobra Dunes DXB" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={url} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Cobra Dunes DXB" />
+    <meta property="og:locale" content="en_AE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@cobradunesdxb" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="AE-DU" />
+    <meta name="geo.placename" content="Dubai, United Arab Emirates" />
+    <meta name="geo.position" content="24.9953;55.2744" />
+    <meta name="ICBM" content="24.9953, 55.2744" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animate on Scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Cobra Dunes DXB",
+      "description": "Dubai's premier dune buggy rental and desert adventure company offering self-drive buggy tours, dune bashing, and exclusive desert celebrations.",
+      "url": "https://cobradunesdxb.com",
+      "telephone": "+971-XX-XXX-XXXX",
+      "email": "info@cobradunesdxb.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE",
+        "addressRegion": "Dubai"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.9953,
+        "longitude": 55.2744
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "06:00",
+          "closes": "22:00"
+        }
+      ],
+      "priceRange": "AED 399 - AED 1,999",
+      "currenciesAccepted": "AED, USD",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "image": "https://cobradunesdxb.com/og-image.jpg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "847",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "sameAs": [
+        "https://www.instagram.com/cobradunesdxb",
+        "https://www.facebook.com/cobradunesdxb",
+        "https://www.tiktok.com/@cobradunesdxb"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Desert Adventure Experiences",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Sunrise Dune Safari",
+            "description": "2-hour morning dune buggy adventure",
+            "price": "499",
+            "priceCurrency": "AED"
+          },
+          {
+            "@type": "Offer",
+            "name": "Sunset Desert Tour",
+            "description": "3-hour sunset dune buggy experience",
+            "price": "699",
+            "priceCurrency": "AED"
+          },
+          {
+            "@type": "Offer",
+            "name": "VIP Full Day Adventure",
+            "description": "8-hour premium desert buggy package",
+            "price": "1999",
+            "priceCurrency": "AED"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Global Styles -->
+    <style is:global>
+      :root {
+        --gold:        #D4AF37;
+        --gold-light:  #FFD700;
+        --gold-dark:   #B8960C;
+        --dark:        #0D0D0D;
+        --dark-card:   #161616;
+        --dark-border: #2A2A2A;
+        --text:        #F5F5F5;
+        --text-muted:  #9E9E9E;
+        --cobra-red:   #C41E3A;
+        --sand:        #D4A94A;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        background-color: var(--dark);
+        color: var(--text);
+        font-family: 'Inter', system-ui, sans-serif;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #111; }
+      ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+
+      ::selection { background: rgba(212,175,55,0.3); color: #fff; }
+
+      .font-racing  { font-family: 'Bebas Neue', Impact, sans-serif; letter-spacing: 0.05em; }
+      .font-display { font-family: 'Rajdhani', Oswald, sans-serif; font-weight: 700; }
+
+      .text-gradient-gold {
+        background: linear-gradient(135deg, #FFD700, #D4AF37, #FFD700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .text-gradient-fire {
+        background: linear-gradient(135deg, #FF6B35, #D4AF37, #FFD700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .glass {
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(212,175,55,0.15);
+      }
+
+      .glass-dark {
+        background: rgba(13,13,13,0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(212,175,55,0.1);
+      }
+
+      .gold-border {
+        border: 1px solid rgba(212,175,55,0.3);
+      }
+
+      .card-3d {
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+      }
+
+      .card-3d:hover {
+        transform: translateY(-8px) rotateX(3deg);
+        box-shadow: 0 35px 60px -15px rgba(0,0,0,0.9), 0 0 40px rgba(212,175,55,0.25);
+      }
+
+      .btn-gold {
+        background: linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37);
+        background-size: 200% auto;
+        color: #0D0D0D;
+        font-weight: 700;
+        font-family: 'Rajdhani', sans-serif;
+        letter-spacing: 0.05em;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-gold::before {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .btn-gold:hover {
+        background-position: right center;
+        box-shadow: 0 0 30px rgba(212,175,55,0.6);
+        transform: translateY(-2px);
+      }
+
+      .btn-gold:hover::before { left: 100%; }
+
+      .btn-outline {
+        border: 2px solid var(--gold);
+        color: var(--gold);
+        background: transparent;
+        font-weight: 700;
+        font-family: 'Rajdhani', sans-serif;
+        letter-spacing: 0.05em;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline:hover {
+        background: var(--gold);
+        color: var(--dark);
+        box-shadow: 0 0 25px rgba(212,175,55,0.5);
+        transform: translateY(-2px);
+      }
+
+      .section-title {
+        font-family: 'Bebas Neue', Impact, sans-serif;
+        letter-spacing: 0.08em;
+        line-height: 1;
+      }
+
+      .gold-line {
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        margin: 0 auto;
+      }
+
+      .gold-dot {
+        width: 8px; height: 8px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      /* Animated gradient border */
+      .border-gradient {
+        position: relative;
+        border-radius: 12px;
+      }
+
+      .border-gradient::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        padding: 1px;
+        background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+        border-radius: inherit;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0.6;
+        transition: opacity 0.3s;
+      }
+
+      .border-gradient:hover::before { opacity: 1; }
+
+      /* Number counter animation */
+      .counter { transition: all 0.1s ease; }
+
+      /* Shine effect */
+      .shine {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shine::after {
+        content: '';
+        position: absolute;
+        top: -50%; left: -75%;
+        width: 50%; height: 200%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+        transform: skewX(-20deg);
+        transition: left 0.6s ease;
+      }
+
+      .shine:hover::after { left: 125%; }
+
+      /* Floating badge */
+      @keyframes float-badge {
+        0%, 100% { transform: translateY(0) rotate(-3deg); }
+        50% { transform: translateY(-8px) rotate(-3deg); }
+      }
+
+      .float-badge { animation: float-badge 3s ease-in-out infinite; }
+
+      /* Particle canvas */
+      #particle-canvas {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      /* Section spacing */
+      .section-padding { padding: 80px 0; }
+
+      @media (min-width: 768px) {
+        .section-padding { padding: 120px 0; }
+      }
+
+      /* Mobile improvements */
+      @media (max-width: 768px) {
+        .section-title { font-size: clamp(2rem, 10vw, 4rem); }
+      }
+
+      /* Neon text glow */
+      .neon-gold {
+        text-shadow:
+          0 0 10px rgba(212,175,55,0.8),
+          0 0 20px rgba(212,175,55,0.6),
+          0 0 40px rgba(212,175,55,0.4);
+      }
+
+      /* Striped background pattern */
+      .bg-stripes {
+        background-image: repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 10px,
+          rgba(212,175,55,0.03) 10px,
+          rgba(212,175,55,0.03) 20px
+        );
+      }
+
+      /* Blur orbs */
+      .blur-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+      // Initialize AOS
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-cubic',
+          once: true,
+          offset: 80,
+          delay: 0,
+        });
+      }
+
+      // Reinit AOS after dynamic content
+      document.addEventListener('DOMContentLoaded', () => {
+        if (typeof AOS !== 'undefined') AOS.refresh();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,295 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { label: "Home",                href: "#hero"         },
+  { label: "Our Fleet",           href: "#fleet"        },
+  { label: "Desert Experiences",  href: "#experiences"  },
+  { label: "Celebrations",        href: "#celebrations" },
+  { label: "Packages & Pricing",  href: "#pricing"      },
+  { label: "About Us",            href: "#about"        },
+  { label: "Reviews",             href: "#testimonials" },
+  { label: "FAQ",                 href: "#faq"          },
+  { label: "Contact",             href: "#contact"      },
+];
+
+const experiences = [
+  "Sunrise Dune Safari",
+  "Sunset Desert Tour",
+  "Night Desert Experience",
+  "VIP Full Day Adventure",
+  "Dune Bashing Combo",
+  "Desert Celebrations",
+  "Corporate Events",
+  "Team Building",
+];
+
+const buggies = [
+  "Can-Am Maverick X3 (2-Seater)",
+  "Can-Am X3 MAX (4-Seater)",
+  "Polaris RZR Pro XP (2-Seater)",
+  "Polaris RZR Pro XP 4 (4-Seater)",
+  "Yamaha YXZ1000R (2-Seater)",
+  "Can-Am Defender MAX (6-Seater)",
+];
+---
+
+<footer class="relative bg-[#080808] pt-20 pb-8 overflow-hidden">
+
+  <!-- Top gold line -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent"></div>
+
+  <!-- Background -->
+  <div class="absolute inset-0 bg-stripes opacity-20"></div>
+  <div class="blur-orb w-96 h-96 bg-yellow-400/3 top-20 left-20"></div>
+  <div class="blur-orb w-80 h-80 bg-yellow-400/3 bottom-10 right-10"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Main footer content -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+
+      <!-- Brand column -->
+      <div class="lg:col-span-1">
+        <!-- Logo -->
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-gold">
+            <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4C20 4 8 10 8 22C8 30 14 36 20 36C26 36 32 30 32 22C32 10 20 4 20 4Z" fill="#0D0D0D" stroke="#D4AF37" stroke-width="1.5"/>
+              <circle cx="16" cy="18" r="2.5" fill="#FFD700"/>
+              <circle cx="24" cy="18" r="2.5" fill="#FFD700"/>
+              <path d="M17 27 Q20 31 23 27" stroke="#FFD700" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-racing text-xl text-white leading-none">COBRA</div>
+            <div class="font-racing text-sm text-gradient-gold leading-none tracking-widest">DUNES DXB</div>
+          </div>
+        </div>
+
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">
+          Dubai's premier destination for premium dune buggy rentals,
+          desert adventures, and bespoke desert celebrations since 2019.
+        </p>
+
+        <!-- Rating badge -->
+        <div class="flex items-center gap-2 mb-5">
+          <div class="flex gap-0.5">
+            {[1,2,3,4,5].map(() => (
+              <i class="fas fa-star text-yellow-400 text-xs"></i>
+            ))}
+          </div>
+          <span class="text-gray-400 text-xs font-semibold">4.9/5 · 847 Reviews</span>
+        </div>
+
+        <!-- Social links -->
+        <div class="flex gap-2">
+          {[
+            { icon: "fab fa-instagram", href: "https://instagram.com/cobradunesdxb", label: "Instagram" },
+            { icon: "fab fa-tiktok",    href: "https://tiktok.com/@cobradunesdxb",  label: "TikTok"    },
+            { icon: "fab fa-facebook",  href: "https://facebook.com/cobradunesdxb", label: "Facebook"  },
+            { icon: "fab fa-youtube",   href: "https://youtube.com/@cobradunesdxb", label: "YouTube"   },
+            { icon: "fab fa-whatsapp",  href: "https://wa.me/971XXXXXXXXX",         label: "WhatsApp"  },
+          ].map(s => (
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              class="w-9 h-9 rounded-lg glass border border-yellow-400/15 flex items-center justify-center text-gray-500 hover:text-yellow-400 hover:border-yellow-400/40 transition-all duration-300 hover:scale-110"
+            >
+              <i class={s.icon + " text-sm"}></i>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-display text-white text-base tracking-wide mb-5 flex items-center gap-2">
+          <span class="w-4 h-px bg-yellow-400"></span>
+          Quick Links
+        </h4>
+        <ul class="space-y-2">
+          {quickLinks.map(link => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-500 text-sm hover:text-yellow-400 transition-colors duration-200 flex items-center gap-2 group"
+              >
+                <span class="w-1 h-1 rounded-full bg-yellow-400/30 group-hover:bg-yellow-400 transition-colors"></span>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Experiences -->
+      <div>
+        <h4 class="font-display text-white text-base tracking-wide mb-5 flex items-center gap-2">
+          <span class="w-4 h-px bg-yellow-400"></span>
+          Experiences
+        </h4>
+        <ul class="space-y-2">
+          {experiences.map(exp => (
+            <li>
+              <a
+                href="#experiences"
+                class="text-gray-500 text-sm hover:text-yellow-400 transition-colors duration-200 flex items-center gap-2 group"
+              >
+                <span class="w-1 h-1 rounded-full bg-yellow-400/30 group-hover:bg-yellow-400 transition-colors"></span>
+                {exp}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="font-display text-white text-base tracking-wide mb-5 flex items-center gap-2">
+          <span class="w-4 h-px bg-yellow-400"></span>
+          Contact Us
+        </h4>
+
+        <div class="space-y-4">
+          <a href="https://wa.me/971XXXXXXXXX" target="_blank" rel="noopener"
+             class="flex items-start gap-3 text-gray-500 hover:text-green-400 transition-colors group">
+            <i class="fab fa-whatsapp text-green-400 mt-0.5 flex-shrink-0"></i>
+            <div>
+              <div class="text-xs text-gray-600 font-semibold uppercase tracking-wide">WhatsApp</div>
+              <div class="text-sm group-hover:text-green-400 transition-colors">+971 55 XXX XXXX</div>
+            </div>
+          </a>
+
+          <a href="tel:+97155XXXXXXX"
+             class="flex items-start gap-3 text-gray-500 hover:text-yellow-400 transition-colors group">
+            <i class="fas fa-phone text-yellow-400/60 mt-0.5 flex-shrink-0 text-sm"></i>
+            <div>
+              <div class="text-xs text-gray-600 font-semibold uppercase tracking-wide">Phone</div>
+              <div class="text-sm">+971 55 XXX XXXX</div>
+            </div>
+          </a>
+
+          <a href="mailto:info@cobradunesdxb.com"
+             class="flex items-start gap-3 text-gray-500 hover:text-yellow-400 transition-colors group">
+            <i class="fas fa-envelope text-yellow-400/60 mt-0.5 flex-shrink-0 text-sm"></i>
+            <div>
+              <div class="text-xs text-gray-600 font-semibold uppercase tracking-wide">Email</div>
+              <div class="text-sm">info@cobradunesdxb.com</div>
+            </div>
+          </a>
+
+          <div class="flex items-start gap-3 text-gray-500">
+            <i class="fas fa-map-marker-alt text-yellow-400/60 mt-0.5 flex-shrink-0 text-sm"></i>
+            <div>
+              <div class="text-xs text-gray-600 font-semibold uppercase tracking-wide">Location</div>
+              <div class="text-sm">Al Lahbab (Big Red)<br/>Dubai, UAE</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 text-gray-500">
+            <i class="fas fa-clock text-yellow-400/60 mt-0.5 flex-shrink-0 text-sm"></i>
+            <div>
+              <div class="text-xs text-gray-600 font-semibold uppercase tracking-wide">Hours</div>
+              <div class="text-sm">Daily: 6:00 AM – 10:00 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SEO Keywords Section (hidden visually but present for SEO) -->
+    <div class="border-t border-yellow-400/10 pt-8 mb-8">
+      <div class="flex flex-wrap gap-2 justify-center">
+        {[
+          "Dune Buggy Dubai",
+          "Buggy Rental Dubai",
+          "Desert Adventure Dubai",
+          "4x4 Safari UAE",
+          "Sand Dune Buggy UAE",
+          "Off-Road Dubai",
+          "Desert Safari Buggy",
+          "Polaris RZR Dubai",
+          "Can-Am Maverick Dubai",
+          "Big Red Dubai",
+          "Desert Celebration Dubai",
+          "Corporate Desert Events",
+          "Dubai Adventure Activities",
+          "Dune Bashing Dubai",
+          "Self-Drive Buggy UAE",
+        ].map(keyword => (
+          <span class="text-xs px-2.5 py-1 rounded-full glass border border-yellow-400/10 text-gray-600 hover:text-gray-400 transition-colors cursor-default">
+            {keyword}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-yellow-400/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-gray-600 text-xs text-center sm:text-left">
+        © {currentYear} Cobra Dunes DXB. All rights reserved. |
+        <a href="#" class="hover:text-yellow-400 transition-colors ml-1">Privacy Policy</a> ·
+        <a href="#" class="hover:text-yellow-400 transition-colors ml-1">Terms of Service</a>
+      </div>
+
+      <div class="text-gray-700 text-xs text-center sm:text-right">
+        Built with
+        <span class="text-yellow-400/60">♥</span>
+        using
+        <a href="https://astro.build" target="_blank" rel="noopener" class="text-yellow-400/60 hover:text-yellow-400 transition-colors">Astro</a>,
+        <a href="https://tailwindcss.com" target="_blank" rel="noopener" class="text-yellow-400/60 hover:text-yellow-400 transition-colors">Tailwind</a>
+        &amp; Three.js
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a
+  href="https://wa.me/971XXXXXXXXX?text=Hi! I want to book a desert adventure with Cobra Dunes DXB"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat on WhatsApp"
+  id="whatsapp-fab"
+  class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:bg-green-400 transition-all duration-300 hover:scale-110 animate-pulse-gold"
+  style="box-shadow: 0 4px 20px rgba(37,211,102,0.5);"
+>
+  <i class="fab fa-whatsapp text-white text-2xl"></i>
+  <!-- Notification dot -->
+  <span class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+    <span class="text-white text-xs font-bold">1</span>
+  </span>
+</a>
+
+<!-- Back to top button -->
+<button
+  id="back-to-top"
+  aria-label="Back to top"
+  class="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full glass border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400/10 transition-all duration-300 opacity-0 pointer-events-none hover:scale-110"
+>
+  <i class="fas fa-chevron-up text-sm"></i>
+</button>
+
+<script>
+  // Back to top button visibility
+  const backToTopBtn = document.getElementById('back-to-top') as HTMLButtonElement;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.style.opacity = '1';
+      backToTopBtn.style.pointerEvents = 'auto';
+    } else {
+      backToTopBtn.style.opacity = '0';
+      backToTopBtn.style.pointerEvents = 'none';
+    }
+  });
+
+  backToTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
