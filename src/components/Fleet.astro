@@ -14,12 +14,12 @@ const buggies = [
     features: ["Turbocharged Engine", "Fox Live Valve Suspension", "Bead-Lock Wheels", "Full Roll Cage", "Harness Belts", "Bluetooth Audio"],
     color: "#D4AF37",
     gradient: "from-yellow-500/20 to-orange-500/10",
-    image: "/images/can-am-x3.jpg",
+    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2025-1-1024x960.webp",
     badge: "🏆",
   },
   {
-    id: "can-am-x3-max",
-    name: "Can-Am X3 MAX",
+    id: "CAN-AM-MAVERICK-R-X-RS-2025",
+    name: "Can-Am Maverick 4-Seater 2025",
     seats: "4-Seater",
     engine: "900cc Turbo",
     power: "120 HP",
@@ -31,7 +31,7 @@ const buggies = [
     features: ["4 Full Harness Seats", "Extended Chassis", "Fox Suspension", "Full Safety Cage", "Rear-Facing Seats", "Cargo Space"],
     color: "#4ADE80",
     gradient: "from-green-500/20 to-emerald-500/10",
-    image: "/images/can-am-x3-max.jpg",
+    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2025-1-1024x960.webp",
     badge: "👨‍👩‍👧‍👦",
   },
   {
@@ -48,7 +48,7 @@ const buggies = [
     features: ["1000cc Engine", "Walker Evans Shocks", "Electronic Power Steering", "4WD System", "Digitial Dashboard", "Winch"],
     color: "#60A5FA",
     gradient: "from-blue-500/20 to-sky-500/10",
-    image: "/images/polaris-rzr-pro.jpg",
+    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/Polaris-RZR-2-seater-1000XP--994x1024.webp",
     badge: "⚡",
   },
   {
@@ -65,24 +65,24 @@ const buggies = [
     features: ["4 Bucket Seats", "Walker Evans Shocks", "EPS Steering", "4WD System", "Rear Storage", "Audio System"],
     color: "#A855F7",
     gradient: "from-purple-500/20 to-violet-500/10",
-    image: "/images/polaris-rzr-4.jpg",
+    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/Polaris-RZR-1000XP-4-seater-1007x1024.webp",
     badge: "🎯",
   },
   {
-    id: "yamaha-yxz",
-    name: "Yamaha YXZ1000R",
+    id: "CF MOTO 1000CC 4X4",
+    name: "CF MOTO 1000CC 4X4",
     seats: "2-Seater",
     engine: "998cc Triple",
     power: "112 HP",
     speed: "115 km/h",
-    price: "499",
+    price: "299",
     tag: "Sport Edition",
     tagColor: "bg-red-500 text-white",
     description: "Yamaha's track-inspired sports buggy with a pure mechanical feel. Manual 5-speed transmission for the true enthusiast.",
     features: ["3-Cylinder Engine", "Manual 5-Speed", "Sport Suspension", "Bead-Lock Rims", "Roll Cage", "Racing Harness"],
     color: "#EF4444",
     gradient: "from-red-500/20 to-rose-500/10",
-    image: "/images/yamaha-yxz.jpg",
+    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CF-MOTO-1000CC-4X4--1008x1024.webp",
     badge: "🎸",
   },
   {
@@ -99,7 +99,7 @@ const buggies = [
     features: ["6 Full Seats", "Pro-Torq CVT", "Smart-Lok 4WD", "Extended Length", "High Roof", "Corporate Ready"],
     color: "#F59E0B",
     gradient: "from-amber-500/20 to-yellow-500/10",
-    image: "/images/can-am-defender.jpg",
+    image: "https://images.unsplash.com/photo-1512255930744-2b29a714c1e9?w=600&h=250&fit=crop&q=80",
     badge: "🏢",
   },
 ];
@@ -144,28 +144,15 @@ const buggies = [
           <div class="absolute top-4 left-4 z-10 text-2xl">{buggy.badge}</div>
 
           <!-- Image Area -->
-          <div class={`relative h-52 bg-gradient-to-br ${buggy.gradient} flex items-center justify-center overflow-hidden`}>
-            <!-- Buggy SVG illustration (placeholder) -->
-            <div class="relative w-full h-full flex items-center justify-center">
-              <!-- Silhouette SVG of buggy -->
-              <svg viewBox="0 0 300 150" class="w-64 h-32 opacity-40 transition-all duration-500 group-hover:opacity-70 group-hover:scale-105" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="40" y="50" width="220" height="60" rx="10" fill={buggy.color} opacity="0.3"/>
-                <rect x="60" y="30" width="140" height="50" rx="8" fill={buggy.color} opacity="0.5"/>
-                <circle cx="80" cy="120" r="25" fill={buggy.color} opacity="0.8"/>
-                <circle cx="80" cy="120" r="12" fill="#0D0D0D"/>
-                <circle cx="220" cy="120" r="25" fill={buggy.color} opacity="0.8"/>
-                <circle cx="220" cy="120" r="12" fill="#0D0D0D"/>
-                <line x1="40" y1="70" x2="10" y2="55" stroke={buggy.color} stroke-width="4" stroke-linecap="round"/>
-                <line x1="260" y1="70" x2="290" y2="55" stroke={buggy.color} stroke-width="4" stroke-linecap="round"/>
-                <rect x="80" y="38" width="20" height="30" rx="3" fill={buggy.color} opacity="0.9"/>
-                <rect x="140" y="35" width="20" height="30" rx="3" fill={buggy.color} opacity="0.9"/>
-                <rect x="200" y="38" width="20" height="30" rx="3" fill={buggy.color} opacity="0.9"/>
-              </svg>
-              <!-- Glow -->
-              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                   style={`background: radial-gradient(ellipse at center, ${buggy.color}15 0%, transparent 70%);`}></div>
-            </div>
-
+          <div class={`relative h-52 bg-gradient-to-br ${buggy.gradient} overflow-hidden`}>
+            <img
+              src={buggy.image}
+              alt={`${buggy.name} dune buggy Dubai`}
+              class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              loading="lazy"
+            />
+            <!-- Darkening overlay for text legibility -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
             <!-- Color accent line -->
             <div class="absolute bottom-0 left-0 right-0 h-1" style={`background: linear-gradient(90deg, transparent, ${buggy.color}, transparent);`}></div>
           </div>

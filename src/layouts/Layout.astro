@@ -56,7 +56,7 @@ const {
     <meta name="ICBM" content="24.9953, 55.2744" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/webp" sizes="any" href="https://cobradunesdxb.com/wp-content/uploads/2025/11/cropped-CobraDunes-logo1.webp" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
     <!-- Preconnect for performance -->
@@ -407,27 +407,26 @@ const {
   <body>
     <slot />
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Scripts — is:inline prevents Vite from converting these to ES module imports,
+         which would break UMD globals (gsap/Swiper/AOS use `this` as global context,
+         which is undefined in strict-mode ES modules). -->
+    <script is:inline src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <script>
+    <script is:inline>
       // Initialize AOS
-      if (typeof AOS !== 'undefined') {
-        AOS.init({
-          duration: 800,
-          easing: 'ease-out-cubic',
-          once: true,
-          offset: 80,
-          delay: 0,
-        });
-      }
-
-      // Reinit AOS after dynamic content
-      document.addEventListener('DOMContentLoaded', () => {
-        if (typeof AOS !== 'undefined') AOS.refresh();
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 80,
+            delay: 0,
+          });
+        }
       });
     </script>
   </body>
