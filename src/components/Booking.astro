@@ -1,4 +1,14 @@
 ---
+const fleetVehicles = [
+  { name: 'Kymco MXU 250', seats: '1 Seater', price: 'AED 150 / 30min', image: 'https://cobradunesdxb.com/wp-content/uploads/2025/12/kymco-quad-ride-1024x1024.webp' },
+  { name: 'Buggy CAN AM MAVERICK R X RS 2025', seats: '4 Seater', price: 'AED 800 / 30min', image: 'https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2025-1-1024x960.webp' },
+  { name: 'CAN AM Maverick 3X turbo RR 2 seater', seats: '2 Seater', price: 'AED 550 / 30min', image: 'https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-MA-Maverick-3X-turbo-RR-2-seater--1008x1024.webp' },
+  { name: 'CAN AM Maverick 3X turbo RR 4 seater', seats: '4 Seater', price: 'AED 600 / 30min', image: 'https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-Maverick-3X-turbo-RR-4-seater--1008x1024.webp' },
+  { name: 'Polaris RZR 2 seater 1000XP', seats: '2 Seater', price: 'AED 400 / 30min', image: 'https://cobradunesdxb.com/wp-content/uploads/2025/11/Polaris-RZR-2-seater-1000XP--994x1024.webp' },
+  { name: 'Polaris RZR 4 seater 1000XP', seats: '4 Seater', price: 'AED 450 / 30min', image: 'https://cobradunesdxb.com/wp-content/uploads/2025/11/Polaris-RZR-1000XP-4-seater-1007x1024.webp' },
+  { name: 'CF MOTO 1000CC 4X4', seats: '2 Seater', price: 'AED 249 / 30min', image: 'https://cobradunesdxb.com/wp-content/uploads/2025/11/CF-MOTO-1000CC-4X4--1008x1024.webp' },
+  { name: 'CAN AM MAVERICK R X RS 2024', seats: '4 Seater', price: 'AED 700 / 30min', image: 'https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2024-1015x1024.webp' },
+];
 ---
 
 <section id="contact" class="section-padding bg-[#0D0D0D] relative overflow-hidden">
@@ -29,7 +39,7 @@
 
         <!-- WhatsApp card -->
         <a
-          href="https://wa.me/971XXXXXXXXX?text=Hi! I want to book a desert adventure"
+          href="https://wa.me/971505371693?text=Hi!%20I%20want%20to%20book%20a%20desert%20adventure"
           target="_blank"
           rel="noopener"
           class="flex items-center gap-4 glass border border-green-500/30 rounded-2xl p-5 hover:border-green-500/60 hover:-translate-y-1 transition-all duration-300 group"
@@ -39,14 +49,14 @@
           </div>
           <div>
             <div class="font-display text-white text-base group-hover:text-green-400 transition-colors">WhatsApp (Fastest)</div>
-            <div class="text-gray-400 text-sm">+971 55 XXX XXXX</div>
+            <div class="text-gray-400 text-sm">+971 50 537 1693</div>
             <div class="text-green-400/60 text-xs mt-1">Avg response: 5 minutes</div>
           </div>
         </a>
 
         <!-- Phone card -->
         <a
-          href="tel:+97155XXXXXXX"
+          href="tel:+971505371693"
           class="flex items-center gap-4 glass border border-yellow-400/20 rounded-2xl p-5 hover:border-yellow-400/40 hover:-translate-y-1 transition-all duration-300 group"
         >
           <div class="w-14 h-14 rounded-xl bg-yellow-400/10 flex items-center justify-center flex-shrink-0 group-hover:bg-yellow-400/20 transition-colors">
@@ -54,7 +64,7 @@
           </div>
           <div>
             <div class="font-display text-white text-base group-hover:text-yellow-400 transition-colors">Call Us</div>
-            <div class="text-gray-400 text-sm">+971 55 XXX XXXX</div>
+            <div class="text-gray-400 text-sm">+971 50 537 1693</div>
             <div class="text-gray-500 text-xs mt-1">Daily 6:00 AM – 10:00 PM</div>
           </div>
         </a>
@@ -83,6 +93,26 @@
             <div class="font-display text-white text-base">Desert Basecamp</div>
             <div class="text-gray-400 text-sm">Al Lahbab (Big Red), Dubai</div>
             <div class="text-gray-500 text-xs mt-1">~45 min from Dubai City</div>
+          </div>
+        </div>
+
+        <!-- Fleet preview -->
+        <div class="glass border border-yellow-400/15 rounded-2xl p-5">
+          <div class="text-gray-400 text-xs uppercase tracking-widest font-semibold mb-4">Buggy & Quad Tours</div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Browse our premium buggy and quad fleet: ride the desert in top Can-Am, Polaris, Kymco and CF Moto vehicles.
+          </p>
+          <div class="grid grid-cols-1 gap-4">
+            {fleetVehicles.map(vehicle => (
+              <div class="flex gap-4 items-center bg-black/30 border border-yellow-400/10 rounded-2xl p-3">
+                <img src={vehicle.image} alt={vehicle.name} class="w-20 h-20 rounded-2xl object-cover" />
+                <div class="min-w-0">
+                  <div class="text-white text-sm font-semibold truncate">{vehicle.name}</div>
+                  <div class="text-gray-400 text-xs">{vehicle.seats}</div>
+                  <div class="text-yellow-300 text-xs mt-1">{vehicle.price}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -143,7 +173,7 @@
                   id="phone"
                   name="phone"
                   required
-                  placeholder="+971 55 XXX XXXX"
+                  placeholder="+971 50 537 1693"
                   class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors"
                 />
               </div>
@@ -302,7 +332,7 @@
     );
 
     // Open WhatsApp with pre-filled message
-    window.open(`https://wa.me/971XXXXXXXXX?text=${text}`, '_blank');
+    window.open(`https://wa.me/971505371693?text=${text}`, '_blank');
 
     // Show success
     form.style.display = 'none';
