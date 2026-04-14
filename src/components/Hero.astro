@@ -1,31 +1,12 @@
 ---
+import SandBackground from './SandBackground';
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0805]">
 
-  <!-- Video Background -->
+  <!-- Sand Dune Animated Background -->
   <div class="absolute inset-0 z-0">
-    <video
-      id="hero-video"
-      class="w-full h-full object-cover opacity-60"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      poster="https://images.unsplash.com/photo-1542401886-65d6c61db217?w=1920&h=1080&fit=crop&q=80"
-    >
-      <!-- Replace src with your actual video file -->
-      <source src="/videos/desert-buggy.mp4" type="video/mp4" />
-      <!-- Fallback: pexels dune buggy video -->
-      <source src="https://videos.pexels.com/video-files/3994819/3994819-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-    </video>
-
-    <!-- Gradient Overlays -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/90"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/30"></div>
-    <!-- Bottom fade -->
-    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0D0D0D] to-transparent"></div>
+    <SandBackground client:only="react" />
   </div>
 
   <!-- Three.js Particle Canvas -->
