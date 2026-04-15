@@ -1,7 +1,7 @@
 {
-  "name": "cobradunes-dxb",
+  "name": "buggysahara-dxb",
   "version": "1.0.0",
-  "description": "Cobra Dunes DXB - Dubai's Premier Dune Buggy Rental & Desert Adventure Website",
+  "description": "Buggy Sahara DXB - Dubai's Premier Dune Buggy Rental & Desert Adventure Website",
   "type": "module",
   "scripts": {
     "dev": "astro dev",

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cobradunesdxb.com/sitemap.xml
+Sitemap: https://buggysaharadxb.com/sitemap.xml

@@ -36,7 +36,7 @@ export default {
           400: '#D4A94A',
           500: '#C2912A',
         },
-        cobra: {
+        buggy: {
           red:    '#C41E3A',
           orange: '#FF6B35',
           gold:   '#D4AF37',
