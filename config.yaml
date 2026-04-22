@@ -1,0 +1,34 @@
+# config.yaml — Runtime configuration for jobapply.
+# Override any value with a CLI flag or environment variable.
+
+browser:
+  # Path to the Chrome user data directory (parent of Default/, Profile 1/, …).
+  # Leave blank to auto-detect for your OS.
+  user_data_dir: ""
+
+  # Which Chrome profile sub-directory to use.
+  profile_directory: "Default"
+
+  # Set to true to run headless (extensions won't work in headless mode).
+  headless: false
+
+timeouts:
+  # Milliseconds to wait for the ATS form to appear.
+  form_load_ms: 15000
+
+  # Milliseconds to wait after Simplify autofill settles.
+  simplify_settle_ms: 3000
+
+  # Maximum seconds to poll Gmail for a verification code.
+  gmail_poll_seconds: 120
+
+  # Seconds between Gmail API polls.
+  gmail_poll_interval: 5
+
+profile:
+  # Path to the user profile YAML.
+  path: "profile.yaml"
+
+logging:
+  # DEBUG, INFO, WARNING, ERROR
+  level: "INFO"

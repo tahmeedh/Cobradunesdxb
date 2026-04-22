@@ -1,0 +1,69 @@
+# profile.example.yaml — Copy this to profile.yaml and fill in your details.
+# Claude uses this file to answer open-ended application questions.
+
+name:
+  full: "Jane Doe"
+  first: "Jane"
+  last: "Doe"
+
+contact:
+  email: "jane.doe@example.com"
+  phone: "+1 (555) 000-0000"
+  linkedin: "https://linkedin.com/in/janedoe"
+  github: "https://github.com/janedoe"
+  website: "https://janedoe.dev"
+
+location:
+  city: "San Francisco"
+  state: "CA"
+  country: "United States"
+  zip: "94105"
+
+work_authorization: "US Citizen"  # or: "H-1B", "OPT", "Green Card", "Need Sponsorship", …
+
+willing_to_relocate: false
+remote_preference: "Remote preferred"  # Remote only | Remote preferred | Hybrid | On-site
+
+current_role: "Senior Software Engineer"
+years_of_experience: 7
+
+education:
+  - degree: "B.S. Computer Science"
+    school: "University of California, Berkeley"
+    graduation_year: 2018
+
+skills:
+  languages: ["Python", "TypeScript", "Go", "SQL"]
+  frameworks: ["FastAPI", "React", "Playwright", "dbt"]
+  tools: ["Docker", "Kubernetes", "Terraform", "GitHub Actions"]
+  databases: ["PostgreSQL", "Redis", "BigQuery"]
+
+experience:
+  - company: "Acme Corp"
+    title: "Senior Software Engineer"
+    start: "2021-06"
+    end: "present"
+    description: >
+      Led backend development for a real-time data pipeline processing 10 M events/day.
+      Reduced P99 latency by 40% through query optimisation and caching.
+
+  - company: "Startup XYZ"
+    title: "Software Engineer"
+    start: "2018-08"
+    end: "2021-05"
+    description: >
+      Built and maintained REST APIs serving 500 K daily active users.
+      Migrated legacy monolith to microservices, cutting deployment time by 60%.
+
+desired_salary: "150000"  # Annual base in USD; leave blank to omit
+
+cover_letter_blurb: >
+  I am passionate about building reliable, scalable systems and enjoy working on
+  hard problems at the intersection of data and developer tooling.
+
+diversity:
+  # These are optional; leave blank to skip.
+  gender: ""
+  ethnicity: ""
+  veteran_status: ""
+  disability_status: ""

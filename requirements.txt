@@ -1,0 +1,10 @@
+anthropic>=0.28.0
+playwright>=1.44.0
+typer>=0.12.0
+pyyaml>=6.0.1
+python-dotenv>=1.0.1
+
+# Gmail API (optional — only needed for verification code fetching)
+google-api-python-client>=2.130.0
+google-auth-httplib2>=0.2.0
+google-auth-oauthlib>=1.2.0
