@@ -163,23 +163,30 @@ const addOns = [
           <!-- Duration -->
           <div>
             <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-4"><i class="fas fa-clock mr-2 text-yellow-400/70"></i>How Long Would You Like to Ride?</label>
-            <div class="grid grid-cols-2 gap-3" id="duration-grid">
-              {durations.map(dur => (
-                <button
-                  class="duration-btn relative border border-yellow-400/15 rounded-xl p-4 text-left hover:border-yellow-400/50 transition-all duration-200 bg-black/30 hover:bg-yellow-400/5"
-                  data-mins={dur.mins}
-                  data-mult={dur.multiplier}
-                >
-                  {dur.badge && (
-                    <div class={`absolute top-2 right-2 text-[9px] font-bold px-1.5 py-0.5 rounded-full ${dur.badge === 'Most Popular' ? 'bg-orange-500 text-white' : dur.badge === 'Best Value' ? 'bg-green-500 text-white' : 'bg-yellow-400/20 text-yellow-400'}`}>
-                      {dur.badge}
-                    </div>
-                  )}
-                  <div class="font-racing text-xl text-white mb-0.5">{dur.label}</div>
-                  <div class="text-gray-500 text-xs mb-2">{dur.sub}</div>
-                  <div class="duration-price font-bold text-yellow-400 text-base">—</div>
-                </button>
-              ))}
+            <div class="relative">
+              <div class="grid grid-cols-2 gap-3" id="duration-grid">
+                {durations.map(dur => (
+                  <button
+                    class="duration-btn relative border border-yellow-400/15 rounded-xl p-4 text-left hover:border-yellow-400/50 transition-all duration-200 bg-black/30 hover:bg-yellow-400/5"
+                    data-mins={dur.mins}
+                    data-mult={dur.multiplier}
+                  >
+                    {dur.badge && (
+                      <div class={`absolute top-2 right-2 text-[9px] font-bold px-1.5 py-0.5 rounded-full ${dur.badge === 'Most Popular' ? 'bg-orange-500 text-white' : dur.badge === 'Best Value' ? 'bg-green-500 text-white' : 'bg-yellow-400/20 text-yellow-400'}`}>
+                        {dur.badge}
+                      </div>
+                    )}
+                    <div class="font-racing text-xl text-white mb-0.5">{dur.label}</div>
+                    <div class="text-gray-500 text-xs mb-2">{dur.sub}</div>
+                    <div class="duration-price font-bold text-yellow-400 text-base">—</div>
+                  </button>
+                ))}
+              </div>
+              <!-- Overlay: blocks duration until date picked -->
+              <div id="duration-lock" class="absolute inset-0 rounded-xl backdrop-blur-[2px] bg-black/60 flex flex-col items-center justify-center gap-2 cursor-not-allowed z-10">
+                <i class="fas fa-calendar-day text-yellow-400/50 text-2xl"></i>
+                <p class="text-gray-400 text-sm font-display text-center px-4">Pick a date first</p>
+              </div>
             </div>
           </div>
         </div>
@@ -482,6 +489,9 @@ const addOns = [
           txt.textContent = formatDate(selectedDate);
           disp.classList.remove('hidden');
         }
+        // Unlock duration cards
+        const lock = document.getElementById('duration-lock');
+        if (lock) lock.classList.add('hidden');
         checkStep2();
       });
     });
