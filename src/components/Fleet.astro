@@ -241,13 +241,11 @@ const buggies = [
 
             <!-- Book CTA -->
             <a
-              href={`https://wa.me/971505371693?text=Hi! I want to book the ${buggy.name} for a desert adventure`}
-              target="_blank"
-              rel="noopener"
+              href={`/booking?buggy=${buggy.id}`}
               class="btn-gold w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm shine"
             >
-              <i class="fab fa-whatsapp text-base"></i>
-              <span class="font-display tracking-wide">Book {buggy.name}</span>
+              <i class="fas fa-calendar-check text-base"></i>
+              <span class="font-display tracking-wide">Book Now</span>
             </a>
           </div>
         </div>

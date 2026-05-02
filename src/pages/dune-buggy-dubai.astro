@@ -5,9 +5,9 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-  title="Dune Buggy Dubai | Self-Drive Desert Buggy Rental UAE | Buggy Sahara DXB"
-  description="Best dune buggy Dubai rental experience. Drive premium Can-Am Maverick & Polaris RZR across Big Red desert. No license required. Book online — from AED 399."
-  keywords="dune buggy Dubai, dune buggy rental Dubai, desert buggy Dubai, buggy tour Dubai, self-drive buggy Dubai, Can-Am buggy Dubai, Polaris RZR Dubai, Big Red buggy Dubai, sand dune buggy UAE"
+  title="Dune Buggy Dubai | Self-Drive Desert Buggy Rental UAE 2025 | Buggy Sahara DXB"
+  description="Best dune buggy Dubai rental 2025. Drive premium Can-Am Maverick & Polaris RZR across Big Red desert. No license required. Book online — from AED 399. Open 365 days."
+  keywords="dune buggy Dubai, dune buggy rental Dubai, desert buggy Dubai, buggy tour Dubai, self-drive buggy Dubai, Can-Am buggy Dubai, Polaris RZR Dubai, Big Red buggy Dubai, sand dune buggy UAE, dune buggy experience Dubai, dune buggy hire Dubai, off road buggy Dubai, desert adventure Dubai, Al Lahbab buggy, quad bike Dubai, ATV rental Dubai"
   url="https://buggysaharadxb.com/dune-buggy-dubai"
 >
   <Header />
@@ -38,9 +38,9 @@ import Footer from '../components/Footer.astro';
 
       <!-- Quick CTA -->
       <div class="flex flex-wrap gap-4 mb-12">
-        <a href="/#pricing" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
+        <a href="/booking" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
           <i class="fas fa-calendar-check"></i>
-          <span class="font-display">View Packages & Book</span>
+          <span class="font-display">Book Your Buggy Now</span>
         </a>
         <a href="https://wa.me/971505371693?text=Hi! I want to book a dune buggy Dubai experience"
            target="_blank" rel="noopener"
@@ -130,6 +130,58 @@ import Footer from '../components/Footer.astro';
             This is the finest dune driving terrain in all of the UAE — massive red dunes, dramatic desert
             landscapes, and zero crowds. The exact Google Maps pin is shared upon booking.
           </p>
+        </section>
+
+        <section class="glass border border-yellow-400/15 rounded-2xl p-8">
+          <h2 class="font-racing text-3xl text-white mb-6">What to Expect on Your Dune Buggy Dubai Tour</h2>
+          <div class="space-y-4">
+            {[
+              { step: "01", title: "Arrival & Safety Briefing", desc: "Arrive at Big Red basecamp. Our team fits your safety gear — helmet, goggles, gloves — and gives a full desert driving briefing." },
+              { step: "02", title: "Meet Your Machine", desc: "Get introduced to your buggy, adjust your seat, and take a familiarisation lap before hitting the open dunes." },
+              { step: "03", title: "Hit the Dunes", desc: "Your guide leads the convoy into the open desert. Conquer towering dunes and navigate technical desert trails at your pace." },
+              { step: "04", title: "Photo Stops & Action Shots", desc: "We stop at the best vantage points. Our guides know every perfect Instagram spot on the route." },
+              { step: "05", title: "Return & Refreshments", desc: "Return to basecamp, freshen up, enjoy cold drinks. Digital photos shared within 24 hours." },
+            ].map(s => (
+              <div class="flex gap-4 p-4 bg-black/30 border border-yellow-400/10 rounded-xl">
+                <div class="font-racing text-3xl text-yellow-400/30 flex-shrink-0 w-10">{s.step}</div>
+                <div>
+                  <h3 class="text-white font-semibold text-sm mb-1">{s.title}</h3>
+                  <p class="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-racing text-3xl text-white mb-6">Dune Buggy Dubai FAQ</h2>
+          <div class="space-y-4">
+            {[
+              { q: "Do I need a driving licence for a dune buggy in Dubai?", a: "No. Because we operate on a private desert track (not public roads), no UAE or international driving licence is required. Anyone aged 16+ can drive." },
+              { q: "How far is the dune buggy location from Dubai city?", a: "Our Big Red basecamp is approximately 45 minutes from Downtown Dubai and Dubai Marina via the Dubai–Al Ain road (E66). We send a precise Google Maps pin upon booking." },
+              { q: "Is dune buggy Dubai safe for families and beginners?", a: "Absolutely. Every buggy has a full roll cage, 5-point harness, and our certified guide rides alongside your group at all times." },
+              { q: "What is the minimum age for dune buggy Dubai?", a: "Drivers must be 16 or older. Passengers in multi-seater buggies can be any age with a parent or guardian present." },
+              { q: "Can tourists book a dune buggy Dubai experience?", a: "Yes — over 70% of our bookings are international tourists. We operate 365 days a year, 6 AM to 10 PM, including weekends and public holidays." },
+              { q: "What is included in the dune buggy Dubai price?", a: "All prices include the buggy, full safety gear, certified guide, safety briefing, and desert photography. No hidden charges." },
+            ].map(faq => (
+              <div class="p-5 border border-yellow-400/10 rounded-xl bg-black/20">
+                <h3 class="text-white font-semibold text-sm mb-2 flex items-start gap-2">
+                  <i class="fas fa-question-circle text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                  {faq.q}
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed pl-5">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="glass border border-yellow-400/20 rounded-2xl p-8 text-center">
+          <h2 class="font-racing text-3xl text-white mb-2">Ready to Ride the Dunes?</h2>
+          <p class="text-gray-400 mb-6">Book your dune buggy Dubai experience online in 2 minutes. Instant confirmation.</p>
+          <a href="/booking" class="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-xl shine text-base">
+            <i class="fas fa-calendar-check"></i>
+            <span class="font-display tracking-wide">Book Online Now — From AED 399</span>
+          </a>
         </section>
 
       </div>

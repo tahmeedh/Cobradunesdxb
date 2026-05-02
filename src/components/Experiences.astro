@@ -1,21 +1,20 @@
 ---
 const experiences = [
   {
-    icon:      "fas fa-sun",
-    iconColor: "text-amber-400",
-    bg:        "from-amber-500/20 to-orange-500/10",
+    image: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80",
+    imageAlt: "Sunrise dune buggy safari Dubai desert golden hour",
     title:     "Sunrise Dune Safari",
     subtitle:  "2 Hours | From AED 499",
-    desc:      "Begin your day with golden horizons and cool desert air. Our sunrise tours offer a magical, peaceful experience as the sahara glow with morning light.",
+    desc:      "Begin your day with golden horizons and cool desert air. Our sunrise tours offer a magical, peaceful experience as the sahara glows with morning light.",
     highlights: ["Early morning pick-up", "Golden hour photography", "Professional guide", "Tea & dates included"],
     tag:       "Morning Adventure",
     tagColor:  "text-amber-400 bg-amber-400/10 border-amber-400/20",
     delay:     0,
+    href: "/booking",
   },
   {
-    icon:      "fas fa-moon",
-    iconColor: "text-purple-400",
-    bg:        "from-purple-500/20 to-indigo-500/10",
+    image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80",
+    imageAlt: "Sunset desert tour Dubai dune buggy evening ride",
     title:     "Sunset Desert Tour",
     subtitle:  "3 Hours | From AED 699",
     desc:      "Chase the legendary Dubai sunset across the rolling sahara. Finish with a traditional Bedouin-style bonfire and refreshments under the stars.",
@@ -23,23 +22,23 @@ const experiences = [
     tag:       "Most Popular",
     tagColor:  "text-purple-400 bg-purple-400/10 border-purple-400/20",
     delay:     80,
+    href: "/booking",
   },
   {
-    icon:      "fas fa-crown",
-    iconColor: "text-yellow-400",
-    bg:        "from-yellow-500/20 to-gold-500/10",
+    image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=600&q=80",
+    imageAlt: "VIP full day luxury desert adventure Dubai",
     title:     "VIP Full Day Adventure",
     subtitle:  "8 Hours | From AED 1,999",
-    desc:      "The ultimate desert experience. A full day of unrestricted dune driving, gourmet desert lunch, swimming at an oasis, and personalised guide.",
+    desc:      "The ultimate desert experience. A full day of unrestricted dune driving, gourmet desert lunch, swimming at an oasis, and a personalised guide.",
     highlights: ["Full 8 hours driving", "Gourmet desert lunch", "Private guide", "Hotel transfers"],
     tag:       "Premium",
     tagColor:  "text-yellow-400 bg-yellow-400/10 border-yellow-400/20",
     delay:     160,
+    href: "/booking",
   },
   {
-    icon:      "fas fa-star",
-    iconColor: "text-pink-400",
-    bg:        "from-pink-500/20 to-rose-500/10",
+    image: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80",
+    imageAlt: "Desert celebration birthday anniversary private event Dubai",
     title:     "Desert Celebrations",
     subtitle:  "Custom | Enquire Now",
     desc:      "Birthdays, anniversaries, proposals, corporate events — we craft bespoke desert experiences that create memories lasting a lifetime.",
@@ -47,11 +46,11 @@ const experiences = [
     tag:       "Private Events",
     tagColor:  "text-pink-400 bg-pink-400/10 border-pink-400/20",
     delay:     240,
+    href: "https://wa.me/971505371693?text=Hi! I want to book a custom desert celebration",
   },
   {
-    icon:      "fas fa-bolt",
-    iconColor: "text-green-400",
-    bg:        "from-green-500/20 to-emerald-500/10",
+    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&q=80",
+    imageAlt: "Dune bashing 4x4 combo Dubai desert safari adventure",
     title:     "Dune Bashing Combo",
     subtitle:  "4 Hours | From AED 899",
     desc:      "The ultimate adrenaline package combining guided 4x4 dune bashing with self-drive buggy exploration for the thrill-seeker in you.",
@@ -59,11 +58,11 @@ const experiences = [
     tag:       "Adrenaline Rush",
     tagColor:  "text-green-400 bg-green-400/10 border-green-400/20",
     delay:     320,
+    href: "/booking",
   },
   {
-    icon:      "fas fa-moon",
-    iconColor: "text-blue-400",
-    bg:        "from-blue-500/20 to-cyan-500/10",
+    image: "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=600&q=80",
+    imageAlt: "Night desert experience stargazing Dubai LED buggy ride",
     title:     "Night Desert Experience",
     subtitle:  "3 Hours | From AED 799",
     desc:      "Navigate the mystical sahara under a canvas of stars. Our night experiences are equipped with powerful LED light bars for safe, exhilarating night driving.",
@@ -71,6 +70,7 @@ const experiences = [
     tag:       "After Dark",
     tagColor:  "text-blue-400 bg-blue-400/10 border-blue-400/20",
     delay:     400,
+    href: "/booking",
   },
 ];
 ---
@@ -107,20 +107,21 @@ const experiences = [
           data-aos="fade-up"
           data-aos-delay={exp.delay}
         >
-          <!-- Top Icon Area -->
-          <div class={`relative h-32 bg-gradient-to-br ${exp.bg} flex items-center justify-center`}>
-            <!-- Icon -->
-            <div class="w-16 h-16 rounded-2xl glass border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-400">
-              <i class={`${exp.icon} ${exp.iconColor} text-2xl`}></i>
-            </div>
+          <!-- Image Area -->
+          <div class="relative h-48 overflow-hidden">
+            <img
+              src={exp.image}
+              alt={exp.imageAlt}
+              class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#161616] via-black/20 to-transparent"></div>
             <!-- Tag -->
             <div class="absolute top-3 right-3">
-              <span class={`text-xs font-bold px-2.5 py-1 rounded-full border ${exp.tagColor}`}>
+              <span class={`text-xs font-bold px-2.5 py-1 rounded-full border backdrop-blur-sm ${exp.tagColor}`}>
                 {exp.tag}
               </span>
             </div>
-            <!-- Bottom gradient -->
-            <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#161616] to-transparent"></div>
           </div>
 
           <!-- Content -->
@@ -143,13 +144,12 @@ const experiences = [
 
             <!-- Book CTA -->
             <a
-              href={`https://wa.me/971505371693?text=Hi! I'm interested in the ${exp.title} experience`}
-              target="_blank"
-              rel="noopener"
+              href={exp.href}
               class="btn-outline w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm group/btn"
             >
-              <i class="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform"></i>
+              <i class="fas fa-calendar-check text-xs"></i>
               <span class="font-display tracking-wide">Book This Experience</span>
+              <i class="fas fa-arrow-right text-xs group-hover/btn:translate-x-1 transition-transform"></i>
             </a>
           </div>
         </div>
@@ -164,13 +164,11 @@ const experiences = [
           <p class="text-gray-400">We create fully customised desert adventures for any occasion, group size, or budget.</p>
         </div>
         <a
-          href="https://wa.me/971505371693?text=Hi! I want a custom desert adventure experience"
-          target="_blank"
-          rel="noopener"
+          href="/booking"
           class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl whitespace-nowrap shine flex-shrink-0"
         >
-          <i class="fas fa-magic"></i>
-          <span class="font-display">Create Custom Experience</span>
+          <i class="fas fa-calendar-check"></i>
+          <span class="font-display">Book Your Adventure</span>
         </a>
       </div>
     </div>

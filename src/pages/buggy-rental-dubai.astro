@@ -5,9 +5,9 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-  title="Buggy Rental Dubai | Best Off-Road Buggy Hire UAE | Buggy Sahara DXB"
-  description="Top-rated buggy rental Dubai. Hire Can-Am Maverick, Polaris RZR & CF Moto off-road buggies in the Dubai desert. Safety trained guides. From AED 150/30min. Book today."
-  keywords="buggy rental Dubai, buggy hire Dubai, off-road buggy Dubai, Can-Am rental Dubai, Polaris RZR hire, CF Moto rental UAE, quad buggy rental Dubai, desert buggy hire UAE"
+  title="Buggy Rental Dubai | Best Off-Road Buggy Hire UAE 2025 | Buggy Sahara DXB"
+  description="Top-rated buggy rental Dubai 2025. Hire Can-Am Maverick, Polaris RZR & CF Moto off-road buggies in the Dubai desert. Safety trained guides. From AED 150/30min. Book today."
+  keywords="buggy rental Dubai, buggy hire Dubai, off-road buggy Dubai, Can-Am rental Dubai, Polaris RZR hire, CF Moto rental UAE, quad buggy rental Dubai, desert buggy hire UAE, buggy rental near me Dubai, cheap buggy rental Dubai, buggy rental Dubai price, hire a buggy Dubai, renting a buggy in Dubai, desert vehicle rental Dubai, off-road hire Dubai, sand buggy rental UAE"
   url="https://buggysaharadxb.com/buggy-rental-dubai"
 >
   <Header />
@@ -36,9 +36,9 @@ import Footer from '../components/Footer.astro';
       </p>
 
       <div class="flex flex-wrap gap-4 mb-12">
-        <a href="/#fleet" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
-          <i class="fas fa-car"></i>
-          <span class="font-display">Browse Our Fleet</span>
+        <a href="/booking" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
+          <i class="fas fa-calendar-check"></i>
+          <span class="font-display">Book Your Buggy Now</span>
         </a>
         <a href="https://wa.me/971505371693?text=Hi! I want to rent a buggy in Dubai"
            target="_blank" rel="noopener"
@@ -93,10 +93,31 @@ import Footer from '../components/Footer.astro';
             ))}
           </div>
           <div class="mt-6 text-center">
-            <a href="/#pricing" class="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-xl shine text-base">
-              <i class="fas fa-credit-card"></i>
+            <a href="/booking" class="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-xl shine text-base">
+              <i class="fas fa-calendar-check"></i>
               <span class="font-display tracking-wide">Book Your Buggy Rental Now</span>
             </a>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-racing text-3xl text-white mb-6">Buggy Rental Dubai — Frequently Asked Questions</h2>
+          <div class="space-y-4">
+            {[
+              { q: "What is the cheapest buggy rental in Dubai?", a: "Our Kymco MXU 250 solo quad starts at AED 150 per 30 minutes — the most affordable buggy rental Dubai option. The CF Moto 1000CC 2-seater is AED 249/30min, also great value." },
+              { q: "Can I rent a buggy in Dubai without a licence?", a: "Yes! All our buggy rentals take place on private desert land, so no driving licence is needed. You must be 16 or older to drive." },
+              { q: "How long can I rent a buggy for?", a: "We offer flexible rental durations: 30 minutes (Explorer), 2 hours (Adventurer), 4 hours (Dune Master), and 8 hours (VIP Full Day). Custom group timings are also available." },
+              { q: "Is there parking at the Dubai buggy rental location?", a: "Yes, our Big Red basecamp has ample free parking for private vehicles. Most guests drive directly from Dubai or book a taxi via the app." },
+              { q: "Do you offer group discounts on buggy rental in Dubai?", a: "Yes — groups of 6 or more receive special rates. WhatsApp us on +971 50 537 1693 for a group quote within minutes." },
+            ].map(faq => (
+              <div class="p-5 border border-yellow-400/10 rounded-xl bg-black/20">
+                <h3 class="text-white font-semibold text-sm mb-2 flex items-start gap-2">
+                  <i class="fas fa-question-circle text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                  {faq.q}
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed pl-5">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </section>
 

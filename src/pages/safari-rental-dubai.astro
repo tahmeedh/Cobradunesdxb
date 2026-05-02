@@ -5,9 +5,9 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-  title="Safari Rental Dubai | Desert Safari 4x4 Buggy Tour UAE | Buggy Sahara DXB"
-  description="Premium safari rental Dubai. Book desert safari buggy tours, 4x4 off-road experiences & dune bashing across Dubai's Big Red. Private & group safari packages. AED 399+."
-  keywords="safari rental Dubai, desert safari Dubai, safari buggy Dubai, 4x4 safari UAE, dune bashing safari, desert tour Dubai, buggy safari UAE, adventure safari Dubai, Big Red safari"
+  title="Safari Rental Dubai | Desert Safari Buggy Tour UAE 2025 | Buggy Sahara DXB"
+  description="Premium safari rental Dubai 2025. Book desert safari buggy tours, 4x4 off-road experiences & dune bashing across Dubai's Big Red. Sunrise, sunset & night safari packages. AED 399+."
+  keywords="safari rental Dubai, desert safari Dubai, safari buggy Dubai, 4x4 safari UAE, dune bashing safari, desert tour Dubai, buggy safari UAE, adventure safari Dubai, Big Red safari, desert safari near me Dubai, morning safari Dubai, sunset safari Dubai, night safari Dubai, private desert safari Dubai, group desert safari UAE, desert safari booking Dubai, Al Lahbab safari, dune bashing Dubai"
   url="https://buggysaharadxb.com/safari-rental-dubai"
 >
   <Header />
@@ -36,15 +36,15 @@ import Footer from '../components/Footer.astro';
       </p>
 
       <div class="flex flex-wrap gap-4 mb-12">
-        <a href="/#experiences" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
-          <i class="fas fa-compass"></i>
-          <span class="font-display">View Safari Experiences</span>
+        <a href="/booking" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
+          <i class="fas fa-calendar-check"></i>
+          <span class="font-display">Book Safari Now</span>
         </a>
         <a href="https://wa.me/971505371693?text=Hi! I want to book a desert safari in Dubai"
            target="_blank" rel="noopener"
            class="btn-outline flex items-center gap-2 px-6 py-3 rounded-xl">
           <i class="fab fa-whatsapp text-green-400"></i>
-          <span class="font-display">Book Safari Now</span>
+          <span class="font-display">WhatsApp Us</span>
         </a>
       </div>
 
@@ -125,13 +125,34 @@ import Footer from '../components/Footer.astro';
           </p>
         </section>
 
+        <section>
+          <h2 class="font-racing text-3xl text-white mb-6">Dubai Desert Safari — FAQ</h2>
+          <div class="space-y-4">
+            {[
+              { q: "What is the best desert safari experience in Dubai?", a: "For thrill-seekers, our self-drive buggy safari at Big Red is unmatched — you control the vehicle, not a driver. Choose sunrise for golden hour photography or sunset for the classic Dubai desert colours." },
+              { q: "How much does a desert safari cost in Dubai?", a: "Our safari packages start at AED 399 (Explorer 30-min) up to AED 1,999 (VIP Full Day with guide, transfers and gourmet lunch). All prices include full safety gear." },
+              { q: "What is the difference between a safari and dune bashing?", a: "Dune bashing is passive — a driver bashes dunes while you hold on. Our safari puts YOU in the driver's seat of a high-performance buggy so you actively conquer every dune yourself." },
+              { q: "Is desert safari suitable for kids in Dubai?", a: "Yes — children can ride as passengers in any of our 2 or 4-seater buggies with a parent or guardian. Minimum driver age is 16." },
+              { q: "Is the morning or evening safari better in Dubai?", a: "Morning (6–10 AM) offers cool temperatures and soft golden light — perfect for photography. Sunset (4–7 PM) is the most dramatic for atmosphere. Night safari (8 PM+) is uniquely thrilling with LED light bars." },
+            ].map(faq => (
+              <div class="p-5 border border-yellow-400/10 rounded-xl bg-black/20">
+                <h3 class="text-white font-semibold text-sm mb-2 flex items-start gap-2">
+                  <i class="fas fa-question-circle text-yellow-400 mt-0.5 flex-shrink-0"></i>
+                  {faq.q}
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed pl-5">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <div class="glass border border-yellow-400/20 rounded-2xl p-8 text-center">
           <h2 class="font-display text-2xl text-white mb-2">Ready for Your Dubai Desert Safari?</h2>
           <p class="text-gray-400 text-sm mb-6">Slots fill fast — especially on weekends and during school holidays.</p>
           <div class="flex flex-wrap gap-4 justify-center">
-            <a href="/#pricing" class="btn-gold flex items-center gap-2 px-8 py-4 rounded-xl shine">
-              <i class="fas fa-credit-card"></i>
-              <span class="font-display tracking-wide">Book & Pay Online</span>
+            <a href="/booking" class="btn-gold flex items-center gap-2 px-8 py-4 rounded-xl shine">
+              <i class="fas fa-calendar-check"></i>
+              <span class="font-display tracking-wide">Book Your Safari Now</span>
             </a>
             <a href="https://wa.me/971505371693?text=Hi! I want to book a desert safari in Dubai"
                target="_blank" rel="noopener"
