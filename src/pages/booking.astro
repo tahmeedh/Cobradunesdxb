@@ -274,9 +274,10 @@ const addOns = [
           <div class="space-y-3" id="addon-list">
             {addOns.map(a => (
               <div
-                class="addon-card relative border border-yellow-400/15 rounded-2xl p-5 cursor-pointer hover:border-yellow-400/40 bg-black/30 hover:bg-yellow-400/3 transition-all duration-200 select-none"
+                class="addon-card relative border border-yellow-400/15 rounded-2xl p-5 cursor-pointer hover:border-yellow-400/40 bg-black/30 transition-all duration-200 select-none"
                 data-addon-id={a.id}
                 data-addon-price={a.price}
+                data-addon-title={a.title}
               >
                 <div class="flex items-center gap-4">
                   <div class="text-3xl flex-shrink-0 w-12 text-center">{a.emoji}</div>
@@ -692,22 +693,22 @@ const addOns = [
   document.querySelectorAll('.addon-card').forEach(card => {
     card.addEventListener('click', () => {
       const id    = card.dataset.addonId;
-      const price = parseInt(card.dataset.addonPrice);
-      const ao    = addOns.find(a => a.id === id);
+      const price = parseInt(card.dataset.addonPrice, 10);
+      const title = card.dataset.addonTitle || id;
       const check = card.querySelector('.addon-checkbox');
       const tag   = card.querySelector('.addon-added');
       const icon  = check?.querySelector('i');
 
       if (selectedAddOns[id]) {
         delete selectedAddOns[id];
-        card.classList.remove('border-yellow-400', 'bg-yellow-400/5');
+        card.classList.remove('border-yellow-400', 'bg-yellow-400/5', 'ring-1', 'ring-yellow-400/40');
         card.classList.add('border-yellow-400/15', 'bg-black/30');
         if (check) { check.classList.remove('bg-yellow-400', 'border-yellow-400'); check.classList.add('border-yellow-400/30'); }
         if (icon)  icon.classList.add('hidden');
         if (tag)   tag.classList.add('hidden');
       } else {
-        selectedAddOns[id] = { title: ao.title, price };
-        card.classList.add('border-yellow-400', 'bg-yellow-400/5');
+        selectedAddOns[id] = { title, price };
+        card.classList.add('border-yellow-400', 'bg-yellow-400/5', 'ring-1', 'ring-yellow-400/40');
         card.classList.remove('border-yellow-400/15', 'bg-black/30');
         if (check) { check.classList.add('bg-yellow-400', 'border-yellow-400'); check.classList.remove('border-yellow-400/30'); }
         if (icon)  icon.classList.remove('hidden');
