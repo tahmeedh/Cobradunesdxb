@@ -75,8 +75,8 @@ app.post('/api/create-checkout-session', async (req, res) => {
         notes: notes || '',
         packageId,
       },
-      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}&pkg=${encodeURIComponent(pkg.name)}`,
-      cancel_url: `${origin}/#pricing`,
+      success_url: `${origin}/booking/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/booking`,
     });
 
     res.json({ url: session.url, sessionId: session.id });
@@ -101,21 +101,44 @@ app.post('/api/webhook', (req, res) => {
   switch (event.type) {
     case 'checkout.session.completed': {
       const session = event.data.object;
-      console.log('Payment completed:', {
+      const meta = session.metadata || {};
+      const amountAED = session.amount_total ? (session.amount_total / 100).toFixed(0) : '?';
+      console.log('✅ Payment completed:', {
         sessionId: session.id,
         customerEmail: session.customer_email,
-        amount: session.amount_total,
-        currency: session.currency,
-        customerName: session.metadata?.customerName,
-        date: session.metadata?.date,
-        groupSize: session.metadata?.groupSize,
-        packageId: session.metadata?.packageId,
+        amount: `AED ${amountAED}`,
+        customerName: meta.customerName,
+        date: meta.date,
+        groupSize: meta.groupSize,
+        packageId: meta.packageId,
       });
+
+      // WhatsApp notification via CallMeBot (free service)
+      const apiKey = process.env.CALLMEBOT_API_KEY;
+      const phone  = process.env.OWNER_WHATSAPP || '971505371693';
+      if (apiKey) {
+        const msg = encodeURIComponent(
+          `🏜️ NEW BOOKING - Buggy Sahara DXB\n` +
+          `👤 ${meta.customerName || 'Guest'}\n` +
+          `📧 ${session.customer_email || '—'}\n` +
+          `🏎️ ${meta.packageId || '—'}\n` +
+          `📅 ${meta.date || '—'}\n` +
+          `👥 Group: ${meta.groupSize || '—'}\n` +
+          `💰 AED ${amountAED}\n` +
+          `🔑 Ref: ${session.id.slice(0, 20)}`
+        );
+        fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${msg}&apikey=${apiKey}`)
+          .then(() => console.log('📱 WhatsApp notification sent'))
+          .catch(e => console.error('WhatsApp notify failed:', e.message));
+      } else {
+        console.log('ℹ️  CALLMEBOT_API_KEY not set — WhatsApp notification skipped');
+        console.log(`📋 Booking summary: ${meta.customerName} | ${meta.packageId} | ${meta.date} | AED ${amountAED}`);
+      }
       break;
     }
     case 'payment_intent.payment_failed': {
       const intent = event.data.object;
-      console.log('Payment failed:', intent.id, intent.last_payment_error?.message);
+      console.log('❌ Payment failed:', intent.id, intent.last_payment_error?.message);
       break;
     }
     default:
@@ -123,6 +146,29 @@ app.post('/api/webhook', (req, res) => {
   }
 
   res.json({ received: true });
+});
+
+app.get('/api/session', async (req, res) => {
+  const { id } = req.query;
+  if (!id) return res.status(400).json({ error: 'session id required' });
+  try {
+    const session = await stripe.checkout.sessions.retrieve(id);
+    const meta = session.metadata || {};
+    res.json({
+      customerName: meta.customerName || '',
+      packageName:  meta.packageId    || '',
+      date:         meta.date         || '',
+      groupSize:    meta.groupSize    || '',
+      notes:        meta.notes        || '',
+      amountTotal:  session.amount_total,
+      currency:     session.currency,
+      email:        session.customer_email || '',
+      status:       session.payment_status,
+    });
+  } catch (err) {
+    console.error('Session fetch error:', err.message);
+    res.status(500).json({ error: 'Could not retrieve session' });
+  }
 });
 
 app.get('/api/lead-magnet', (req, res) => {

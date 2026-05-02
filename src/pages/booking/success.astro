@@ -1,0 +1,212 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Booking Confirmed | Buggy Sahara DXB"
+  description="Your dune buggy booking is confirmed. Get ready for the ultimate desert adventure in Dubai."
+  keywords="dune buggy booking confirmed Dubai"
+  url="https://buggysaharadxb.com/booking/success"
+>
+  <Header />
+  <main class="bg-[#0D0D0D] min-h-screen pt-24 pb-20 px-4 flex items-center justify-center">
+    <div class="max-w-2xl w-full mx-auto text-center">
+
+      <div id="loading-state" class="py-20">
+        <div class="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+        <p class="text-gray-400 font-body">Loading your confirmation...</p>
+      </div>
+
+      <div id="success-state" class="hidden">
+        <div class="mb-8 relative inline-block">
+          <div class="w-28 h-28 rounded-full bg-yellow-400/15 border-2 border-yellow-400 flex items-center justify-center mx-auto animate-pulse-slow">
+            <i class="fas fa-check text-yellow-400 text-5xl"></i>
+          </div>
+          <div class="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
+            <i class="fas fa-star text-black text-xs"></i>
+          </div>
+        </div>
+
+        <p class="text-yellow-400 font-display tracking-[0.3em] text-sm mb-3">BOOKING CONFIRMED</p>
+        <h1 class="font-display text-4xl md:text-5xl text-white mb-4">
+          YOU'RE <span class="text-yellow-400">ALL SET!</span>
+        </h1>
+        <p class="text-gray-300 font-body text-lg mb-10 max-w-md mx-auto">
+          Your desert adventure is booked. We'll send a confirmation to your email shortly.
+        </p>
+
+        <div class="glass border border-yellow-400/20 rounded-2xl p-8 mb-8 text-left space-y-5">
+          <h2 class="font-display text-xl text-yellow-400 mb-6 text-center tracking-wide">BOOKING DETAILS</h2>
+
+          <div class="grid grid-cols-1 gap-4">
+            <div class="flex items-start gap-4 py-3 border-b border-white/10">
+              <div class="w-9 h-9 rounded-lg bg-yellow-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-user text-yellow-400 text-sm"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs font-body uppercase tracking-wide mb-0.5">Guest Name</div>
+                <div id="detail-name" class="text-white font-semibold font-body">—</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 py-3 border-b border-white/10">
+              <div class="w-9 h-9 rounded-lg bg-yellow-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-car-side text-yellow-400 text-sm"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs font-body uppercase tracking-wide mb-0.5">Package</div>
+                <div id="detail-package" class="text-white font-semibold font-body">—</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 py-3 border-b border-white/10">
+              <div class="w-9 h-9 rounded-lg bg-yellow-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-calendar text-yellow-400 text-sm"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs font-body uppercase tracking-wide mb-0.5">Date & Time</div>
+                <div id="detail-date" class="text-white font-semibold font-body">—</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 py-3 border-b border-white/10">
+              <div class="w-9 h-9 rounded-lg bg-yellow-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-users text-yellow-400 text-sm"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs font-body uppercase tracking-wide mb-0.5">Group Size</div>
+                <div id="detail-group" class="text-white font-semibold font-body">—</div>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 py-3">
+              <div class="w-9 h-9 rounded-lg bg-green-400/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-receipt text-green-400 text-sm"></i>
+              </div>
+              <div>
+                <div class="text-gray-400 text-xs font-body uppercase tracking-wide mb-0.5">Amount Paid</div>
+                <div id="detail-amount" class="text-green-400 font-bold font-body text-lg">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass border border-yellow-400/10 rounded-2xl p-6 mb-8">
+          <h3 class="font-display text-lg text-white mb-4">WHAT HAPPENS NEXT</h3>
+          <div class="space-y-3 text-left">
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 rounded-full bg-yellow-400 text-black text-xs font-bold flex items-center justify-center flex-shrink-0">1</div>
+              <p class="text-gray-300 font-body text-sm">You'll receive a confirmation email with your booking reference</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 rounded-full bg-yellow-400 text-black text-xs font-bold flex items-center justify-center flex-shrink-0">2</div>
+              <p class="text-gray-300 font-body text-sm">Our team will WhatsApp you 24 hours before your ride with meetup details</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 rounded-full bg-yellow-400 text-black text-xs font-bold flex items-center justify-center flex-shrink-0">3</div>
+              <p class="text-gray-300 font-body text-sm">Arrive 15 minutes early for safety briefing and gear fitting</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            id="whatsapp-cta"
+            href="https://wa.me/971505371693"
+            target="_blank"
+            rel="noopener"
+            class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bc5a] transition-colors text-white font-display px-8 py-4 rounded-xl text-lg"
+          >
+            <i class="fab fa-whatsapp text-xl"></i>
+            Message Us on WhatsApp
+          </a>
+          <a
+            href="/"
+            class="flex items-center justify-center gap-2 btn-outline px-8 py-4 rounded-xl font-display text-lg"
+          >
+            <i class="fas fa-home"></i>
+            Back to Home
+          </a>
+        </div>
+
+        <p id="booking-ref" class="text-gray-600 font-body text-xs mt-8"></p>
+      </div>
+
+      <div id="error-state" class="hidden py-16">
+        <div class="w-20 h-20 rounded-full bg-red-400/10 border border-red-400/30 flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-exclamation-triangle text-red-400 text-3xl"></i>
+        </div>
+        <h2 class="font-display text-2xl text-white mb-4">Something Went Wrong</h2>
+        <p class="text-gray-400 font-body mb-8">We couldn't load your booking details, but your payment was processed. Please contact us on WhatsApp with your email address and we'll confirm your booking.</p>
+        <a href="https://wa.me/971505371693?text=Hi, I just paid for a dune buggy booking but the confirmation page didn't load. Please help confirm my booking."
+           target="_blank" class="btn-gold px-8 py-4 rounded-xl font-display inline-flex items-center gap-2">
+          <i class="fab fa-whatsapp"></i>
+          Contact Support
+        </a>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .animate-pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+</style>
+
+<script>
+(async () => {
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get('session_id');
+
+  const loading = document.getElementById('loading-state');
+  const success = document.getElementById('success-state');
+  const error = document.getElementById('error-state');
+
+  if (!sessionId) {
+    loading.classList.add('hidden');
+    error.classList.remove('hidden');
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/session?id=${sessionId}`);
+    if (!res.ok) throw new Error('Failed to load session');
+    const data = await res.json();
+
+    document.getElementById('detail-name').textContent    = data.customerName  || 'Guest';
+    document.getElementById('detail-package').textContent = data.packageName   || '—';
+    document.getElementById('detail-date').textContent    = data.date          || 'To be confirmed';
+    document.getElementById('detail-group').textContent   = data.groupSize ? `${data.groupSize} people` : '—';
+    document.getElementById('detail-amount').textContent  =
+      data.amountTotal ? `AED ${(data.amountTotal / 100).toFixed(0)}` : '—';
+
+    document.getElementById('booking-ref').textContent = `Booking ref: ${sessionId.slice(0, 24)}…`;
+
+    const waMsg = encodeURIComponent(
+      `Hi! I just booked a dune buggy adventure.\n\n` +
+      `Name: ${data.customerName || 'Guest'}\n` +
+      `Package: ${data.packageName || '—'}\n` +
+      `Date: ${data.date || 'TBD'}\n` +
+      `Ref: ${sessionId.slice(0, 20)}`
+    );
+    document.getElementById('whatsapp-cta').href = `https://wa.me/971505371693?text=${waMsg}`;
+
+    loading.classList.add('hidden');
+    success.classList.remove('hidden');
+
+  } catch (err) {
+    console.error(err);
+    loading.classList.add('hidden');
+    error.classList.remove('hidden');
+  }
+})();
+</script>
