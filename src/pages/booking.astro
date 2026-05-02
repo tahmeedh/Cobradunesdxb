@@ -4,135 +4,44 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const buggies = [
-  {
-    id: "kymco-mxu-250",
-    name: "Kymco MXU 250",
-    seats: "1 Seater",
-    engine: "250cc",
-    power: "18 HP",
-    speed: "90 km/h",
-    price: 150,
-    tag: "Solo Ride",
-    tagColor: "bg-yellow-400 text-black",
-    description: "A lightweight quad for solo desert explorers.",
-    image: "https://cobradunesdxb.com/wp-content/uploads/2025/12/kymco-quad-ride-1024x1024.webp",
-    color: "#FBBF24",
-  },
-  {
-    id: "can-am-maverick-r-x-rs-2025",
-    name: "Can-Am Maverick R X RS 2025",
-    seats: "4 Seater",
-    engine: "900cc Turbo",
-    power: "120 HP",
-    speed: "120 km/h",
-    price: 800,
-    tag: "Premium",
-    tagColor: "bg-green-500 text-white",
-    description: "Dubai's most powerful buggy — the flagship experience.",
-    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2025-1-1024x960.webp",
-    color: "#4ADE80",
-  },
-  {
-    id: "can-am-maverick-3x-turbo-rr-2-seater",
-    name: "Can-Am Maverick 3X Turbo RR (2-Seat)",
-    seats: "2 Seater",
-    engine: "900cc Turbo",
-    power: "120 HP",
-    speed: "120 km/h",
-    price: 550,
-    tag: "Couple Adventure",
-    tagColor: "bg-blue-500 text-white",
-    description: "Sporty 2-seater delivering precision handling and thrills.",
-    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-MA-Maverick-3X-turbo-RR-2-seater--1008x1024.webp",
-    color: "#60A5FA",
-  },
-  {
-    id: "can-am-maverick-3x-turbo-rr-4-seater",
-    name: "Can-Am Maverick 3X Turbo RR (4-Seat)",
-    seats: "4 Seater",
-    engine: "900cc Turbo",
-    power: "120 HP",
-    speed: "120 km/h",
-    price: 600,
-    tag: "Group Ride",
-    tagColor: "bg-purple-500 text-white",
-    description: "Powerful 4-seater for friends wanting shared thrills.",
-    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-Maverick-3X-turbo-RR-4-seater--1008x1024.webp",
-    color: "#A855F7",
-  },
-  {
-    id: "polaris-rzr-2-seater-1000xp",
-    name: "Polaris RZR 1000XP (2-Seat)",
-    seats: "2 Seater",
-    engine: "1000cc",
-    power: "110 HP",
-    speed: "110 km/h",
-    price: 400,
-    tag: "Classic",
-    tagColor: "bg-cyan-500 text-white",
-    description: "Trusted Polaris with stable handling for desert riders.",
-    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/Polaris-RZR-2-seater-1000XP--994x1024.webp",
-    color: "#22D3EE",
-  },
-  {
-    id: "polaris-rzr-4-seater-1000xp",
-    name: "Polaris RZR 1000XP (4-Seat)",
-    seats: "4 Seater",
-    engine: "1000cc",
-    power: "110 HP",
-    speed: "110 km/h",
-    price: 450,
-    tag: "Family Quad",
-    tagColor: "bg-blue-800 text-white",
-    description: "Roomy Polaris for comfortable group dune rides.",
-    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/Polaris-RZR-1000XP-4-seater-1007x1024.webp",
-    color: "#1D4ED8",
-  },
-  {
-    id: "cf-moto-1000cc-4x4",
-    name: "CF Moto 1000CC 4x4",
-    seats: "2 Seater",
-    engine: "1000cc",
-    power: "112 HP",
-    speed: "115 km/h",
-    price: 249,
-    tag: "Best Value",
-    tagColor: "bg-red-500 text-white",
-    description: "Rugged 2-seater with serious torque — power at great value.",
-    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CF-MOTO-1000CC-4X4--1008x1024.webp",
-    color: "#EF4444",
-  },
-  {
-    id: "can-am-maverick-r-x-rs-2024",
-    name: "Can-Am Maverick R X RS 2024",
-    seats: "4 Seater",
-    engine: "900cc Turbo",
-    power: "120 HP",
-    speed: "120 km/h",
-    price: 700,
-    tag: "Retro Edition",
-    tagColor: "bg-amber-500 text-black",
-    description: "Classic Can-Am power — thrilling performance for groups.",
-    image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2024-1015x1024.webp",
-    color: "#F59E0B",
-  },
+  { id: "kymco-mxu-250", name: "Kymco MXU 250", seats: "1 Seater", engine: "250cc", power: "18 HP", price: 150, tag: "Solo Ride", tagColor: "bg-yellow-400 text-black", description: "A lightweight quad for solo desert explorers.", image: "https://cobradunesdxb.com/wp-content/uploads/2025/12/kymco-quad-ride-1024x1024.webp", color: "#FBBF24" },
+  { id: "can-am-maverick-r-x-rs-2025", name: "Can-Am Maverick R X RS 2025", seats: "4 Seater", engine: "900cc Turbo", power: "120 HP", price: 800, tag: "Premium", tagColor: "bg-green-500 text-white", description: "Dubai's most powerful buggy — the flagship experience.", image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2025-1-1024x960.webp", color: "#4ADE80" },
+  { id: "can-am-maverick-3x-turbo-rr-2-seater", name: "Can-Am Maverick 3X Turbo RR (2-Seat)", seats: "2 Seater", engine: "900cc Turbo", power: "120 HP", price: 550, tag: "Couple Adventure", tagColor: "bg-blue-500 text-white", description: "Sporty 2-seater delivering precision handling and thrills.", image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-MA-Maverick-3X-turbo-RR-2-seater--1008x1024.webp", color: "#60A5FA" },
+  { id: "can-am-maverick-3x-turbo-rr-4-seater", name: "Can-Am Maverick 3X Turbo RR (4-Seat)", seats: "4 Seater", engine: "900cc Turbo", power: "120 HP", price: 600, tag: "Group Ride", tagColor: "bg-purple-500 text-white", description: "Powerful 4-seater for friends wanting shared thrills.", image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-Maverick-3X-turbo-RR-4-seater--1008x1024.webp", color: "#A855F7" },
+  { id: "polaris-rzr-2-seater-1000xp", name: "Polaris RZR 1000XP (2-Seat)", seats: "2 Seater", engine: "1000cc", power: "110 HP", price: 400, tag: "Classic", tagColor: "bg-cyan-500 text-white", description: "Trusted Polaris with stable handling for desert riders.", image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/Polaris-RZR-2-seater-1000XP--994x1024.webp", color: "#22D3EE" },
+  { id: "polaris-rzr-4-seater-1000xp", name: "Polaris RZR 1000XP (4-Seat)", seats: "4 Seater", engine: "1000cc", power: "110 HP", price: 450, tag: "Family Quad", tagColor: "bg-blue-800 text-white", description: "Roomy Polaris for comfortable group dune rides.", image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/Polaris-RZR-1000XP-4-seater-1007x1024.webp", color: "#1D4ED8" },
+  { id: "cf-moto-1000cc-4x4", name: "CF Moto 1000CC 4x4", seats: "2 Seater", engine: "1000cc", power: "112 HP", price: 249, tag: "Best Value", tagColor: "bg-red-500 text-white", description: "Rugged 2-seater with serious torque — power at great value.", image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CF-MOTO-1000CC-4X4--1008x1024.webp", color: "#EF4444" },
+  { id: "can-am-maverick-r-x-rs-2024", name: "Can-Am Maverick R X RS 2024", seats: "4 Seater", engine: "900cc Turbo", power: "120 HP", price: 700, tag: "Retro Edition", tagColor: "bg-amber-500 text-black", description: "Classic Can-Am power — thrilling performance for groups.", image: "https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2024-1015x1024.webp", color: "#F59E0B" },
 ];
 
-const timeslots = [
-  { id: "0600", label: "6:00 AM", sub: "Sunrise Safari", available: true },
-  { id: "0800", label: "8:00 AM", sub: "Morning Dunes", available: true },
-  { id: "1000", label: "10:00 AM", sub: "Peak Adventure", available: false },
-  { id: "1200", label: "12:00 PM", sub: "Midday Blast", available: true },
-  { id: "1400", label: "2:00 PM", sub: "Afternoon Ride", available: false },
-  { id: "1600", label: "4:00 PM", sub: "Golden Hour", available: true },
-  { id: "1800", label: "6:00 PM", sub: "Sunset Tour", available: true },
-  { id: "2000", label: "8:00 PM", sub: "Night Desert", available: true },
+const durations = [
+  { mins: 30,  label: "30 min",  sub: "Taste the Dunes",    multiplier: 1.0, badge: "" },
+  { mins: 60,  label: "1 hour",  sub: "Desert Explorer",    multiplier: 1.7, badge: "" },
+  { mins: 90,  label: "1.5 hrs", sub: "Dune Buster",        multiplier: 2.3, badge: "" },
+  { mins: 120, label: "2 hours", sub: "Safari Rider",       multiplier: 3.0, badge: "🐪 Camel Unlocks!" },
+  { mins: 180, label: "3 hours", sub: "Desert Warrior",     multiplier: 4.0, badge: "Most Popular" },
+  { mins: 240, label: "4 hours", sub: "Full Expedition",    multiplier: 5.0, badge: "Best Value" },
+];
+
+const startTimes = [
+  "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM",
+  "10:00 AM", "11:00 AM", "2:00 PM", "4:00 PM",
+  "6:00 PM", "8:00 PM",
+];
+
+const addOns = [
+  { id: "drone",   emoji: "🚁", title: "Drone Aerial Package",       desc: "Full aerial video of your ride, professionally edited & delivered in 48hrs", price: 350 },
+  { id: "photo",   emoji: "📸", title: "Desert Photo Session",        desc: "20+ professionally edited action shots in the dunes, delivered within 24hrs",  price: 250 },
+  { id: "sunset",  emoji: "🌅", title: "Sunset VIP Experience",       desc: "Champagne, Arabian dates & private golden hour viewpoint after your ride",     price: 200 },
+  { id: "bedouin", emoji: "🏕️", title: "Bedouin Camp After-Ride",    desc: "Traditional Arabic tea, shisha & freshly cooked food in a desert camp",       price: 180 },
+  { id: "film",    emoji: "🎬", title: "Full Adventure Film",         desc: "GoPro on-board + drone footage combined into a cinematic 60-second reel",     price: 500 },
+  { id: "gear",    emoji: "🧣", title: "Safari Head Gear Set",        desc: "Premium branded keffiyeh, performance goggles & leather riding gloves",       price: 120 },
 ];
 ---
 
 <Layout
   title="Book Your Dune Buggy Dubai | Buggy Sahara DXB"
-  description="Book your dune buggy experience in Dubai. Choose your buggy, pick a timeslot and pay securely online. Instant confirmation."
+  description="Book your dune buggy experience in Dubai. Choose your buggy, pick a date and duration, add extras and pay securely online. Instant confirmation."
   keywords="book dune buggy Dubai, dune buggy booking, desert buggy reservation, buggy safari booking Dubai"
   url="https://buggysaharadxb.com/booking"
 >
@@ -146,21 +55,14 @@ const timeslots = [
         <div class="flex items-center gap-2 md:gap-4">
           {[
             { num: 1, label: "Choose Buggy" },
-            { num: 2, label: "Pick Timeslot" },
-            { num: 3, label: "Your Offer" },
+            { num: 2, label: "Date & Duration" },
+            { num: 3, label: "Add-Ons" },
             { num: 4, label: "Pay & Confirm" },
           ].map((s, i) => (
             <div class="flex items-center gap-2 md:gap-4 flex-1">
               <div class="flex items-center gap-1.5 md:gap-2 flex-shrink-0">
-                <div
-                  id={`step-circle-${s.num}`}
-                  class={`w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${s.num === 1 ? 'bg-yellow-400 text-black' : 'bg-black/40 border border-yellow-400/20 text-gray-500'}`}
-                >
-                  {s.num}
-                </div>
-                <span id={`step-label-${s.num}`} class={`font-display text-xs md:text-sm hidden sm:block transition-colors duration-300 ${s.num === 1 ? 'text-yellow-400' : 'text-gray-600'}`}>
-                  {s.label}
-                </span>
+                <div id={`step-circle-${s.num}`} class={`w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 ${s.num === 1 ? 'bg-yellow-400 text-black' : 'bg-black/40 border border-yellow-400/20 text-gray-500'}`}>{s.num}</div>
+                <span id={`step-label-${s.num}`} class={`font-display text-xs md:text-sm hidden sm:block transition-colors duration-300 ${s.num === 1 ? 'text-yellow-400' : 'text-gray-600'}`}>{s.label}</span>
               </div>
               {i < 3 && (
                 <div class="flex-1 h-0.5 bg-yellow-400/10 rounded-full overflow-hidden">
@@ -175,51 +77,27 @@ const timeslots = [
 
     <div class="max-w-5xl mx-auto px-4 py-8">
 
-      <!-- ══════════════════════════════════════════════
-           STEP 1 — Choose Your Buggy
-      ══════════════════════════════════════════════ -->
+      <!-- ══ STEP 1 — Choose Buggy ══ -->
       <div id="step-1" class="step-section">
         <div class="text-center mb-10">
           <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Step 1 of 4</span>
           <h1 class="font-racing text-4xl md:text-5xl text-white mt-2">CHOOSE YOUR <span class="text-gradient-gold">MACHINE</span></h1>
           <p class="text-gray-400 mt-3 text-lg">Select the buggy that matches your group size and thrill level</p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5" id="buggy-grid">
           {buggies.map(buggy => (
-            <div
-              class="buggy-card relative border border-yellow-400/15 rounded-2xl overflow-hidden bg-[#161616] cursor-pointer hover:border-yellow-400/50 transition-all duration-300 group"
-              data-buggy-id={buggy.id}
-              data-buggy-name={buggy.name}
-              data-buggy-price={buggy.price}
-              data-buggy-seats={buggy.seats}
-              data-buggy-color={buggy.color}
-            >
-              <!-- Selected check overlay -->
+            <div class="buggy-card relative border border-yellow-400/15 rounded-2xl overflow-hidden bg-[#161616] cursor-pointer hover:border-yellow-400/50 transition-all duration-300 group" data-buggy-id={buggy.id} data-buggy-name={buggy.name} data-buggy-price={buggy.price} data-buggy-color={buggy.color}>
               <div class="selected-overlay absolute inset-0 z-20 hidden">
-                <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center shadow-lg shadow-yellow-400/40">
-                  <i class="fas fa-check text-black text-sm"></i>
-                </div>
+                <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-yellow-400 flex items-center justify-center shadow-lg shadow-yellow-400/40"><i class="fas fa-check text-black text-sm"></i></div>
                 <div class="absolute inset-0 border-2 border-yellow-400 rounded-2xl pointer-events-none"></div>
               </div>
-
-              <!-- Tag -->
               <div class="absolute top-3 left-3 z-10">
                 <span class={`${buggy.tagColor} text-xs font-bold px-2.5 py-1 rounded-full shadow-md`}>{buggy.tag}</span>
               </div>
-
-              <!-- Image -->
               <div class="relative h-44 bg-black/40 overflow-hidden">
-                <img
-                  src={buggy.image}
-                  alt={`${buggy.name} dune buggy Dubai`}
-                  class="w-full h-full object-cover opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500"
-                  loading="lazy"
-                />
+                <img src={buggy.image} alt={`${buggy.name} dune buggy Dubai`} class="w-full h-full object-cover opacity-75 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500" loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-[#161616] via-transparent to-transparent"></div>
               </div>
-
-              <!-- Content -->
               <div class="p-5">
                 <h3 class="font-display text-white text-base leading-tight mb-1">{buggy.name}</h3>
                 <div class="flex items-center gap-3 mb-3 text-xs text-gray-500">
@@ -233,9 +111,7 @@ const timeslots = [
                     <span class="font-racing text-2xl text-yellow-400">AED {buggy.price}</span>
                     <span class="text-gray-600 text-xs ml-1">/ 30 min</span>
                   </div>
-                  <button class="select-buggy-btn btn-gold px-4 py-2 rounded-xl text-xs font-display shine">
-                    Select
-                  </button>
+                  <button class="select-buggy-btn btn-gold px-4 py-2 rounded-xl text-xs font-display shine">Select</button>
                 </div>
               </div>
             </div>
@@ -243,184 +119,214 @@ const timeslots = [
         </div>
       </div>
 
-      <!-- ══════════════════════════════════════════════
-           STEP 2 — Pick Timeslot
-      ══════════════════════════════════════════════ -->
+      <!-- ══ STEP 2 — Date & Duration ══ -->
       <div id="step-2" class="step-section hidden">
         <div class="text-center mb-10">
           <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Step 2 of 4</span>
-          <h2 class="font-racing text-4xl md:text-5xl text-white mt-2">PICK YOUR <span class="text-gradient-gold">TIMESLOT</span></h2>
-          <p class="text-gray-400 mt-3 text-lg">Choose your date and preferred adventure time</p>
+          <h2 class="font-racing text-4xl md:text-5xl text-white mt-2">DATE & <span class="text-gradient-gold">DURATION</span></h2>
+          <p class="text-gray-400 mt-3 text-lg">Pick your date, how long you'd like to ride, and your start time</p>
         </div>
 
         <!-- Selected buggy summary -->
         <div id="step2-buggy-summary" class="glass border border-yellow-400/20 rounded-2xl p-4 mb-8 flex items-center gap-4">
-          <img id="step2-buggy-img" src="" alt="" class="w-16 h-16 rounded-xl object-cover" />
+          <img id="step2-buggy-img" src="" alt="" class="w-14 h-14 rounded-xl object-cover flex-shrink-0" />
           <div class="flex-grow">
-            <div id="step2-buggy-name" class="font-display text-white text-base"></div>
-            <div id="step2-buggy-price" class="text-yellow-400 text-sm font-bold mt-0.5"></div>
+            <div id="step2-buggy-name" class="font-display text-white text-sm"></div>
+            <div id="step2-buggy-price" class="text-yellow-400 text-xs font-bold mt-0.5"></div>
           </div>
-          <button onclick="goToStep(1)" class="text-gray-500 hover:text-yellow-400 text-xs underline transition-colors">Change</button>
+          <button onclick="goToStep(1)" class="text-gray-500 hover:text-yellow-400 text-xs underline transition-colors flex-shrink-0">Change</button>
         </div>
 
-        <!-- Date picker -->
-        <div class="mb-8">
-          <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-3">Select Date</label>
-          <input
-            type="date"
-            id="booking-date"
-            class="w-full max-w-xs bg-black/40 border border-yellow-400/20 rounded-xl px-5 py-3.5 text-white text-base focus:outline-none focus:border-yellow-400/60 transition-colors"
-          />
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+          <!-- Calendar -->
+          <div>
+            <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-4"><i class="fas fa-calendar mr-2 text-yellow-400/70"></i>Select Date</label>
+            <div class="bg-black/40 border border-yellow-400/15 rounded-2xl p-5">
+              <div class="flex items-center justify-between mb-5">
+                <button id="cal-prev" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-yellow-400/20 flex items-center justify-center text-gray-400 hover:text-yellow-400 transition-colors text-lg font-bold">‹</button>
+                <span id="cal-title" class="font-display text-white text-base"></span>
+                <button id="cal-next" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-yellow-400/20 flex items-center justify-center text-gray-400 hover:text-yellow-400 transition-colors text-lg font-bold">›</button>
+              </div>
+              <div class="grid grid-cols-7 mb-3 gap-1">
+                {['Mo','Tu','We','Th','Fr','Sa','Su'].map(d => (
+                  <div class="text-center text-gray-600 text-xs font-semibold py-1">{d}</div>
+                ))}
+              </div>
+              <div id="cal-grid" class="grid grid-cols-7 gap-1"></div>
+            </div>
+            <div id="selected-date-display" class="mt-3 text-center text-yellow-400 text-sm font-display hidden">
+              <i class="fas fa-check-circle mr-2"></i><span id="selected-date-text"></span>
+            </div>
+          </div>
+
+          <!-- Duration -->
+          <div>
+            <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-4"><i class="fas fa-clock mr-2 text-yellow-400/70"></i>How Long Would You Like to Ride?</label>
+            <div class="grid grid-cols-2 gap-3" id="duration-grid">
+              {durations.map(dur => (
+                <button
+                  class="duration-btn relative border border-yellow-400/15 rounded-xl p-4 text-left hover:border-yellow-400/50 transition-all duration-200 bg-black/30 hover:bg-yellow-400/5"
+                  data-mins={dur.mins}
+                  data-mult={dur.multiplier}
+                >
+                  {dur.badge && (
+                    <div class={`absolute top-2 right-2 text-[9px] font-bold px-1.5 py-0.5 rounded-full ${dur.badge === 'Most Popular' ? 'bg-orange-500 text-white' : dur.badge === 'Best Value' ? 'bg-green-500 text-white' : 'bg-yellow-400/20 text-yellow-400'}`}>
+                      {dur.badge}
+                    </div>
+                  )}
+                  <div class="font-racing text-xl text-white mb-0.5">{dur.label}</div>
+                  <div class="text-gray-500 text-xs mb-2">{dur.sub}</div>
+                  <div class="duration-price font-bold text-yellow-400 text-base">—</div>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <!-- Timeslots -->
-        <div class="mb-10">
-          <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-4">Available Times</label>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {timeslots.map(slot => (
-              <button
-                class={`timeslot-btn relative rounded-xl p-4 text-center border transition-all duration-200 ${slot.available ? 'border-yellow-400/20 bg-black/30 hover:border-yellow-400/50 cursor-pointer' : 'border-gray-800 bg-black/10 cursor-not-allowed opacity-40'}`}
-                data-slot-id={slot.id}
-                data-slot-label={slot.label}
-                disabled={!slot.available}
-              >
-                {!slot.available && (
-                  <div class="absolute top-2 right-2 text-[9px] text-red-400/70 font-bold uppercase tracking-wide">Taken</div>
-                )}
-                <div class="font-racing text-xl text-white">{slot.label}</div>
-                <div class="text-yellow-400/70 text-xs mt-1">{slot.sub}</div>
+        <!-- Start Time (shown after duration selected) -->
+        <div id="start-time-section" class="hidden mt-10">
+          <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-4"><i class="fas fa-sun mr-2 text-yellow-400/70"></i>Pick Your Start Time</label>
+          <div class="grid grid-cols-3 md:grid-cols-5 gap-3" id="start-time-grid">
+            {startTimes.map(t => (
+              <button class="start-time-btn border border-yellow-400/15 rounded-xl py-3 text-center font-display text-white hover:border-yellow-400/50 hover:bg-yellow-400/5 transition-all" data-time={t}>
+                {t}
               </button>
             ))}
           </div>
         </div>
 
-        <div class="flex gap-4">
-          <button onclick="goToStep(1)" class="btn-outline px-6 py-3 rounded-xl font-display text-sm">
-            <i class="fas fa-arrow-left mr-2"></i>Back
-          </button>
-          <button id="step2-next" onclick="goToStep(3)" class="btn-gold px-8 py-3 rounded-xl font-display text-base shine flex-grow" disabled>
-            Continue to Your Offer <i class="fas fa-arrow-right ml-2"></i>
+        <div class="flex gap-4 mt-10">
+          <button onclick="goToStep(1)" class="btn-outline px-6 py-3 rounded-xl font-display text-sm"><i class="fas fa-arrow-left mr-2"></i>Back</button>
+          <button id="step2-next" class="btn-gold px-8 py-3 rounded-xl font-display text-base shine flex-grow opacity-50 cursor-not-allowed" disabled>
+            Continue to Add-Ons <i class="fas fa-arrow-right ml-2"></i>
           </button>
         </div>
       </div>
 
-      <!-- ══════════════════════════════════════════════
-           STEP 3 — Hormozi Offer Stack
-      ══════════════════════════════════════════════ -->
+      <!-- ══ STEP 3 — Add-Ons & Upsells ══ -->
       <div id="step-3" class="step-section hidden">
         <div class="text-center mb-8">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/15 border border-red-500/30 text-red-400 text-sm font-bold mb-4 animate-pulse">
-            <i class="fas fa-fire"></i> LIMITED AVAILABILITY — Only <span id="slots-left" class="text-white">3</span> slots left today
-          </div>
-          <h2 class="font-racing text-4xl md:text-5xl text-white">HERE'S EVERYTHING <span class="text-gradient-gold">YOU GET</span></h2>
-          <p class="text-gray-400 mt-3 text-lg">Your complete desert adventure package — zero hidden fees</p>
+          <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Step 3 of 4</span>
+          <h2 class="font-racing text-4xl md:text-5xl text-white mt-2">ENHANCE YOUR <span class="text-gradient-gold">ADVENTURE</span></h2>
+          <p class="text-gray-400 mt-3 text-lg">Add extras to make your desert experience unforgettable</p>
         </div>
 
-        <!-- Offer card -->
         <div class="max-w-2xl mx-auto">
-          <div class="glass border border-yellow-400/25 rounded-3xl overflow-hidden shadow-2xl" style="box-shadow: 0 0 80px rgba(212,175,55,0.12)">
-            <div class="h-1.5 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600"></div>
 
-            <div class="p-8">
-              <!-- Main item -->
-              <div class="flex items-start gap-4 p-5 bg-yellow-400/8 border border-yellow-400/20 rounded-2xl mb-6">
-                <div class="w-12 h-12 rounded-2xl bg-yellow-400/20 flex items-center justify-center flex-shrink-0">
-                  <i class="fas fa-car text-yellow-400 text-xl"></i>
-                </div>
-                <div class="flex-grow">
-                  <div class="text-yellow-400 text-xs font-bold uppercase tracking-widest mb-1">Your Selected Buggy</div>
-                  <div id="offer-buggy-name" class="font-display text-white text-lg"></div>
-                  <div id="offer-slot-summary" class="text-gray-400 text-sm mt-0.5"></div>
-                </div>
-                <div class="text-right flex-shrink-0">
-                  <div id="offer-buggy-price" class="font-racing text-2xl text-yellow-400"></div>
-                  <div class="text-gray-500 text-xs">AED / 30 min</div>
-                </div>
+          <!-- Booking so far summary -->
+          <div class="glass border border-yellow-400/20 rounded-2xl p-5 mb-8">
+            <div class="text-gray-400 text-xs uppercase tracking-widest mb-3 font-semibold">Your Ride So Far</div>
+            <div class="flex items-center justify-between">
+              <div>
+                <div id="offer-buggy-name" class="font-display text-white text-base"></div>
+                <div id="offer-slot-summary" class="text-gray-400 text-sm mt-0.5"></div>
               </div>
-
-              <!-- Bonus stack -->
-              <div class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-4">Included Free — Today Only</div>
-              <div class="space-y-3 mb-8">
-                {[
-                  { icon: "fas fa-hard-hat", title: "Full Safety Gear Set", sub: "Helmet, goggles, gloves, neck brace", value: "AED 200" },
-                  { icon: "fas fa-user-shield", title: "Certified Desert Guide", sub: "Expert instructor with you the entire ride", value: "AED 300" },
-                  { icon: "fas fa-chalkboard-teacher", title: "Professional Safety Briefing", sub: "Full pre-ride orientation and route brief", value: "AED 150" },
-                  { icon: "fas fa-camera", title: "GoPro Mount + Download", sub: "Record your entire adventure in 4K", value: "AED 250" },
-                  { icon: "fas fa-camera-retro", title: "Desert Photography Session", sub: "Action photos delivered within 24 hours", value: "AED 400" },
-                ].map(bonus => (
-                  <div class="flex items-center gap-4 p-4 bg-black/30 border border-yellow-400/10 rounded-xl">
-                    <div class="w-9 h-9 rounded-xl bg-green-400/15 flex items-center justify-center flex-shrink-0">
-                      <i class={`${bonus.icon} text-green-400 text-sm`}></i>
-                    </div>
-                    <div class="flex-grow">
-                      <div class="text-white text-sm font-semibold">{bonus.title}</div>
-                      <div class="text-gray-500 text-xs">{bonus.sub}</div>
-                    </div>
-                    <div class="text-right flex-shrink-0">
-                      <div class="text-gray-500 text-xs line-through">{bonus.value}</div>
-                      <div class="text-green-400 text-xs font-bold">FREE</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <!-- Total value -->
-              <div class="border-t border-yellow-400/15 pt-6 mb-6">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-gray-400 text-sm">Total bundle value</span>
-                  <span id="offer-total-value" class="text-gray-400 line-through text-base"></span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="font-display text-white text-lg">Your price today</span>
-                  <div class="text-right">
-                    <span id="offer-final-price" class="font-racing text-4xl text-yellow-400"></span>
-                    <span class="text-gray-500 text-sm ml-1">AED</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Guarantee -->
-              <div class="flex items-start gap-3 p-4 bg-green-400/8 border border-green-400/20 rounded-2xl mb-8">
-                <div class="w-10 h-10 rounded-full bg-green-400/15 flex items-center justify-center flex-shrink-0">
-                  <i class="fas fa-shield-alt text-green-400"></i>
-                </div>
-                <div>
-                  <div class="font-display text-white text-sm mb-1">100% Satisfaction Guarantee</div>
-                  <div class="text-gray-400 text-xs leading-relaxed">If you're not completely thrilled within the first 5 minutes of your ride, we'll reschedule you at zero cost — no questions asked.</div>
-                </div>
-              </div>
-
-              <!-- Scarcity + CTA -->
-              <div class="text-center mb-4">
-                <div class="text-red-400 text-xs font-bold uppercase tracking-widest mb-4">
-                  <i class="fas fa-clock mr-1"></i> Slots are filling fast — secure yours now
-                </div>
-                <button
-                  onclick="goToStep(4)"
-                  class="btn-gold w-full py-5 rounded-2xl text-lg font-display shine flex items-center justify-center gap-3 group"
-                >
-                  <i class="fas fa-lock text-base"></i>
-                  <span>YES! Book My Adventure Now</span>
-                  <i class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
-                </button>
-                <p class="text-gray-600 text-xs mt-3 flex items-center justify-center gap-2">
-                  <i class="fab fa-stripe text-purple-400"></i> Secured by Stripe · 256-bit SSL · Instant confirmation
-                </p>
+              <div class="text-right">
+                <div id="offer-buggy-price" class="font-racing text-2xl text-yellow-400"></div>
+                <div class="text-gray-500 text-xs">AED</div>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 text-center">
-            <button onclick="goToStep(2)" class="text-gray-600 hover:text-gray-400 text-sm underline transition-colors">
-              <i class="fas fa-arrow-left mr-1"></i> Change timeslot
+          <!-- Unlock Rewards (conditional) -->
+          <div id="unlock-camel" class="hidden mb-5 border-2 border-yellow-400/50 bg-yellow-400/5 rounded-2xl p-5 flex items-center gap-4">
+            <div class="text-4xl flex-shrink-0">🐪</div>
+            <div class="flex-grow">
+              <div class="text-yellow-400 font-bold text-xs uppercase tracking-widest mb-0.5">🎉 Bonus Unlocked — 2+ Hours Booked!</div>
+              <div class="font-display text-white text-base">FREE Camel Ride Experience</div>
+              <div class="text-gray-400 text-xs mt-0.5">Included at no extra charge — AED 200 value</div>
+            </div>
+            <div class="text-right flex-shrink-0">
+              <div class="text-green-400 font-bold text-lg">FREE</div>
+              <div class="text-gray-500 text-xs line-through">AED 200</div>
+            </div>
+          </div>
+
+          <div id="unlock-gear" class="hidden mb-5 border-2 border-green-400/40 bg-green-400/5 rounded-2xl p-5 flex items-center gap-4">
+            <div class="text-4xl flex-shrink-0">👑</div>
+            <div class="flex-grow">
+              <div class="text-green-400 font-bold text-xs uppercase tracking-widest mb-0.5">🎉 VIP Bonus — Premium Buggy Selected!</div>
+              <div class="font-display text-white text-base">FREE Safari Head Gear Set</div>
+              <div class="text-gray-400 text-xs mt-0.5">Branded keffiyeh, goggles & gloves — AED 120 value</div>
+            </div>
+            <div class="text-right flex-shrink-0">
+              <div class="text-green-400 font-bold text-lg">FREE</div>
+              <div class="text-gray-500 text-xs line-through">AED 120</div>
+            </div>
+          </div>
+
+          <!-- Locked camel hint (shows when <2 hours) -->
+          <div id="camel-hint" class="mb-5 border border-yellow-400/15 bg-black/30 rounded-2xl p-4 flex items-center gap-3 opacity-60">
+            <div class="text-2xl">🔒</div>
+            <div class="flex-grow">
+              <div class="text-gray-400 text-sm font-semibold">Unlock a FREE Camel Ride</div>
+              <div class="text-gray-600 text-xs">Book <strong class="text-yellow-400/70">2 hours or more</strong> and we'll include a FREE camel ride (AED 200 value)</div>
+            </div>
+            <button onclick="goToStep(2)" class="text-yellow-400/60 hover:text-yellow-400 text-xs underline flex-shrink-0 transition-colors">Upgrade duration</button>
+          </div>
+
+          <!-- Add-on cards -->
+          <div class="text-gray-400 text-xs uppercase tracking-widest font-bold mb-4">
+            <i class="fas fa-plus-circle mr-2 text-yellow-400/60"></i>Optional Add-Ons
+          </div>
+
+          <div class="space-y-3" id="addon-list">
+            {addOns.map(a => (
+              <div
+                class="addon-card relative border border-yellow-400/15 rounded-2xl p-5 cursor-pointer hover:border-yellow-400/40 bg-black/30 hover:bg-yellow-400/3 transition-all duration-200 select-none"
+                data-addon-id={a.id}
+                data-addon-price={a.price}
+              >
+                <div class="flex items-center gap-4">
+                  <div class="text-3xl flex-shrink-0 w-12 text-center">{a.emoji}</div>
+                  <div class="flex-grow">
+                    <div class="font-display text-white text-base">{a.title}</div>
+                    <div class="text-gray-500 text-xs mt-0.5 leading-relaxed">{a.desc}</div>
+                  </div>
+                  <div class="text-right flex-shrink-0 ml-2 mr-10">
+                    <div class="font-racing text-xl text-yellow-400">+{a.price}</div>
+                    <div class="text-gray-600 text-xs">AED</div>
+                  </div>
+                </div>
+                <!-- Checkbox -->
+                <div class="addon-checkbox absolute top-1/2 right-4 -translate-y-1/2 w-6 h-6 rounded-full border-2 border-yellow-400/30 flex items-center justify-center transition-all">
+                  <i class="fas fa-check text-black text-xs hidden"></i>
+                </div>
+                <!-- Added tag -->
+                <div class="addon-added hidden absolute -top-1.5 -right-1.5 bg-yellow-400 text-black text-[9px] font-bold px-2 py-0.5 rounded-full">✓ ADDED</div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Running total -->
+          <div class="mt-8 p-5 bg-yellow-400/5 border border-yellow-400/20 rounded-2xl">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-gray-400 text-sm">Buggy ride</span>
+              <span id="total-buggy-line" class="text-white text-sm font-semibold"></span>
+            </div>
+            <div id="addon-total-lines" class="space-y-1"></div>
+            <div class="border-t border-yellow-400/15 mt-3 pt-3 flex items-center justify-between">
+              <span class="font-display text-white text-lg">Total</span>
+              <span id="running-total" class="font-racing text-3xl text-yellow-400"></span>
+            </div>
+            <p class="text-gray-600 text-xs mt-2 text-center flex items-center justify-center gap-2">
+              <i class="fas fa-shield-alt text-green-400"></i>100% Satisfaction Guarantee · Free rescheduling
+            </p>
+          </div>
+
+          <div class="flex gap-4 mt-6">
+            <button onclick="goToStep(2)" class="btn-outline px-6 py-3 rounded-xl font-display text-sm"><i class="fas fa-arrow-left mr-2"></i>Back</button>
+            <button onclick="goToStep(4)" class="btn-gold px-8 py-5 rounded-2xl font-display text-lg shine flex-grow flex items-center justify-center gap-2 group">
+              <i class="fas fa-lock text-base"></i>
+              <span>Continue to Payment</span>
+              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
             </button>
           </div>
         </div>
       </div>
 
-      <!-- ══════════════════════════════════════════════
-           STEP 4 — Pay & Confirm
-      ══════════════════════════════════════════════ -->
+      <!-- ══ STEP 4 — Pay & Confirm ══ -->
       <div id="step-4" class="step-section hidden">
         <div class="text-center mb-10">
           <span class="text-yellow-400/60 text-sm tracking-widest uppercase font-semibold">Step 4 of 4</span>
@@ -429,17 +335,18 @@ const timeslots = [
         </div>
 
         <div class="max-w-2xl mx-auto">
-
-          <!-- Booking summary card -->
-          <div id="step4-summary" class="glass border border-yellow-400/20 rounded-2xl p-5 mb-8">
+          <!-- Summary card -->
+          <div class="glass border border-yellow-400/20 rounded-2xl p-5 mb-8">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="font-display text-white text-base">Your Booking Summary</h3>
+              <h3 class="font-display text-white text-base">Booking Summary</h3>
               <button onclick="goToStep(1)" class="text-gray-500 hover:text-yellow-400 text-xs underline transition-colors">Edit</button>
             </div>
             <div class="space-y-2 text-sm">
-              <div class="flex justify-between"><span class="text-gray-400">Buggy</span><span id="s4-buggy" class="text-white font-semibold"></span></div>
+              <div class="flex justify-between"><span class="text-gray-400">Buggy</span><span id="s4-buggy" class="text-white font-semibold text-right max-w-xs"></span></div>
               <div class="flex justify-between"><span class="text-gray-400">Date</span><span id="s4-date" class="text-white font-semibold"></span></div>
-              <div class="flex justify-between"><span class="text-gray-400">Time</span><span id="s4-time" class="text-white font-semibold"></span></div>
+              <div class="flex justify-between"><span class="text-gray-400">Duration</span><span id="s4-duration" class="text-white font-semibold"></span></div>
+              <div class="flex justify-between"><span class="text-gray-400">Start Time</span><span id="s4-time" class="text-white font-semibold"></span></div>
+              <div id="s4-addons-list" class="space-y-1"></div>
               <div class="flex justify-between border-t border-yellow-400/10 pt-2 mt-2">
                 <span class="text-gray-400">Total</span>
                 <span id="s4-price" class="text-yellow-400 font-racing text-xl"></span>
@@ -452,16 +359,13 @@ const timeslots = [
             <div class="grid grid-cols-2 gap-4">
               <div>
                 <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-2">Your Name *</label>
-                <input type="text" id="pay-name" required placeholder="Full name"
-                  class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors" />
+                <input type="text" id="pay-name" required placeholder="Full name" class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors" />
               </div>
               <div>
                 <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-2">Email *</label>
-                <input type="email" id="pay-email" required placeholder="your@email.com"
-                  class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors" />
+                <input type="email" id="pay-email" required placeholder="your@email.com" class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors" />
               </div>
             </div>
-
             <div>
               <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-2">Group Size</label>
               <select id="pay-group" class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400/60 transition-colors appearance-none">
@@ -472,31 +376,25 @@ const timeslots = [
                 <option value="9+">9+ People (large group)</option>
               </select>
             </div>
-
             <div>
               <label class="block text-gray-400 text-xs uppercase tracking-widest font-semibold mb-2">Special Requests</label>
-              <textarea id="pay-notes" rows="2" placeholder="Birthday, anniversary, dietary needs, accessibility..."
-                class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors resize-none"></textarea>
+              <textarea id="pay-notes" rows="2" placeholder="Birthday, anniversary, dietary needs, accessibility..." class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors resize-none"></textarea>
             </div>
-
             <!-- Discount code -->
             <div class="flex gap-2">
-              <input type="text" id="pay-discount" placeholder="Discount code (e.g. DUNE100)"
-                class="flex-grow bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors" />
+              <input type="text" id="pay-discount" placeholder="Discount code (e.g. DUNE100)" class="flex-grow bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors" />
               <button type="button" id="apply-code-btn" class="btn-outline px-4 py-3 rounded-xl text-sm font-display whitespace-nowrap">Apply</button>
             </div>
             <div id="code-msg" class="text-xs hidden"></div>
 
             <!-- Pay button -->
-            <button type="submit" id="final-pay-btn"
-              class="btn-gold w-full flex items-center justify-center gap-3 py-5 rounded-2xl text-lg shine group mt-2">
+            <button type="submit" id="final-pay-btn" class="btn-gold w-full flex items-center justify-center gap-3 py-5 rounded-2xl text-lg shine group mt-2">
               <i class="fas fa-lock text-base"></i>
               <span class="font-display tracking-wide" id="final-pay-text">Pay Securely Now</span>
               <i class="fas fa-arrow-right text-base group-hover:translate-x-1 transition-transform"></i>
             </button>
           </form>
 
-          <!-- Trust row -->
           <div class="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-600">
             <span class="flex items-center gap-1.5"><i class="fab fa-stripe text-purple-400 text-base"></i> Powered by Stripe</span>
             <span class="flex items-center gap-1.5"><i class="fas fa-shield-alt text-green-400"></i> 256-bit SSL</span>
@@ -506,7 +404,7 @@ const timeslots = [
 
           <div class="mt-5 text-center">
             <button onclick="goToStep(3)" class="text-gray-600 hover:text-gray-400 text-sm underline transition-colors">
-              <i class="fas fa-arrow-left mr-1"></i> Back to offer
+              <i class="fas fa-arrow-left mr-1"></i> Back to add-ons
             </button>
           </div>
         </div>
@@ -518,57 +416,157 @@ const timeslots = [
   <Footer />
 </Layout>
 
-<script define:vars={{ buggies }}>
+<script define:vars={{ buggies, durations, addOns, startTimes }}>
 (function () {
 
-  const DISCOUNT_CODES = {
-    DUNE100:  { off: 100 },
-    SAHARA50: { off: 50  },
-    VIP200:   { off: 200 },
-  };
+  const DISCOUNT_CODES = { DUNE100: 100, SAHARA50: 50, VIP200: 200 };
 
-  let selectedBuggy = null;
-  let selectedDate  = null;
-  let selectedSlot  = null;
-  let discount      = 0;
-  let currentStep   = 1;
+  let selectedBuggy    = null;
+  let selectedDate     = null;
+  let selectedDurMins  = null;
+  let selectedDurMult  = null;
+  let selectedDurLabel = null;
+  let selectedTime     = null;
+  let selectedAddOns   = {};   // { id: { title, price } }
+  let discount         = 0;
 
-  // ── Pre-select from URL param ─────────────────────────────
-  const params   = new URLSearchParams(window.location.search);
-  const preselect = params.get('buggy');
+  // ── Calendar state ──────────────────────────────────────────────
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let calYear  = today.getFullYear();
+  let calMonth = today.getMonth();
 
-  if (preselect) {
-    const match = buggies.find(b => b.id === preselect);
-    if (match) {
-      setTimeout(() => selectBuggy(match.id), 100);
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  function renderCalendar() {
+    const grid  = document.getElementById('cal-grid');
+    const title = document.getElementById('cal-title');
+    if (!grid || !title) return;
+
+    title.textContent = `${MONTHS[calMonth]} ${calYear}`;
+
+    const firstDow = new Date(calYear, calMonth, 1).getDay(); // 0=Sun
+    const offset   = firstDow === 0 ? 6 : firstDow - 1;      // Monday-first
+    const daysInMonth   = new Date(calYear, calMonth + 1, 0).getDate();
+    const daysInPrev    = new Date(calYear, calMonth, 0).getDate();
+
+    const cells = [];
+    for (let i = 0; i < offset; i++) {
+      cells.push({ day: daysInPrev - offset + 1 + i, out: true });
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(calYear, calMonth, d);
+      const ds   = `${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      cells.push({ day: d, out: false, disabled: date <= today, ds, selected: ds === selectedDate });
+    }
+    while (cells.length < 42) { cells.push({ day: cells.length - daysInMonth - offset + 1, out: true }); }
+
+    grid.innerHTML = cells.map(c => {
+      if (c.out || c.disabled) {
+        return `<div class="flex items-center justify-center h-9 text-gray-700 text-sm cursor-not-allowed">${c.day}</div>`;
+      }
+      if (c.selected) {
+        return `<button class="cal-day flex items-center justify-center h-9 rounded-xl bg-yellow-400 text-black font-bold text-sm shadow-lg shadow-yellow-400/30" data-ds="${c.ds}">${c.day}</button>`;
+      }
+      return `<button class="cal-day flex items-center justify-center h-9 rounded-xl text-gray-300 hover:bg-yellow-400/20 hover:text-white text-sm transition-all" data-ds="${c.ds}">${c.day}</button>`;
+    }).join('');
+
+    grid.querySelectorAll('.cal-day').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedDate = btn.dataset.ds;
+        renderCalendar();
+        const disp = document.getElementById('selected-date-display');
+        const txt  = document.getElementById('selected-date-text');
+        if (disp && txt) {
+          txt.textContent = formatDate(selectedDate);
+          disp.classList.remove('hidden');
+        }
+        checkStep2();
+      });
+    });
+  }
+
+  document.getElementById('cal-prev')?.addEventListener('click', () => {
+    calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderCalendar();
+  });
+  document.getElementById('cal-next')?.addEventListener('click', () => {
+    calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderCalendar();
+  });
+
+  renderCalendar();
+
+  // ── Duration selection ────────────────────────────────────────
+  function updateDurationPrices() {
+    document.querySelectorAll('.duration-btn').forEach(btn => {
+      const mult  = parseFloat(btn.dataset.mult);
+      const mins  = parseInt(btn.dataset.mins);
+      const price = selectedBuggy ? Math.round(selectedBuggy.price * mult) : null;
+      const priceEl = btn.querySelector('.duration-price');
+      if (priceEl) priceEl.textContent = price ? `AED ${price.toLocaleString()}` : '—';
+    });
+  }
+
+  document.querySelectorAll('.duration-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.duration-btn').forEach(b => {
+        b.classList.remove('border-yellow-400', 'bg-yellow-400/10');
+        b.classList.add('border-yellow-400/15', 'bg-black/30');
+      });
+      btn.classList.add('border-yellow-400', 'bg-yellow-400/10');
+      btn.classList.remove('border-yellow-400/15', 'bg-black/30');
+
+      selectedDurMins  = parseInt(btn.dataset.mins);
+      selectedDurMult  = parseFloat(btn.dataset.mult);
+      selectedDurLabel = btn.querySelector('.font-racing')?.textContent || '';
+
+      // Show start time picker
+      const timeSection = document.getElementById('start-time-section');
+      if (timeSection) timeSection.classList.remove('hidden');
+
+      checkStep2();
+    });
+  });
+
+  // ── Start time selection ──────────────────────────────────────
+  document.querySelectorAll('.start-time-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.start-time-btn').forEach(b => {
+        b.classList.remove('border-yellow-400', 'bg-yellow-400/10', 'text-yellow-400');
+        b.classList.add('border-yellow-400/15');
+      });
+      btn.classList.add('border-yellow-400', 'bg-yellow-400/10', 'text-yellow-400');
+      btn.classList.remove('border-yellow-400/15');
+      selectedTime = btn.dataset.time;
+      checkStep2();
+    });
+  });
+
+  function checkStep2() {
+    const btn = document.getElementById('step2-next');
+    const ready = selectedDate && selectedDurMins && selectedTime;
+    if (btn) {
+      btn.disabled = !ready;
+      btn.classList.toggle('opacity-50', !ready);
+      btn.classList.toggle('cursor-not-allowed', !ready);
     }
   }
 
-  // Set tomorrow as min date
-  const dateInput = document.getElementById('booking-date');
-  const tomorrow  = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  dateInput.min   = tomorrow.toISOString().split('T')[0];
-  dateInput.value = tomorrow.toISOString().split('T')[0];
-  selectedDate    = dateInput.value;
-  dateInput.addEventListener('change', () => { selectedDate = dateInput.value; });
+  document.getElementById('step2-next')?.addEventListener('click', () => {
+    if (selectedDate && selectedDurMins && selectedTime) goToStep(3);
+    else alert('Please select a date, duration and start time.');
+  });
 
-  // ── Step navigation ───────────────────────────────────────
+  // ── Step navigation ───────────────────────────────────────────
   window.goToStep = function (n) {
-    if (n === 2 && !selectedBuggy) {
-      alert('Please select a buggy first!');
-      return;
+    if (n === 2 && !selectedBuggy) { alert('Please select a buggy first!'); return; }
+    if (n === 3 && (!selectedDate || !selectedDurMins || !selectedTime)) {
+      alert('Please select a date, duration and start time first!'); return;
     }
-    if (n === 3 && !selectedSlot) {
-      alert('Please select a timeslot first!');
-      return;
-    }
-    currentStep = n;
     document.querySelectorAll('.step-section').forEach(el => el.classList.add('hidden'));
     document.getElementById('step-' + n).classList.remove('hidden');
     updateProgress(n);
-    if (n === 3) populateOffer();
-    if (n === 4) populateSummary();
+    if (n === 3) populateStep3();
+    if (n === 4) populateStep4();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -576,19 +574,18 @@ const timeslots = [
     [1, 2, 3, 4].forEach(n => {
       const circle = document.getElementById('step-circle-' + n);
       const label  = document.getElementById('step-label-' + n);
+      if (!circle) return;
       if (n < step) {
         circle.className = 'w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 bg-green-500 text-white';
         circle.innerHTML = '<i class="fas fa-check text-xs"></i>';
       } else if (n === step) {
         circle.className = 'w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 bg-yellow-400 text-black';
         circle.innerHTML = n;
-        label.classList.remove('text-gray-600');
-        label.classList.add('text-yellow-400');
+        label?.classList.remove('text-gray-600'); label?.classList.add('text-yellow-400');
       } else {
         circle.className = 'w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 bg-black/40 border border-yellow-400/20 text-gray-500';
         circle.innerHTML = n;
-        label.classList.add('text-gray-600');
-        label.classList.remove('text-yellow-400');
+        label?.classList.add('text-gray-600'); label?.classList.remove('text-yellow-400');
       }
       if (n < 4) {
         const bar = document.getElementById('step-bar-' + n);
@@ -597,135 +594,216 @@ const timeslots = [
     });
   }
 
-  // ── Select buggy ──────────────────────────────────────────
+  // ── Select buggy ──────────────────────────────────────────────
   function selectBuggy(id) {
     selectedBuggy = buggies.find(b => b.id === id);
     document.querySelectorAll('.buggy-card').forEach(card => {
       const overlay = card.querySelector('.selected-overlay');
       if (card.dataset.buggyId === id) {
-        overlay.classList.remove('hidden');
+        overlay?.classList.remove('hidden');
         card.style.borderColor = selectedBuggy.color + '80';
       } else {
-        overlay.classList.add('hidden');
+        overlay?.classList.add('hidden');
         card.style.borderColor = '';
       }
     });
-    // Short delay then advance
+    updateDurationPrices();
+    // Update step 2 summary
+    const nameEl  = document.getElementById('step2-buggy-name');
+    const priceEl = document.getElementById('step2-buggy-price');
+    const imgEl   = document.getElementById('step2-buggy-img');
+    if (nameEl)  nameEl.textContent  = selectedBuggy.name;
+    if (priceEl) priceEl.textContent = `AED ${selectedBuggy.price} base / 30 min`;
+    if (imgEl)   { imgEl.src = selectedBuggy.image; imgEl.alt = selectedBuggy.name; }
     setTimeout(() => goToStep(2), 350);
-    // Update step2 summary
-    document.getElementById('step2-buggy-name').textContent  = selectedBuggy.name;
-    document.getElementById('step2-buggy-price').textContent = `AED ${selectedBuggy.price} / 30 min`;
-    document.getElementById('step2-buggy-img').src           = selectedBuggy.image;
-    document.getElementById('step2-buggy-img').alt           = selectedBuggy.name;
   }
 
   document.querySelectorAll('.buggy-card').forEach(card => {
     card.addEventListener('click', () => selectBuggy(card.dataset.buggyId));
   });
 
-  // ── Select timeslot ───────────────────────────────────────
-  document.querySelectorAll('.timeslot-btn:not([disabled])').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.timeslot-btn').forEach(b => {
-        b.classList.remove('border-yellow-400', 'bg-yellow-400/10', 'text-yellow-400');
-        b.classList.add('border-yellow-400/20', 'bg-black/30');
-        b.querySelectorAll('div').forEach(d => d.classList.remove('text-yellow-400'));
-      });
-      btn.classList.add('border-yellow-400', 'bg-yellow-400/10');
-      selectedSlot = { id: btn.dataset.slotId, label: btn.dataset.slotLabel };
-      document.getElementById('step2-next').disabled = false;
-      document.getElementById('step2-next').classList.remove('opacity-50', 'cursor-not-allowed');
+  // Pre-select from URL
+  const params = new URLSearchParams(window.location.search);
+  const preselect = params.get('buggy');
+  if (preselect) {
+    const match = buggies.find(b => b.id === preselect);
+    if (match) setTimeout(() => selectBuggy(match.id), 100);
+  }
+
+  // ── Populate Step 3 ───────────────────────────────────────────
+  function getBuggyTotal() {
+    if (!selectedBuggy || !selectedDurMult) return 0;
+    return Math.round(selectedBuggy.price * selectedDurMult);
+  }
+
+  function getAddOnTotal() {
+    return Object.values(selectedAddOns).reduce((s, a) => s + a.price, 0);
+  }
+
+  function getGrandTotal() {
+    return Math.max(0, getBuggyTotal() + getAddOnTotal() - discount);
+  }
+
+  function updateRunningTotal() {
+    const buggyTotal = getBuggyTotal();
+    const el = document.getElementById('total-buggy-line');
+    if (el) el.textContent = `AED ${buggyTotal.toLocaleString()}`;
+
+    const linesEl = document.getElementById('addon-total-lines');
+    if (linesEl) {
+      linesEl.innerHTML = Object.values(selectedAddOns).map(a =>
+        `<div class="flex justify-between text-xs">
+          <span class="text-gray-500">+ ${a.title}</span>
+          <span class="text-gray-400">AED ${a.price}</span>
+        </div>`
+      ).join('');
+    }
+
+    const totalEl = document.getElementById('running-total');
+    if (totalEl) totalEl.textContent = `AED ${getGrandTotal().toLocaleString()}`;
+  }
+
+  function populateStep3() {
+    const buggyTotal = getBuggyTotal();
+    document.getElementById('offer-buggy-name').textContent  = selectedBuggy?.name || '';
+    document.getElementById('offer-slot-summary').textContent = `${formatDate(selectedDate)} · ${selectedDurLabel} · ${selectedTime}`;
+    document.getElementById('offer-buggy-price').textContent = buggyTotal.toLocaleString();
+    updateRunningTotal();
+
+    // Unlock bonuses
+    const camelUnlock = document.getElementById('unlock-camel');
+    const camelHint   = document.getElementById('camel-hint');
+    const gearUnlock  = document.getElementById('unlock-gear');
+    if (selectedDurMins >= 120) {
+      camelUnlock?.classList.remove('hidden');
+      camelHint?.classList.add('hidden');
+    } else {
+      camelUnlock?.classList.add('hidden');
+      camelHint?.classList.remove('hidden');
+    }
+    if (selectedBuggy?.id === 'can-am-maverick-r-x-rs-2025') {
+      gearUnlock?.classList.remove('hidden');
+    } else {
+      gearUnlock?.classList.add('hidden');
+    }
+  }
+
+  // Add-on toggling
+  document.querySelectorAll('.addon-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const id    = card.dataset.addonId;
+      const price = parseInt(card.dataset.addonPrice);
+      const ao    = addOns.find(a => a.id === id);
+      const check = card.querySelector('.addon-checkbox');
+      const tag   = card.querySelector('.addon-added');
+      const icon  = check?.querySelector('i');
+
+      if (selectedAddOns[id]) {
+        delete selectedAddOns[id];
+        card.classList.remove('border-yellow-400', 'bg-yellow-400/5');
+        card.classList.add('border-yellow-400/15', 'bg-black/30');
+        if (check) { check.classList.remove('bg-yellow-400', 'border-yellow-400'); check.classList.add('border-yellow-400/30'); }
+        if (icon)  icon.classList.add('hidden');
+        if (tag)   tag.classList.add('hidden');
+      } else {
+        selectedAddOns[id] = { title: ao.title, price };
+        card.classList.add('border-yellow-400', 'bg-yellow-400/5');
+        card.classList.remove('border-yellow-400/15', 'bg-black/30');
+        if (check) { check.classList.add('bg-yellow-400', 'border-yellow-400'); check.classList.remove('border-yellow-400/30'); }
+        if (icon)  icon.classList.remove('hidden');
+        if (tag)   tag.classList.remove('hidden');
+      }
+      updateRunningTotal();
     });
   });
 
-  // ── Populate offer (Step 3) ───────────────────────────────
-  function populateOffer() {
-    if (!selectedBuggy || !selectedSlot) return;
-    const bonusValue = 1300;
-    const total = selectedBuggy.price + bonusValue;
-    document.getElementById('offer-buggy-name').textContent  = selectedBuggy.name;
-    document.getElementById('offer-buggy-price').textContent = selectedBuggy.price.toLocaleString();
-    document.getElementById('offer-slot-summary').textContent = `${formatDate(selectedDate)} · ${selectedSlot.label}`;
-    document.getElementById('offer-total-value').textContent  = `AED ${total.toLocaleString()}`;
-    document.getElementById('offer-final-price').textContent  = selectedBuggy.price.toLocaleString();
-    // Random slots 2-4 for urgency
-    document.getElementById('slots-left').textContent = Math.floor(Math.random() * 3) + 2;
+  // ── Populate Step 4 ───────────────────────────────────────────
+  function populateStep4() {
+    document.getElementById('s4-buggy').textContent    = selectedBuggy?.name || '';
+    document.getElementById('s4-date').textContent     = formatDate(selectedDate);
+    document.getElementById('s4-duration').textContent = `${selectedDurLabel} (${selectedDurMins} min)`;
+    document.getElementById('s4-time').textContent     = selectedTime || '';
+
+    const addonsListEl = document.getElementById('s4-addons-list');
+    if (addonsListEl) {
+      addonsListEl.innerHTML = Object.values(selectedAddOns).map(a =>
+        `<div class="flex justify-between text-sm">
+          <span class="text-gray-400">${a.title}</span>
+          <span class="text-white font-semibold">AED ${a.price}</span>
+        </div>`
+      ).join('');
+    }
+
+    const total = getGrandTotal();
+    document.getElementById('s4-price').textContent        = `AED ${total.toLocaleString()}`;
+    document.getElementById('final-pay-text').textContent  = `Pay AED ${total.toLocaleString()} Securely`;
   }
 
-  // ── Populate summary (Step 4) ─────────────────────────────
-  function populateSummary() {
-    if (!selectedBuggy) return;
-    document.getElementById('s4-buggy').textContent = selectedBuggy.name;
-    document.getElementById('s4-date').textContent  = formatDate(selectedDate);
-    document.getElementById('s4-time').textContent  = selectedSlot ? selectedSlot.label : '';
-    document.getElementById('s4-price').textContent = `AED ${(selectedBuggy.price - discount).toLocaleString()}`;
-    document.getElementById('final-pay-text').textContent = `Pay AED ${(selectedBuggy.price - discount).toLocaleString()} Securely`;
-  }
-
-  function formatDate(dateStr) {
-    if (!dateStr) return '';
-    const d = new Date(dateStr + 'T00:00:00');
+  function formatDate(ds) {
+    if (!ds) return '';
+    const d = new Date(ds + 'T00:00:00');
     return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
   }
 
-  // ── Discount code ─────────────────────────────────────────
+  // ── Discount code ─────────────────────────────────────────────
   document.getElementById('apply-code-btn')?.addEventListener('click', () => {
     const code  = document.getElementById('pay-discount').value.trim().toUpperCase();
     const msgEl = document.getElementById('code-msg');
-    const dc    = DISCOUNT_CODES[code];
-    if (!dc) {
+    const off   = DISCOUNT_CODES[code];
+    if (!off) {
       msgEl.textContent = 'Invalid discount code.';
       msgEl.className   = 'text-xs text-red-400';
       msgEl.classList.remove('hidden');
       discount = 0;
     } else {
-      discount = dc.off;
-      msgEl.textContent = `AED ${dc.off} off applied!`;
+      discount = off;
+      msgEl.textContent = `AED ${off} discount applied!`;
       msgEl.className   = 'text-xs text-green-400';
       msgEl.classList.remove('hidden');
-      const price = Math.max(0, selectedBuggy.price - discount);
-      document.getElementById('s4-price').textContent         = `AED ${price.toLocaleString()}`;
-      document.getElementById('final-pay-text').textContent   = `Pay AED ${price.toLocaleString()} Securely`;
+      const price = getGrandTotal();
+      document.getElementById('s4-price').textContent       = `AED ${price.toLocaleString()}`;
+      document.getElementById('final-pay-text').textContent = `Pay AED ${price.toLocaleString()} Securely`;
     }
   });
 
-  // ── Form submit → Stripe ──────────────────────────────────
+  // ── Form submit → Stripe ──────────────────────────────────────
   document.getElementById('payment-form')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = document.getElementById('final-pay-btn');
     btn.disabled = true;
-    document.getElementById('final-pay-text').textContent = 'Creating secure checkout...';
+    document.getElementById('final-pay-text').textContent = 'Creating secure checkout…';
 
-    // Map buggy to package id
-    const pkgMap = {
-      'kymco-mxu-250':                      'explorer',
-      'can-am-maverick-r-x-rs-2025':        'vip',
-      'can-am-maverick-3x-turbo-rr-2-seater': 'adventurer',
-      'can-am-maverick-3x-turbo-rr-4-seater': 'dune_master',
-      'polaris-rzr-2-seater-1000xp':         'explorer',
-      'polaris-rzr-4-seater-1000xp':         'adventurer',
-      'cf-moto-1000cc-4x4':                  'explorer',
-      'can-am-maverick-r-x-rs-2024':         'dune_master',
-    };
+    const addOnIds = Object.keys(selectedAddOns);
+    const addOnSummary = Object.values(selectedAddOns).map(a => a.title).join(', ');
+
+    const rideDesc = [
+      `${selectedDurLabel} · ${selectedTime}`,
+      `${formatDate(selectedDate)}`,
+      addOnSummary ? `Add-ons: ${addOnSummary}` : '',
+    ].filter(Boolean).join(' | ');
 
     try {
       const res = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          packageId:     pkgMap[selectedBuggy.id] || 'explorer',
+          buggyId:       selectedBuggy.id,
           buggyName:     selectedBuggy.name,
+          durationMins:  selectedDurMins,
+          addOnIds,
+          rideDescription: rideDesc,
+          discountCode:  document.getElementById('pay-discount').value.trim().toUpperCase() || null,
           customerName:  document.getElementById('pay-name').value,
           customerEmail: document.getElementById('pay-email').value,
-          date:          selectedDate + ' ' + (selectedSlot?.label || ''),
+          date:          formatDate(selectedDate),
+          startTime:     selectedTime,
+          duration:      selectedDurLabel,
           groupSize:     document.getElementById('pay-group').value,
           notes:         document.getElementById('pay-notes').value,
-          discountCode:  document.getElementById('pay-discount').value.trim().toUpperCase() || null,
         }),
       });
 
       const data = await res.json();
-
       if (data.url) {
         window.location.href = data.url;
       } else {

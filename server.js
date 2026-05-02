@@ -12,71 +12,116 @@ app.use(cors({ origin: '*' }));
 app.use('/api/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 
-const PACKAGES = {
-  explorer: {
-    name: 'Explorer Package',
-    description: '30 Minutes · 2-Seater Buggy · Safety Gear Included',
-    amount: 39900,
-    currency: 'aed',
-  },
-  adventurer: {
-    name: 'Adventurer Package',
-    description: '2 Hours · Choice of 2-Seater · Refreshments Included',
-    amount: 69900,
-    currency: 'aed',
-  },
-  dune_master: {
-    name: 'Dune Master Package',
-    description: '4 Hours · Any Buggy Incl 4-Seater · Snacks & Beverages',
-    amount: 129900,
-    currency: 'aed',
-  },
-  vip: {
-    name: 'VIP Full Day Adventure',
-    description: '8 Hours · Private Guide · Hotel Transfer · Gourmet Lunch',
-    amount: 199900,
-    currency: 'aed',
-  },
+// Buggy base prices (AED per 30 min)
+const BUGGY_PRICES = {
+  'kymco-mxu-250':                        150,
+  'can-am-maverick-r-x-rs-2025':          800,
+  'can-am-maverick-3x-turbo-rr-2-seater': 550,
+  'can-am-maverick-3x-turbo-rr-4-seater': 600,
+  'polaris-rzr-2-seater-1000xp':           400,
+  'polaris-rzr-4-seater-1000xp':           450,
+  'cf-moto-1000cc-4x4':                    249,
+  'can-am-maverick-r-x-rs-2024':           700,
 };
+
+// Duration multipliers (applied to 30-min base price)
+const DURATION_MULT = { 30: 1.0, 60: 1.7, 90: 2.3, 120: 3.0, 180: 4.0, 240: 5.0 };
+
+// Add-on prices (AED)
+const ADDON_PRICES = {
+  drone:   350,
+  photo:   250,
+  sunset:  200,
+  bedouin: 180,
+  film:    500,
+  gear:    120,
+};
+
+const ADDON_NAMES = {
+  drone:   'Drone Aerial Package',
+  photo:   'Desert Photo Session',
+  sunset:  'Sunset VIP Experience',
+  bedouin: 'Bedouin Camp After-Ride',
+  film:    'Full Adventure Film',
+  gear:    'Safari Head Gear Set',
+};
+
+const DISCOUNT_CODES = { DUNE100: 100, SAHARA50: 50, VIP200: 200 };
 
 app.post('/api/create-checkout-session', async (req, res) => {
   try {
-    const { packageId, customerName, customerEmail, date, groupSize, notes } = req.body;
+    const {
+      buggyId, buggyName, durationMins, addOnIds = [], discountCode,
+      rideDescription, customerName, customerEmail,
+      date, startTime, duration, groupSize, notes,
+    } = req.body;
 
-    const pkg = PACKAGES[packageId];
-    if (!pkg) {
-      return res.status(400).json({ error: 'Invalid package' });
-    }
+    // Validate buggy
+    const basePrice = BUGGY_PRICES[buggyId];
+    if (!basePrice) return res.status(400).json({ error: 'Invalid buggy selected' });
+
+    // Compute prices server-side
+    const mult        = DURATION_MULT[parseInt(durationMins)] || 1.0;
+    const buggyAED    = Math.round(basePrice * mult);
+    const addOnsAED   = addOnIds.reduce((s, id) => s + (ADDON_PRICES[id] || 0), 0);
+    const discountAED = DISCOUNT_CODES[discountCode] || 0;
+    const totalAED    = Math.max(50, buggyAED + addOnsAED - discountAED);
 
     const origin = req.headers.origin || `https://${process.env.REPLIT_DEV_DOMAIN}`;
 
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items: [
-        {
+    // Build line items — buggy ride first
+    const lineItems = [
+      {
+        price_data: {
+          currency: 'aed',
+          product_data: {
+            name: buggyName || 'Dune Buggy Ride',
+            description: rideDescription || `${duration || durationMins + ' min'} · ${date || ''}`,
+            images: ['https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2025-1-1024x960.webp'],
+          },
+          unit_amount: buggyAED * 100,
+        },
+        quantity: 1,
+      },
+    ];
+
+    // Add each add-on as a separate line item for transparency
+    for (const id of addOnIds) {
+      if (ADDON_PRICES[id]) {
+        lineItems.push({
           price_data: {
-            currency: pkg.currency,
-            product_data: {
-              name: pkg.name,
-              description: pkg.description,
-              images: ['https://cobradunesdxb.com/wp-content/uploads/2025/11/CAN-AM-MAVERICK-R-X-RS-2025-1-1024x960.webp'],
-            },
-            unit_amount: pkg.amount,
+            currency: 'aed',
+            product_data: { name: ADDON_NAMES[id] || id },
+            unit_amount: ADDON_PRICES[id] * 100,
           },
           quantity: 1,
-        },
-      ],
+        });
+      }
+    }
+
+    const addOnsSummary = addOnIds.map(id => ADDON_NAMES[id]).filter(Boolean).join(', ');
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: lineItems,
       mode: 'payment',
       customer_email: customerEmail || undefined,
+      discounts: discountAED > 0 ? [] : [],  // Stripe coupon could be added here
       metadata: {
-        customerName: customerName || '',
-        date: date || '',
-        groupSize: groupSize || '',
-        notes: notes || '',
-        packageId,
+        customerName:  customerName  || '',
+        buggyId:       buggyId       || '',
+        buggyName:     buggyName     || '',
+        date:          date          || '',
+        startTime:     startTime     || '',
+        duration:      duration      || '',
+        groupSize:     groupSize     || '',
+        notes:         notes         || '',
+        addOns:        addOnsSummary || '',
+        discountCode:  discountCode  || '',
+        discountAED:   String(discountAED),
       },
       success_url: `${origin}/booking/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/booking`,
+      cancel_url:  `${origin}/booking`,
     });
 
     res.json({ url: session.url, sessionId: session.id });
