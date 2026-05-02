@@ -7,6 +7,9 @@ const app = express();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 app.use(cors({ origin: '*' }));
+
+// Raw body needed for Stripe webhook signature verification
+app.use('/api/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
 
 const PACKAGES = {
@@ -81,6 +84,45 @@ app.post('/api/create-checkout-session', async (req, res) => {
     console.error('Stripe error:', err);
     res.status(500).json({ error: err.message });
   }
+});
+
+app.post('/api/webhook', (req, res) => {
+  const sig = req.headers['stripe-signature'];
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  let event;
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+  } catch (err) {
+    console.error('Webhook signature verification failed:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  switch (event.type) {
+    case 'checkout.session.completed': {
+      const session = event.data.object;
+      console.log('Payment completed:', {
+        sessionId: session.id,
+        customerEmail: session.customer_email,
+        amount: session.amount_total,
+        currency: session.currency,
+        customerName: session.metadata?.customerName,
+        date: session.metadata?.date,
+        groupSize: session.metadata?.groupSize,
+        packageId: session.metadata?.packageId,
+      });
+      break;
+    }
+    case 'payment_intent.payment_failed': {
+      const intent = event.data.object;
+      console.log('Payment failed:', intent.id, intent.last_payment_error?.message);
+      break;
+    }
+    default:
+      console.log(`Unhandled webhook event: ${event.type}`);
+  }
+
+  res.json({ received: true });
 });
 
 app.get('/api/lead-magnet', (req, res) => {
