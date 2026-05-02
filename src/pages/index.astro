@@ -13,13 +13,17 @@ import Pricing from '../components/Pricing.astro';
 import FAQ from '../components/FAQ.astro';
 import Booking from '../components/Booking.astro';
 import Footer from '../components/Footer.astro';
+import LeadFunnel from '../components/LeadFunnel.astro';
+import StripePayment from '../components/StripePayment.astro';
 ---
 
 <Layout
   title="Buggy Sahara DXB | #1 Dune Buggy Rental Dubai | Desert Adventure Tours UAE"
   description="Experience Dubai's most thrilling dune buggy rentals with Buggy Sahara DXB. Premium Polaris RZR, Can-Am Maverick & off-road buggy tours across Big Red Desert. Self-drive, safety trained, all ages welcome. Book your desert adventure today!"
-  keywords="dune buggy Dubai, buggy rental Dubai, desert buggy tour, 4x4 adventure Dubai, sand dune buggy UAE, off-road buggy, desert safari, Polaris RZR Dubai, Can-Am Maverick, buggy sahara DXB, Big Red Dubai, desert celebrations, adventure activities Dubai, dune bashing, self-drive buggy Dubai"
+  keywords="dune buggy Dubai, buggy rental Dubai, desert buggy tour, 4x4 adventure Dubai, sand dune buggy UAE, off-road buggy, desert safari, Polaris RZR Dubai, Can-Am Maverick, buggy sahara DXB, Big Red Dubai, desert celebrations, adventure activities Dubai, dune bashing, self-drive buggy Dubai, safari rental UAE, 4x4 rental Dubai"
 >
+  <LeadFunnel />
+  <StripePayment />
   <Header />
   <main>
     <Hero />

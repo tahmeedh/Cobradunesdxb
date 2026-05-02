@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Dune Buggy Dubai | Self-Drive Desert Buggy Rental UAE | Buggy Sahara DXB"
+  description="Best dune buggy Dubai rental experience. Drive premium Can-Am Maverick & Polaris RZR across Big Red desert. No license required. Book online — from AED 399."
+  keywords="dune buggy Dubai, dune buggy rental Dubai, desert buggy Dubai, buggy tour Dubai, self-drive buggy Dubai, Can-Am buggy Dubai, Polaris RZR Dubai, Big Red buggy Dubai, sand dune buggy UAE"
+  url="https://buggysaharadxb.com/dune-buggy-dubai"
+>
+  <Header />
+  <main class="bg-[#0D0D0D] pt-24 pb-20 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Breadcrumb -->
+      <nav class="text-xs text-gray-600 mb-8 flex items-center gap-2">
+        <a href="/" class="hover:text-yellow-400 transition-colors">Home</a>
+        <i class="fas fa-chevron-right text-[10px]"></i>
+        <span class="text-gray-400">Dune Buggy Dubai</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-semibold mb-5">
+        <i class="fas fa-map-marker-alt"></i> Dubai, UAE · Big Red Desert
+      </div>
+
+      <h1 class="font-racing text-4xl md:text-6xl text-white mb-4 leading-tight">
+        DUNE BUGGY <span class="text-gradient-gold">DUBAI</span>
+      </h1>
+
+      <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-3xl">
+        Experience the ultimate <strong class="text-white">dune buggy Dubai</strong> adventure with Buggy Sahara DXB.
+        We offer the finest fleet of self-drive dune buggies across Dubai's iconic Big Red desert —
+        from solo 30-minute blasts to full-day VIP adventures. No driving license required.
+        All safety gear provided. Open 365 days a year.
+      </p>
+
+      <!-- Quick CTA -->
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="/#pricing" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
+          <i class="fas fa-calendar-check"></i>
+          <span class="font-display">View Packages & Book</span>
+        </a>
+        <a href="https://wa.me/971505371693?text=Hi! I want to book a dune buggy Dubai experience"
+           target="_blank" rel="noopener"
+           class="btn-outline flex items-center gap-2 px-6 py-3 rounded-xl">
+          <i class="fab fa-whatsapp text-green-400"></i>
+          <span class="font-display">WhatsApp Us</span>
+        </a>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-invert max-w-none space-y-8">
+
+        <section class="glass border border-yellow-400/15 rounded-2xl p-8">
+          <h2 class="font-racing text-3xl text-yellow-400 mb-4">Why Choose Our Dune Buggy Dubai Experience?</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { icon: "fas fa-trophy", title: "Premium Fleet", desc: "Can-Am Maverick R X RS 2025, Polaris RZR 1000XP, CF Moto — Dubai's best maintained machines." },
+              { icon: "fas fa-shield-alt", title: "No License Needed", desc: "Our private desert track means you don't need a UAE driving license to enjoy the dunes." },
+              { icon: "fas fa-user-shield", title: "Certified Guides", desc: "Every group is guided by a certified desert instructor with first-aid training." },
+              { icon: "fas fa-star", title: "4.9★ Rating", desc: "Over 847 five-star Google reviews from adventurers across 60+ countries." },
+              { icon: "fas fa-users", title: "All Group Sizes", desc: "From solo riders to corporate groups of 50+. We accommodate every adventure." },
+              { icon: "fas fa-clock", title: "30 Min to Full Day", desc: "Explorer 30-min sessions up to VIP 8-hour full-day adventures from AED 399." },
+            ].map(item => (
+              <div class="flex gap-3 p-4 bg-black/30 rounded-xl border border-yellow-400/10">
+                <i class={`${item.icon} text-yellow-400 text-lg mt-0.5 flex-shrink-0`}></i>
+                <div>
+                  <h3 class="text-white font-semibold text-sm mb-1">{item.title}</h3>
+                  <p class="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-racing text-3xl text-white mb-4">Our Dubai Dune Buggy Fleet</h2>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Every <strong class="text-white">dune buggy in Dubai</strong> from our fleet is serviced after every single ride.
+            We operate the Can-Am Maverick R X RS 2025 (120HP, 4-seater), the Polaris RZR 1000XP, the
+            CF Moto 1000CC 4x4, and the Kymco MXU 250 solo quad. Prices start at AED 150 per 30 minutes
+            for the solo quad and go up to AED 800 per 30 minutes for the flagship Can-Am 2025.
+          </p>
+          <p class="text-gray-400 leading-relaxed">
+            Not sure which dune buggy is right for you? Our team will match you to the perfect machine
+            based on your experience level, group size, and desired thrill level.
+          </p>
+        </section>
+
+        <section class="glass border border-yellow-400/15 rounded-2xl p-8">
+          <h2 class="font-racing text-3xl text-white mb-4">Dune Buggy Dubai Prices — 2025</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-yellow-400/20">
+                  <th class="text-left text-yellow-400 py-3 pr-4">Package</th>
+                  <th class="text-left text-yellow-400 py-3 pr-4">Duration</th>
+                  <th class="text-left text-yellow-400 py-3">Price</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-300">
+                {[
+                  ["Explorer", "30 minutes", "AED 399"],
+                  ["Adventurer", "2 hours", "AED 699"],
+                  ["Dune Master", "4 hours", "AED 1,299"],
+                  ["VIP Full Day", "8 hours", "AED 1,999"],
+                ].map(([pkg, dur, price]) => (
+                  <tr class="border-b border-yellow-400/5 hover:bg-yellow-400/5 transition-colors">
+                    <td class="py-3 pr-4 font-semibold">{pkg}</td>
+                    <td class="py-3 pr-4 text-gray-400">{dur}</td>
+                    <td class="py-3 text-yellow-400 font-bold">{price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <a href="/#pricing" class="mt-6 btn-gold inline-flex items-center gap-2 px-6 py-3 rounded-xl shine text-sm">
+            <i class="fas fa-credit-card"></i>
+            <span class="font-display">Book & Pay Online Now</span>
+          </a>
+        </section>
+
+        <section>
+          <h2 class="font-racing text-3xl text-white mb-4">Where Is Our Dubai Dune Buggy Located?</h2>
+          <p class="text-gray-400 leading-relaxed">
+            Our desert basecamp is situated in the <strong class="text-white">Al Lahbab desert</strong> (commonly known as Big Red),
+            approximately 45 minutes from Dubai city centre near the Al Marmoom Desert Conservation Reserve.
+            This is the finest dune driving terrain in all of the UAE — massive red dunes, dramatic desert
+            landscapes, and zero crowds. The exact Google Maps pin is shared upon booking.
+          </p>
+        </section>
+
+      </div>
+
+      <!-- Schema for this page -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TouristAttraction",
+        "name": "Dune Buggy Dubai — Buggy Sahara DXB",
+        "description": "Self-drive dune buggy rental and desert adventure tours in Dubai, UAE. Premium Can-Am and Polaris fleet at Big Red desert.",
+        "url": "https://buggysaharadxb.com/dune-buggy-dubai",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dubai",
+          "addressCountry": "AE"
+        },
+        "priceRange": "AED 399 - AED 1,999"
+      }
+      </script>
+    </div>
+  </main>
+  <Footer />
+</Layout>

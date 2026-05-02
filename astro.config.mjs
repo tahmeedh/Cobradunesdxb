@@ -16,5 +16,13 @@ export default defineConfig({
     optimizeDeps: {
       include: ['three', 'gsap'],
     },
+    define: {
+      'import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY': JSON.stringify(process.env.STRIPE_PUBLISHABLE_KEY || ''),
+    },
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 5000,
+    allowedHosts: true,
   },
 });

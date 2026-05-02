@@ -1,0 +1,254 @@
+---
+const publishableKey = import.meta.env.PUBLIC_STRIPE_PUBLISHABLE_KEY || '';
+---
+
+<!-- ===== STRIPE CHECKOUT MODAL ===== -->
+<div id="stripe-modal" class="fixed inset-0 z-[90] flex items-center justify-center p-4 hidden">
+  <div class="absolute inset-0 bg-black/85 backdrop-blur-md" id="stripe-modal-overlay"></div>
+
+  <div class="relative z-10 max-w-lg w-full glass border border-yellow-400/30 rounded-3xl overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto" style="box-shadow: 0 0 80px rgba(212,175,55,0.2);">
+
+    <div class="h-1 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600"></div>
+
+    <button id="close-stripe-modal" class="absolute top-4 right-4 w-8 h-8 rounded-full glass border border-yellow-400/20 flex items-center justify-center text-gray-400 hover:text-white transition-colors z-10" aria-label="Close">
+      <i class="fas fa-times text-xs"></i>
+    </button>
+
+    <div class="p-8">
+
+      <!-- Package summary -->
+      <div id="modal-pkg-summary" class="glass border border-yellow-400/15 rounded-2xl p-4 mb-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-yellow-400/20 flex items-center justify-center">
+            <i id="modal-pkg-icon" class="fas fa-star text-yellow-400"></i>
+          </div>
+          <div class="flex-grow">
+            <div id="modal-pkg-name" class="font-display text-white text-base"></div>
+            <div id="modal-pkg-desc" class="text-gray-500 text-xs"></div>
+          </div>
+          <div class="text-right">
+            <div id="modal-pkg-price" class="font-racing text-2xl text-yellow-400"></div>
+            <div class="text-gray-500 text-xs">AED</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="font-display text-xl text-white mb-1">Complete Your Booking</h3>
+      <p class="text-gray-500 text-sm mb-6">Fill in your details then proceed to secure payment.</p>
+
+      <!-- Booking details form -->
+      <form id="stripe-booking-form" class="space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-400 text-xs uppercase tracking-wide font-semibold mb-2">Your Name *</label>
+            <input
+              type="text"
+              id="stripe-name"
+              required
+              placeholder="Full name"
+              class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-400 text-xs uppercase tracking-wide font-semibold mb-2">Email *</label>
+            <input
+              type="email"
+              id="stripe-email"
+              required
+              placeholder="your@email.com"
+              class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-400 text-xs uppercase tracking-wide font-semibold mb-2">Preferred Date</label>
+            <input
+              type="date"
+              id="stripe-date"
+              class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400/60 transition-colors"
+            />
+          </div>
+          <div>
+            <label class="block text-gray-400 text-xs uppercase tracking-wide font-semibold mb-2">Group Size</label>
+            <select
+              id="stripe-group"
+              class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-yellow-400/60 transition-colors appearance-none"
+            >
+              <option value="1">1 Person</option>
+              <option value="2">2 People</option>
+              <option value="3-4">3-4 People</option>
+              <option value="5-8">5-8 People</option>
+              <option value="9+">9+ People</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-400 text-xs uppercase tracking-wide font-semibold mb-2">Special Requests</label>
+          <textarea
+            id="stripe-notes"
+            rows="2"
+            placeholder="Dietary needs, celebrations, accessibility requirements..."
+            class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Discount code -->
+        <div class="flex gap-2">
+          <input
+            type="text"
+            id="stripe-discount"
+            placeholder="Discount code (e.g. DUNE100)"
+            class="flex-grow bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors"
+          />
+          <button
+            type="button"
+            id="apply-discount-btn"
+            class="btn-outline px-4 py-3 rounded-xl text-sm font-display whitespace-nowrap"
+          >
+            Apply
+          </button>
+        </div>
+        <div id="discount-msg" class="text-xs hidden"></div>
+
+        <!-- Secure pay button -->
+        <button
+          type="submit"
+          id="pay-btn"
+          class="btn-gold w-full flex items-center justify-center gap-3 py-4 rounded-xl text-base shine group"
+        >
+          <i class="fas fa-lock"></i>
+          <span class="font-display text-lg tracking-wide" id="pay-btn-text">Pay Securely with Card</span>
+          <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform"></i>
+        </button>
+      </form>
+
+      <!-- Trust badges -->
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-600">
+        <span class="flex items-center gap-1.5"><i class="fab fa-stripe text-purple-400 text-base"></i> Powered by Stripe</span>
+        <span class="flex items-center gap-1.5"><i class="fas fa-shield-alt text-green-400"></i> 256-bit SSL</span>
+        <span class="flex items-center gap-1.5"><i class="fas fa-credit-card text-blue-400"></i> Visa · MC · Amex</span>
+        <span class="flex items-center gap-1.5"><i class="fas fa-undo text-yellow-400/60"></i> Free rescheduling</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ publishableKey }}>
+(function() {
+  const PACKAGES = {
+    explorer:   { name: 'Explorer Package',      desc: '30 Minutes · 2-Seater · Safety Gear',     price: 399,  icon: 'fas fa-compass'   },
+    adventurer: { name: 'Adventurer Package',    desc: '2 Hours · Choice of 2-Seater · Refreshments', price: 699, icon: 'fas fa-star' },
+    dune_master:{ name: 'Dune Master Package',   desc: '4 Hours · Any Buggy · Snacks & Beverages', price: 1299, icon: 'fas fa-crown'  },
+    vip:        { name: 'VIP Full Day Adventure',desc: '8 Hours · Private Guide · Hotel Transfer', price: 1999, icon: 'fas fa-gem'    },
+  };
+
+  const DISCOUNT_CODES = {
+    DUNE100:  { off: 100, label: 'AED 100 off applied!' },
+    SAHARA50: { off: 50,  label: 'AED 50 off applied!'  },
+    VIP200:   { off: 200, label: 'AED 200 off applied!' },
+  };
+
+  let currentPackage = null;
+  let discount = 0;
+
+  // ── Open modal ─────────────────────────────────────────────────────
+  window.openStripeModal = function(packageId) {
+    const pkg = PACKAGES[packageId];
+    if (!pkg) return;
+    currentPackage = packageId;
+    discount = 0;
+
+    document.getElementById('modal-pkg-name').textContent  = pkg.name;
+    document.getElementById('modal-pkg-desc').textContent  = pkg.desc;
+    document.getElementById('modal-pkg-price').textContent = pkg.price.toLocaleString();
+    document.getElementById('modal-pkg-icon').className    = pkg.icon + ' text-yellow-400';
+    document.getElementById('pay-btn-text').textContent    = `Pay AED ${pkg.price.toLocaleString()} Securely`;
+    document.getElementById('discount-msg').classList.add('hidden');
+    document.getElementById('stripe-discount').value = '';
+    document.getElementById('stripe-booking-form').reset();
+
+    document.getElementById('stripe-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  };
+
+  // ── Close modal ────────────────────────────────────────────────────
+  function closeModal() {
+    document.getElementById('stripe-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('close-stripe-modal')?.addEventListener('click', closeModal);
+  document.getElementById('stripe-modal-overlay')?.addEventListener('click', closeModal);
+
+  // ── Discount code ──────────────────────────────────────────────────
+  document.getElementById('apply-discount-btn')?.addEventListener('click', () => {
+    const code = document.getElementById('stripe-discount').value.trim().toUpperCase();
+    const msgEl = document.getElementById('discount-msg');
+    const dc = DISCOUNT_CODES[code];
+
+    if (!dc) {
+      msgEl.textContent = 'Invalid discount code.';
+      msgEl.className = 'text-xs text-red-400';
+      msgEl.classList.remove('hidden');
+      discount = 0;
+    } else {
+      discount = dc.off;
+      const pkg = PACKAGES[currentPackage];
+      const finalPrice = Math.max(0, pkg.price - discount);
+      msgEl.textContent = dc.label;
+      msgEl.className = 'text-xs text-green-400';
+      msgEl.classList.remove('hidden');
+      document.getElementById('modal-pkg-price').textContent = finalPrice.toLocaleString();
+      document.getElementById('pay-btn-text').textContent = `Pay AED ${finalPrice.toLocaleString()} Securely`;
+    }
+  });
+
+  // ── Form submit → create Stripe session ──────────────────────────
+  document.getElementById('stripe-booking-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const btn = document.getElementById('pay-btn');
+    btn.disabled = true;
+    document.getElementById('pay-btn-text').textContent = 'Creating secure checkout...';
+
+    const name      = document.getElementById('stripe-name').value;
+    const email     = document.getElementById('stripe-email').value;
+    const date      = document.getElementById('stripe-date').value;
+    const groupSize = document.getElementById('stripe-group').value;
+    const notes     = document.getElementById('stripe-notes').value;
+    const code      = document.getElementById('stripe-discount').value.trim().toUpperCase();
+
+    try {
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          packageId: currentPackage,
+          customerName: name,
+          customerEmail: email,
+          date,
+          groupSize,
+          notes,
+          discountCode: code || null,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error(data.error || 'Payment setup failed');
+      }
+    } catch (err) {
+      alert('Payment error: ' + err.message + '\nPlease try WhatsApp booking instead.');
+      btn.disabled = false;
+      document.getElementById('pay-btn-text').textContent = 'Pay Securely with Card';
+    }
+  });
+
+})();
+</script>

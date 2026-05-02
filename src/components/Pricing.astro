@@ -1,6 +1,7 @@
 ---
 const plans = [
   {
+    id:          "explorer",
     name:        "Explorer",
     tagline:     "Perfect for first-timers",
     price:       "399",
@@ -21,6 +22,7 @@ const plans = [
     cta:         "Book Explorer",
   },
   {
+    id:          "adventurer",
     name:        "Adventurer",
     tagline:     "Our most popular package",
     price:       "699",
@@ -44,6 +46,7 @@ const plans = [
     cta:         "Book Adventurer",
   },
   {
+    id:          "dune_master",
     name:        "Dune Master",
     tagline:     "The complete experience",
     price:       "1,299",
@@ -88,6 +91,11 @@ const plans = [
         Simple, transparent pricing with no hidden fees.
         All packages include full safety gear, briefing, and a professional guide.
       </p>
+      <!-- Discount banner -->
+      <div class="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-semibold">
+        <i class="fas fa-tag"></i>
+        Use code <span class="bg-green-500/20 px-2 py-0.5 rounded font-mono text-white mx-1">DUNE100</span> for AED 100 off any package
+      </div>
     </div>
 
     <!-- Pricing Cards -->
@@ -100,7 +108,7 @@ const plans = [
         >
           <!-- Featured label -->
           {plan.featured && (
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-gold"></div>
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600"></div>
           )}
           {plan.featured && (
             <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
@@ -112,7 +120,6 @@ const plans = [
 
           <!-- Card Top -->
           <div class={`bg-gradient-to-br ${plan.bg} p-6 pt-8`}>
-            <!-- Icon -->
             <div class={`w-12 h-12 rounded-xl glass border ${plan.borderColor} flex items-center justify-center mb-4`}>
               <i class={`${plan.icon} ${plan.color} text-xl`}></i>
             </div>
@@ -120,7 +127,6 @@ const plans = [
             <h3 class="font-racing text-2xl text-white mb-1">{plan.name}</h3>
             <p class="text-gray-500 text-sm mb-4">{plan.tagline}</p>
 
-            <!-- Price -->
             <div class="flex items-end gap-1 mb-1">
               <span class="text-gray-500 text-sm self-start mt-2">AED</span>
               <span class={`font-racing text-5xl ${plan.color} leading-none`}>{plan.price}</span>
@@ -149,43 +155,83 @@ const plans = [
             </ul>
           </div>
 
-          <!-- CTA -->
-          <div class="px-6 pb-6">
+          <!-- CTAs -->
+          <div class="px-6 pb-6 space-y-2">
+            <!-- Stripe Pay -->
+            <button
+              onclick={`openStripeModal('${plan.id}')`}
+              class={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-display tracking-wide text-sm transition-all duration-300 ${plan.featured ? 'btn-gold shine' : 'btn-gold'}`}
+            >
+              <i class="fas fa-credit-card text-base"></i>
+              Pay Online — {plan.cta}
+            </button>
+            <!-- WhatsApp fallback -->
             <a
               href={`https://wa.me/971505371693?text=Hi! I want to book the ${plan.name} package - AED ${plan.price}`}
               target="_blank"
               rel="noopener"
-              class={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-display tracking-wide text-sm transition-all duration-300 ${plan.featured ? 'btn-gold shine' : 'btn-outline'}`}
+              class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl font-display tracking-wide text-sm btn-outline transition-all duration-300"
             >
-              <i class="fab fa-whatsapp text-base"></i>
-              {plan.cta}
+              <i class="fab fa-whatsapp text-base text-green-400"></i>
+              Book via WhatsApp
             </a>
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Custom / VIP note -->
-    <div class="mt-12 text-center" data-aos="fade-up">
-      <div class="glass border border-yellow-400/20 rounded-2xl p-6 max-w-3xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center gap-4">
-          <div class="text-4xl">👑</div>
-          <div class="text-left md:text-left flex-grow">
-            <h4 class="font-display text-xl text-white mb-1">Need a Custom Quote?</h4>
-            <p class="text-gray-400 text-sm">
-              For groups of 4+, celebrations, corporate events, or VIP full-day packages starting at AED 1,999 —
-              contact us directly for a tailored quote.
-            </p>
+    <!-- VIP card -->
+    <div class="mt-8" data-aos="fade-up">
+      <div class="relative rounded-2xl overflow-hidden border border-yellow-400/40 bg-gradient-to-r from-yellow-900/20 via-[#161616] to-yellow-900/20">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600"></div>
+        <div class="p-8 flex flex-col lg:flex-row items-start lg:items-center gap-8">
+
+          <div class="flex-grow">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-xl bg-yellow-400/20 flex items-center justify-center">
+                <i class="fas fa-gem text-yellow-400 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="font-racing text-2xl text-white">VIP Full Day Adventure</h3>
+                <p class="text-yellow-400/70 text-sm">8 Hours · The Ultimate Desert Experience</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              {["8 Hours Driving", "Private Guide", "Hotel Transfer", "Gourmet Desert Lunch", "Photography Session", "Free Rescheduling"].map(f => (
+                <span class="text-xs flex items-center gap-1 px-2.5 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400/80">
+                  <i class="fas fa-check text-[10px]"></i>
+                  {f}
+                </span>
+              ))}
+            </div>
+            <p class="text-gray-400 text-sm">The most comprehensive desert buggy experience available in Dubai. Includes everything for the ultimate adventure day.</p>
           </div>
-          <a
-            href="https://wa.me/971505371693?text=Hi! I need a custom quote for a group/event"
-            target="_blank"
-            rel="noopener"
-            class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl whitespace-nowrap shine flex-shrink-0"
-          >
-            <i class="fab fa-whatsapp"></i>
-            <span class="font-display">Get Custom Quote</span>
-          </a>
+
+          <div class="flex-shrink-0 text-center lg:text-right">
+            <div class="flex items-end gap-1 justify-center lg:justify-end mb-1">
+              <span class="text-gray-400 text-sm self-start mt-1">AED</span>
+              <span class="font-racing text-5xl text-yellow-400">1,999</span>
+            </div>
+            <p class="text-gray-500 text-xs mb-4">8 hour experience</p>
+            <div class="flex flex-col gap-2 min-w-[200px]">
+              <button
+                onclick="openStripeModal('vip')"
+                class="btn-gold flex items-center justify-center gap-2 px-6 py-3 rounded-xl shine whitespace-nowrap"
+              >
+                <i class="fas fa-credit-card"></i>
+                <span class="font-display">Pay Online</span>
+              </button>
+              <a
+                href="https://wa.me/971505371693?text=Hi! I need a custom quote for a group/event"
+                target="_blank"
+                rel="noopener"
+                class="btn-outline flex items-center justify-center gap-2 px-6 py-3 rounded-xl whitespace-nowrap"
+              >
+                <i class="fab fa-whatsapp text-green-400"></i>
+                <span class="font-display">Get Custom Quote</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -195,12 +241,12 @@ const plans = [
       <h4 class="text-center text-gray-400 text-sm mb-4 uppercase tracking-widest font-semibold">Every Package Includes</h4>
       <div class="flex flex-wrap justify-center gap-4">
         {[
-          { icon: "fas fa-hard-hat",     text: "Helmet & Goggles"   },
-          { icon: "fas fa-hand-back-fist", text: "Protective Gloves"  },
-          { icon: "fas fa-user-shield",  text: "Safety Briefing"    },
-          { icon: "fas fa-map",          text: "Expert Guide"       },
-          { icon: "fas fa-tint",         text: "Water"              },
-          { icon: "fas fa-first-aid",    text: "First Aid on Site"  },
+          { icon: "fas fa-hard-hat",       text: "Helmet & Goggles"  },
+          { icon: "fas fa-hand-back-fist", text: "Protective Gloves" },
+          { icon: "fas fa-user-shield",    text: "Safety Briefing"   },
+          { icon: "fas fa-map",            text: "Expert Guide"      },
+          { icon: "fas fa-tint",           text: "Water"             },
+          { icon: "fas fa-first-aid",      text: "First Aid on Site" },
         ].map(item => (
           <div class="flex items-center gap-2 px-4 py-2 glass border border-yellow-400/10 rounded-full text-xs text-gray-400">
             <i class={`${item.icon} text-yellow-400 text-xs`}></i>

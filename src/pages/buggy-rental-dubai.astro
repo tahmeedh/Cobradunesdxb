@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Buggy Rental Dubai | Best Off-Road Buggy Hire UAE | Buggy Sahara DXB"
+  description="Top-rated buggy rental Dubai. Hire Can-Am Maverick, Polaris RZR & CF Moto off-road buggies in the Dubai desert. Safety trained guides. From AED 150/30min. Book today."
+  keywords="buggy rental Dubai, buggy hire Dubai, off-road buggy Dubai, Can-Am rental Dubai, Polaris RZR hire, CF Moto rental UAE, quad buggy rental Dubai, desert buggy hire UAE"
+  url="https://buggysaharadxb.com/buggy-rental-dubai"
+>
+  <Header />
+  <main class="bg-[#0D0D0D] pt-24 pb-20 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <nav class="text-xs text-gray-600 mb-8 flex items-center gap-2">
+        <a href="/" class="hover:text-yellow-400 transition-colors">Home</a>
+        <i class="fas fa-chevron-right text-[10px]"></i>
+        <span class="text-gray-400">Buggy Rental Dubai</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-semibold mb-5">
+        <i class="fas fa-car"></i> Premium Buggy Hire · Dubai UAE
+      </div>
+
+      <h1 class="font-racing text-4xl md:text-6xl text-white mb-4 leading-tight">
+        BUGGY RENTAL <span class="text-gradient-gold">DUBAI</span>
+      </h1>
+
+      <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-3xl">
+        Looking for the best <strong class="text-white">buggy rental in Dubai</strong>? Buggy Sahara DXB offers
+        the widest range of premium off-road buggies for hire in Dubai's Big Red desert.
+        Choose from 1-seater quads to 4-seater turbo Can-Am machines. Flexible hire durations,
+        all safety gear included, expert guides on every ride.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="/#fleet" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
+          <i class="fas fa-car"></i>
+          <span class="font-display">Browse Our Fleet</span>
+        </a>
+        <a href="https://wa.me/971505371693?text=Hi! I want to rent a buggy in Dubai"
+           target="_blank" rel="noopener"
+           class="btn-outline flex items-center gap-2 px-6 py-3 rounded-xl">
+          <i class="fab fa-whatsapp text-green-400"></i>
+          <span class="font-display">Get a Quote</span>
+        </a>
+      </div>
+
+      <div class="space-y-8">
+
+        <section class="glass border border-yellow-400/15 rounded-2xl p-8">
+          <h2 class="font-racing text-3xl text-yellow-400 mb-6">Buggy Rental Dubai — Our Full Fleet</h2>
+          <div class="space-y-4">
+            {[
+              { name: "Kymco MXU 250", seats: "1-Seater", price: "AED 150/30min", desc: "Lightweight solo quad perfect for first-time desert riders." },
+              { name: "CF Moto 1000CC 4x4", seats: "2-Seater", price: "AED 249/30min", desc: "Rugged 4x4 with serious torque, great value for pairs." },
+              { name: "Polaris RZR 1000XP", seats: "2-Seater", price: "AED 400/30min", desc: "Classic reliable desert machine with stable handling." },
+              { name: "Polaris RZR 1000XP 4", seats: "4-Seater", price: "AED 450/30min", desc: "Family-friendly Polaris with roomy cabin for 4 riders." },
+              { name: "Can-Am Maverick 3X Turbo RR", seats: "2-Seater", price: "AED 550/30min", desc: "Sport 2-seater with 120HP turbo for thrill-seekers." },
+              { name: "Can-Am Maverick 3X Turbo RR", seats: "4-Seater", price: "AED 600/30min", desc: "Group turbo buggy — power and space in one machine." },
+              { name: "Can-Am Maverick R X RS 2024", seats: "4-Seater", price: "AED 700/30min", desc: "Premium group buggy with top-tier suspension." },
+              { name: "Can-Am Maverick R X RS 2025", seats: "4-Seater", price: "AED 800/30min", desc: "Dubai's most powerful buggy — the ultimate rental experience." },
+            ].map(v => (
+              <div class="flex items-center gap-4 p-4 bg-black/30 border border-yellow-400/10 rounded-xl hover:border-yellow-400/30 transition-all">
+                <i class="fas fa-car text-yellow-400 text-xl flex-shrink-0"></i>
+                <div class="flex-grow">
+                  <div class="text-white font-semibold text-sm">{v.name} <span class="text-gray-500">({v.seats})</span></div>
+                  <div class="text-gray-400 text-xs mt-0.5">{v.desc}</div>
+                </div>
+                <div class="text-yellow-400 font-bold text-sm whitespace-nowrap">{v.price}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-racing text-3xl text-white mb-4">How to Book Your Buggy Rental in Dubai</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { step: "1", title: "Choose Your Buggy", desc: "Pick from our fleet above based on group size and budget." },
+              { step: "2", title: "Pay Online or WhatsApp", desc: "Secure Stripe payment or WhatsApp us to confirm your slot." },
+              { step: "3", title: "Head to Big Red", desc: "Drive to Al Lahbab — we'll send the exact pin. Gear and safety briefing on arrival." },
+            ].map(s => (
+              <div class="glass border border-yellow-400/15 rounded-xl p-5 text-center">
+                <div class="w-10 h-10 rounded-full bg-yellow-400/20 border border-yellow-400/30 flex items-center justify-center mx-auto mb-3">
+                  <span class="font-racing text-yellow-400 text-lg">{s.step}</span>
+                </div>
+                <h3 class="font-display text-white text-base mb-2">{s.title}</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div class="mt-6 text-center">
+            <a href="/#pricing" class="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-xl shine text-base">
+              <i class="fas fa-credit-card"></i>
+              <span class="font-display tracking-wide">Book Your Buggy Rental Now</span>
+            </a>
+          </div>
+        </section>
+
+      </div>
+
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RentalCarReservation",
+        "name": "Buggy Rental Dubai — Buggy Sahara DXB",
+        "description": "Premium off-road buggy hire in Dubai, UAE. Can-Am Maverick, Polaris RZR and more at Big Red desert.",
+        "url": "https://buggysaharadxb.com/buggy-rental-dubai",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Buggy Sahara DXB",
+          "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+        }
+      }
+      </script>
+    </div>
+  </main>
+  <Footer />
+</Layout>

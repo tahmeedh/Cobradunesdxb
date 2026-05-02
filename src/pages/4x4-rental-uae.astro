@@ -1,0 +1,208 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="4x4 Rental UAE | Off-Road 4WD Buggy Dubai | Buggy Sahara DXB"
+  description="Best 4x4 rental UAE for desert off-road adventures. Hire premium 4WD buggies, Can-Am Maverick & Polaris RZR in Dubai. Self-drive desert experience from AED 399."
+  keywords="4x4 rental UAE, 4x4 Dubai rental, 4WD rental Dubai, off-road 4x4 UAE, desert 4x4 Dubai, 4x4 buggy rental Dubai, Can-Am 4x4 UAE, Polaris 4x4 Dubai, off-road rental UAE"
+  url="https://buggysaharadxb.com/4x4-rental-uae"
+>
+  <Header />
+  <main class="bg-[#0D0D0D] pt-24 pb-20 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <nav class="text-xs text-gray-600 mb-8 flex items-center gap-2">
+        <a href="/" class="hover:text-yellow-400 transition-colors">Home</a>
+        <i class="fas fa-chevron-right text-[10px]"></i>
+        <span class="text-gray-400">4x4 Rental UAE</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-semibold mb-5">
+        <i class="fas fa-car-side"></i> 4x4 Off-Road · UAE Desert
+      </div>
+
+      <h1 class="font-racing text-4xl md:text-6xl text-white mb-4 leading-tight">
+        4X4 RENTAL <span class="text-gradient-gold">UAE</span>
+      </h1>
+
+      <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-3xl">
+        The most exciting <strong class="text-white">4x4 rental UAE</strong> experience isn't in a standard SUV —
+        it's behind the wheel of a high-performance off-road buggy at Dubai's Big Red.
+        Buggy Sahara DXB offers true 4x4 off-road desert machines: Can-Am Maverick, Polaris RZR and CF Moto —
+        all with 4-wheel drive, professional suspension, and safety cages for the full desert adventure.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="/#fleet" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
+          <i class="fas fa-car-side"></i>
+          <span class="font-display">View 4x4 Fleet</span>
+        </a>
+        <a href="https://wa.me/971505371693?text=Hi! I'm interested in a 4x4 rental in UAE"
+           target="_blank" rel="noopener"
+           class="btn-outline flex items-center gap-2 px-6 py-3 rounded-xl">
+          <i class="fab fa-whatsapp text-green-400"></i>
+          <span class="font-display">WhatsApp Us</span>
+        </a>
+      </div>
+
+      <div class="space-y-8">
+
+        <section class="glass border border-yellow-400/15 rounded-2xl p-8">
+          <h2 class="font-racing text-3xl text-yellow-400 mb-6">Our 4x4 Off-Road Fleet</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                name: "Can-Am Maverick R X RS 2025",
+                engine: "900cc Turbo",
+                power: "120 HP",
+                seats: "4-Seater",
+                drive: "4WD",
+                price: "AED 800/30min",
+                badge: "FLAGSHIP",
+                badgeColor: "bg-yellow-400 text-black",
+              },
+              {
+                name: "Can-Am Maverick R X RS 2024",
+                engine: "900cc Turbo",
+                power: "120 HP",
+                seats: "4-Seater",
+                drive: "4WD",
+                price: "AED 700/30min",
+                badge: "PREMIUM",
+                badgeColor: "bg-orange-500 text-white",
+              },
+              {
+                name: "Can-Am Maverick 3X Turbo RR 4-Seater",
+                engine: "900cc Turbo",
+                power: "120 HP",
+                seats: "4-Seater",
+                drive: "4WD",
+                price: "AED 600/30min",
+                badge: "GROUP",
+                badgeColor: "bg-purple-500 text-white",
+              },
+              {
+                name: "Polaris RZR 1000XP 4-Seater",
+                engine: "1000cc",
+                power: "110 HP",
+                seats: "4-Seater",
+                drive: "4WD",
+                price: "AED 450/30min",
+                badge: "FAMILY",
+                badgeColor: "bg-blue-500 text-white",
+              },
+              {
+                name: "CF Moto 1000CC 4x4",
+                engine: "1000cc",
+                power: "112 HP",
+                seats: "2-Seater",
+                drive: "4WD",
+                price: "AED 249/30min",
+                badge: "VALUE",
+                badgeColor: "bg-green-600 text-white",
+              },
+              {
+                name: "Polaris RZR 1000XP 2-Seater",
+                engine: "1000cc",
+                power: "110 HP",
+                seats: "2-Seater",
+                drive: "4WD",
+                price: "AED 400/30min",
+                badge: "CLASSIC",
+                badgeColor: "bg-cyan-500 text-white",
+              },
+            ].map(v => (
+              <div class="p-5 bg-black/30 border border-yellow-400/10 rounded-xl hover:border-yellow-400/30 transition-all">
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-white font-semibold text-sm leading-tight">{v.name}</h3>
+                  <span class={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ml-2 ${v.badgeColor}`}>{v.badge}</span>
+                </div>
+                <div class="grid grid-cols-4 gap-2 mb-3">
+                  {[
+                    { label: "Engine", val: v.engine },
+                    { label: "Power", val: v.power },
+                    { label: "Seats", val: v.seats },
+                    { label: "Drive", val: v.drive },
+                  ].map(s => (
+                    <div class="text-center p-1.5 rounded bg-black/40 border border-yellow-400/10">
+                      <div class="text-yellow-400 text-xs font-bold">{s.val}</div>
+                      <div class="text-gray-600 text-[10px]">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+                <div class="text-yellow-400 font-bold text-sm">{v.price}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-racing text-3xl text-white mb-4">Why a 4x4 Buggy Is Better Than a Regular 4x4 Rental in UAE</h2>
+          <div class="space-y-3 text-gray-400 leading-relaxed">
+            <p>
+              A standard <strong class="text-white">4x4 SUV rental in UAE</strong> is perfect for road trips, but for true desert driving,
+              nothing beats a purpose-built off-road buggy. Our machines feature:
+            </p>
+            <ul class="space-y-2 ml-4">
+              {[
+                "Full roll cages and 5-point safety harnesses — far safer than any SUV",
+                "Long-travel suspension tuned for Big Red's steep dunes",
+                "Low-pressure desert tires with maximum sand traction",
+                "Open-air cockpit for the full desert sensory experience",
+                "High ground clearance to tackle any dune without getting stuck",
+              ].map(item => (
+                <li class="flex items-start gap-2">
+                  <i class="fas fa-check text-yellow-400 text-xs mt-1 flex-shrink-0"></i>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section class="glass border border-yellow-400/15 rounded-2xl p-8">
+          <h2 class="font-racing text-3xl text-white mb-4">Book Your 4x4 Rental UAE Today</h2>
+          <p class="text-gray-400 mb-6">
+            Ready to take on the dunes? Choose a package below and pay securely online, or WhatsApp us to arrange a custom group booking.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { name: "Explorer 30-min", price: "AED 399", pkg: "explorer" },
+              { name: "Adventurer 2-hour", price: "AED 699", pkg: "adventurer" },
+              { name: "Dune Master 4-hour", price: "AED 1,299", pkg: "dune_master" },
+              { name: "VIP Full Day", price: "AED 1,999", pkg: "vip" },
+            ].map(p => (
+              <div class="flex items-center justify-between p-4 bg-black/30 border border-yellow-400/10 rounded-xl">
+                <div>
+                  <div class="text-white font-semibold text-sm">{p.name}</div>
+                  <div class="text-yellow-400 text-xs">{p.price}</div>
+                </div>
+                <a href="/#pricing" class="btn-gold text-xs px-4 py-2 rounded-lg shine font-display">Book</a>
+              </div>
+            ))}
+          </div>
+        </section>
+
+      </div>
+
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Vehicle",
+        "name": "4x4 Buggy Rental UAE — Buggy Sahara DXB",
+        "description": "Premium 4x4 off-road buggy hire in UAE. Can-Am Maverick and Polaris RZR desert machines at Big Red, Dubai.",
+        "url": "https://buggysaharadxb.com/4x4-rental-uae",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "AED",
+          "price": "399"
+        }
+      }
+      </script>
+    </div>
+  </main>
+  <Footer />
+</Layout>

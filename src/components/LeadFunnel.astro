@@ -1,0 +1,319 @@
+---
+---
+
+<!-- ===== URGENCY TOP BAR ===== -->
+<div id="urgency-bar" class="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 text-black py-2 px-4 text-center text-sm font-bold flex items-center justify-center gap-3 shadow-lg">
+  <i class="fas fa-fire animate-bounce"></i>
+  <span>
+    LIMITED SLOTS THIS WEEK — Only <span id="slots-left" class="underline font-black">4 spots</span> left! Book now &amp; get a FREE GoPro mount upgrade
+  </span>
+  <span class="hidden sm:flex items-center gap-1 ml-2">
+    <i class="fas fa-clock"></i>
+    <span id="countdown-bar" class="font-mono tabular-nums">00:00:00</span>
+  </span>
+  <button id="close-urgency-bar" class="absolute right-3 top-1/2 -translate-y-1/2 text-black/60 hover:text-black text-lg leading-none" aria-label="Close">&times;</button>
+</div>
+
+<!-- ===== EXIT-INTENT LEAD MAGNET POPUP ===== -->
+<div id="lead-popup" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-md" id="lead-popup-overlay"></div>
+
+  <div class="relative z-10 max-w-md w-full glass border border-yellow-400/40 rounded-3xl overflow-hidden shadow-2xl" style="box-shadow: 0 0 60px rgba(212,175,55,0.25);">
+
+    <!-- Top accent -->
+    <div class="h-1 bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600"></div>
+
+    <!-- Close btn -->
+    <button id="close-lead-popup" class="absolute top-4 right-4 w-8 h-8 rounded-full glass border border-yellow-400/20 flex items-center justify-center text-gray-400 hover:text-white transition-colors z-10" aria-label="Close">
+      <i class="fas fa-times text-xs"></i>
+    </button>
+
+    <!-- Content -->
+    <div class="p-8 pb-6">
+
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/20 border border-yellow-400/30 text-yellow-400 text-xs font-bold mb-4">
+        <i class="fas fa-gift"></i>
+        EXCLUSIVE OFFER — LIMITED TIME
+      </div>
+
+      <h2 class="font-racing text-3xl text-white mb-2">
+        GET AED 100 OFF<br/>
+        <span class="text-gradient-gold">YOUR FIRST RIDE</span>
+      </h2>
+
+      <p class="text-gray-400 text-sm mb-5 leading-relaxed">
+        Join 5,000+ adventurers. Drop your details below and we'll send your
+        <strong class="text-white">exclusive discount code</strong> + our free
+        <strong class="text-white">Dubai Desert Adventure Guide</strong> instantly.
+      </p>
+
+      <!-- Value props -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        {[
+          "AED 100 Discount",
+          "Free Desert Guide PDF",
+          "Priority Booking",
+          "No Spam Ever",
+        ].map(v => (
+          <span class="text-xs flex items-center gap-1 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-medium">
+            <i class="fas fa-check text-[10px]"></i>
+            {v}
+          </span>
+        ))}
+      </div>
+
+      <!-- Form -->
+      <form id="lead-form" class="space-y-3">
+        <input
+          type="text"
+          id="lead-name"
+          name="name"
+          placeholder="Your Name"
+          required
+          class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors"
+        />
+        <input
+          type="email"
+          id="lead-email"
+          name="email"
+          placeholder="Email Address"
+          required
+          class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors"
+        />
+        <input
+          type="tel"
+          id="lead-phone"
+          name="phone"
+          placeholder="WhatsApp Number (optional)"
+          class="w-full bg-black/40 border border-yellow-400/20 rounded-xl px-4 py-3 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-yellow-400/60 transition-colors"
+        />
+
+        <button
+          type="submit"
+          class="btn-gold w-full flex items-center justify-center gap-2 py-4 rounded-xl text-base shine"
+        >
+          <i class="fas fa-gift text-lg"></i>
+          <span class="font-display tracking-wide text-lg">Claim My AED 100 Discount</span>
+        </button>
+      </form>
+
+      <!-- Success state (hidden) -->
+      <div id="lead-success" class="hidden text-center py-4">
+        <div class="text-5xl mb-3">🎉</div>
+        <h3 class="font-display text-xl text-yellow-400 mb-2">Discount Unlocked!</h3>
+        <p class="text-gray-400 text-sm mb-3">Use code <strong class="text-white bg-yellow-400/20 px-2 py-0.5 rounded font-mono">DUNE100</strong> at checkout for AED 100 off.</p>
+        <p class="text-gray-500 text-xs">Check your WhatsApp — we'll send your Desert Guide shortly!</p>
+      </div>
+
+      <p class="text-center text-gray-600 text-xs mt-3">
+        <i class="fas fa-lock text-yellow-400/40 mr-1"></i>
+        We respect your privacy. Unsubscribe anytime.
+      </p>
+    </div>
+
+    <!-- Social proof strip -->
+    <div class="border-t border-yellow-400/10 px-8 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="flex -space-x-1.5">
+          {["bg-yellow-500","bg-blue-500","bg-pink-500","bg-green-500"].map(c => (
+            <div class={`w-6 h-6 rounded-full ${c} border-2 border-[#161616] flex items-center justify-center text-white text-xs font-bold`}>
+              A
+            </div>
+          ))}
+        </div>
+        <span class="text-gray-500 text-xs">5,000+ adventurers joined</span>
+      </div>
+      <div class="flex items-center gap-1 text-yellow-400 text-xs">
+        <i class="fas fa-star text-xs"></i>
+        <span class="text-gray-400">4.9 / 5</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STICKY BOTTOM CTA (mobile) ===== -->
+<div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-[#0D0D0D] border-t border-yellow-400/20 px-4 py-3 flex gap-3 items-center">
+  <a
+    href="https://wa.me/971505371693?text=Hi! I want to book a desert adventure"
+    target="_blank"
+    rel="noopener"
+    class="btn-gold flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm shine"
+  >
+    <i class="fab fa-whatsapp text-base"></i>
+    <span class="font-display">Book Now</span>
+  </a>
+  <a
+    href="tel:+971505371693"
+    class="btn-outline flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm"
+  >
+    <i class="fas fa-phone"></i>
+    <span class="font-display">Call</span>
+  </a>
+</div>
+
+<!-- ===== SOCIAL PROOF TOAST ===== -->
+<div id="social-toast" class="fixed top-20 left-4 z-50 max-w-xs hidden">
+  <div class="glass border border-yellow-400/20 rounded-xl px-4 py-3 flex items-center gap-3 shadow-lg">
+    <div id="toast-avatar" class="w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-sm bg-yellow-500"></div>
+    <div>
+      <div id="toast-name" class="text-white text-xs font-semibold"></div>
+      <div id="toast-msg" class="text-gray-400 text-xs"></div>
+    </div>
+    <i class="fas fa-check-circle text-green-400 text-sm flex-shrink-0"></i>
+  </div>
+</div>
+
+<script>
+(function() {
+  // ─── URGENCY BAR ───────────────────────────────────────────────────
+  const urgencyBar = document.getElementById('urgency-bar');
+  const closeBar   = document.getElementById('close-urgency-bar');
+
+  // Add top padding to header so urgency bar doesn't overlap
+  const adjustLayout = () => {
+    const barH = urgencyBar && !urgencyBar.classList.contains('hidden') ? urgencyBar.offsetHeight : 0;
+    document.getElementById('main-header')?.style.setProperty('top', barH + 'px');
+  };
+
+  closeBar?.addEventListener('click', () => {
+    urgencyBar?.classList.add('hidden');
+    adjustLayout();
+    sessionStorage.setItem('barClosed', '1');
+  });
+
+  if (sessionStorage.getItem('barClosed')) {
+    urgencyBar?.classList.add('hidden');
+  }
+  adjustLayout();
+
+  // Countdown (resets daily at midnight Dubai time)
+  const countdownEl = document.getElementById('countdown-bar');
+  function tickCountdown() {
+    if (!countdownEl) return;
+    const now  = new Date();
+    const end  = new Date(now);
+    end.setHours(23, 59, 59, 999);
+    const diff = end - now;
+    const h = String(Math.floor(diff / 3600000)).padStart(2, '0');
+    const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+    const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    countdownEl.textContent = `${h}:${m}:${s}`;
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  // Animate slot count down slowly
+  const slotsEl = document.getElementById('slots-left');
+  let slots = 4;
+  setInterval(() => {
+    if (slots > 1 && Math.random() < 0.15) {
+      slots--;
+      if (slotsEl) slotsEl.textContent = slots + (slots === 1 ? ' spot' : ' spots');
+    }
+  }, 30000);
+
+  // ─── EXIT-INTENT POPUP ─────────────────────────────────────────────
+  const popup        = document.getElementById('lead-popup');
+  const closePopup   = document.getElementById('close-lead-popup');
+  const overlay      = document.getElementById('lead-popup-overlay');
+  const leadForm     = document.getElementById('lead-form') as HTMLFormElement;
+  const leadSuccess  = document.getElementById('lead-success');
+
+  let popupShown = sessionStorage.getItem('popupShown') === '1';
+
+  function showPopup() {
+    if (popupShown) return;
+    popup?.classList.remove('hidden');
+    popupShown = true;
+    sessionStorage.setItem('popupShown', '1');
+  }
+
+  function hidePopup() {
+    popup?.classList.add('hidden');
+  }
+
+  // Exit-intent on desktop
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 10 && !popupShown) showPopup();
+  });
+
+  // Time-based trigger on mobile (20s)
+  setTimeout(() => {
+    if (!popupShown) showPopup();
+  }, 20000);
+
+  closePopup?.addEventListener('click', hidePopup);
+  overlay?.addEventListener('click', hidePopup);
+
+  // Lead form submit
+  leadForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name  = (document.getElementById('lead-name') as HTMLInputElement).value;
+    const email = (document.getElementById('lead-email') as HTMLInputElement).value;
+    const phone = (document.getElementById('lead-phone') as HTMLInputElement).value;
+
+    try {
+      await fetch('/api/lead-capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, interest: 'discount_popup' }),
+      });
+    } catch (_) {}
+
+    // Send WhatsApp follow-up if phone provided
+    if (phone) {
+      const msg = encodeURIComponent(
+        `Hi ${name}! Thanks for your interest in Buggy Sahara DXB. Your exclusive discount code is DUNE100 — saves you AED 100 on any booking! Reply here to lock in your adventure. 🏜️`
+      );
+      setTimeout(() => {
+        window.open(`https://wa.me/${phone.replace(/\D/g, '')}?text=${msg}`, '_blank');
+      }, 1500);
+    }
+
+    leadForm.classList.add('hidden');
+    leadSuccess?.classList.remove('hidden');
+
+    setTimeout(hidePopup, 4000);
+  });
+
+  // ─── SOCIAL PROOF TOASTS ────────────────────────────────────────────
+  const toasts = [
+    { name: "Sarah T.", flag: "🇬🇧", msg: "just booked the Adventurer Package", avatar: "S", color: "bg-pink-500" },
+    { name: "Ahmed M.", flag: "🇦🇪", msg: "booked VIP Full Day for tomorrow", avatar: "A", color: "bg-yellow-500" },
+    { name: "Marco B.", flag: "🇮🇹", msg: "just reserved 4 spots for their team", avatar: "M", color: "bg-blue-500" },
+    { name: "Priya S.", flag: "🇮🇳", msg: "booked Sunset Desert Tour for 2", avatar: "P", color: "bg-purple-500" },
+    { name: "James O.", flag: "🇮🇪", msg: "just paid for Night Desert Experience", avatar: "J", color: "bg-green-500" },
+    { name: "Fatima K.", flag: "🇦🇪", msg: "booked a family group of 6 buggies", avatar: "F", color: "bg-amber-500" },
+  ];
+
+  const toastEl     = document.getElementById('social-toast');
+  const toastAvatar = document.getElementById('toast-avatar');
+  const toastName   = document.getElementById('toast-name');
+  const toastMsg    = document.getElementById('toast-msg');
+
+  let toastIdx = 0;
+
+  function showToast() {
+    const t = toasts[toastIdx % toasts.length];
+    toastIdx++;
+
+    if (toastAvatar) {
+      toastAvatar.textContent = t.avatar;
+      toastAvatar.className = `w-9 h-9 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-sm ${t.color}`;
+    }
+    if (toastName) toastName.textContent = `${t.flag} ${t.name}`;
+    if (toastMsg)  toastMsg.textContent  = t.msg;
+
+    toastEl?.classList.remove('hidden');
+    setTimeout(() => toastEl?.classList.add('hidden'), 4000);
+  }
+
+  // First toast after 8s, then every 25s
+  setTimeout(() => {
+    showToast();
+    setInterval(showToast, 25000);
+  }, 8000);
+
+})();
+</script>

@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Safari Rental Dubai | Desert Safari 4x4 Buggy Tour UAE | Buggy Sahara DXB"
+  description="Premium safari rental Dubai. Book desert safari buggy tours, 4x4 off-road experiences & dune bashing across Dubai's Big Red. Private & group safari packages. AED 399+."
+  keywords="safari rental Dubai, desert safari Dubai, safari buggy Dubai, 4x4 safari UAE, dune bashing safari, desert tour Dubai, buggy safari UAE, adventure safari Dubai, Big Red safari"
+  url="https://buggysaharadxb.com/safari-rental-dubai"
+>
+  <Header />
+  <main class="bg-[#0D0D0D] pt-24 pb-20 px-4">
+    <div class="max-w-4xl mx-auto">
+
+      <nav class="text-xs text-gray-600 mb-8 flex items-center gap-2">
+        <a href="/" class="hover:text-yellow-400 transition-colors">Home</a>
+        <i class="fas fa-chevron-right text-[10px]"></i>
+        <span class="text-gray-400">Safari Rental Dubai</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-400 text-xs font-semibold mb-5">
+        <i class="fas fa-compass"></i> Desert Safari · Dubai UAE
+      </div>
+
+      <h1 class="font-racing text-4xl md:text-6xl text-white mb-4 leading-tight">
+        SAFARI RENTAL <span class="text-gradient-gold">DUBAI</span>
+      </h1>
+
+      <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-3xl">
+        Discover Dubai's desert like never before with our premium <strong class="text-white">safari rental Dubai</strong> experiences.
+        From sunrise dune safari tours to sunset adventures and night desert drives, Buggy Sahara DXB
+        delivers unforgettable off-road safari experiences at the iconic Big Red (Al Lahbab) desert.
+        Private, group and corporate safari packages available year-round.
+      </p>
+
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="/#experiences" class="btn-gold flex items-center gap-2 px-6 py-3 rounded-xl shine">
+          <i class="fas fa-compass"></i>
+          <span class="font-display">View Safari Experiences</span>
+        </a>
+        <a href="https://wa.me/971505371693?text=Hi! I want to book a desert safari in Dubai"
+           target="_blank" rel="noopener"
+           class="btn-outline flex items-center gap-2 px-6 py-3 rounded-xl">
+          <i class="fab fa-whatsapp text-green-400"></i>
+          <span class="font-display">Book Safari Now</span>
+        </a>
+      </div>
+
+      <div class="space-y-8">
+
+        <section class="glass border border-yellow-400/15 rounded-2xl p-8">
+          <h2 class="font-racing text-3xl text-yellow-400 mb-6">Our Dubai Safari Rental Packages</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              {
+                icon: "fas fa-sun",
+                title: "Sunrise Dune Safari",
+                duration: "2 Hours | From AED 499",
+                desc: "Begin your day with golden horizons across the Big Red dunes. Cool morning air, perfect light for photos, and the magic of the desert waking up.",
+                color: "text-amber-400",
+              },
+              {
+                icon: "fas fa-moon",
+                title: "Sunset Desert Safari",
+                duration: "3 Hours | From AED 699",
+                desc: "Chase Dubai's legendary desert sunset on our most popular safari. Ends with a traditional Bedouin bonfire under the stars.",
+                color: "text-purple-400",
+              },
+              {
+                icon: "fas fa-star",
+                title: "Night Safari Experience",
+                duration: "3 Hours | From AED 799",
+                desc: "Navigate the mystical desert under a canvas of stars with powerful LED light bars. Stargazing included. Unforgettable.",
+                color: "text-blue-400",
+              },
+              {
+                icon: "fas fa-crown",
+                title: "VIP Full Day Safari",
+                duration: "8 Hours | From AED 1,999",
+                desc: "The ultimate desert safari. Private guide, gourmet desert lunch, hotel transfer, 8 hours of unrestricted dune driving.",
+                color: "text-yellow-400",
+              },
+              {
+                icon: "fas fa-bolt",
+                title: "Dune Bashing Combo Safari",
+                duration: "4 Hours | From AED 899",
+                desc: "Combine guided 4x4 dune bashing with self-drive buggy safari — the best of both worlds for adrenaline seekers.",
+                color: "text-green-400",
+              },
+              {
+                icon: "fas fa-building",
+                title: "Corporate Safari Events",
+                duration: "Custom | Group Pricing",
+                desc: "Team building desert safaris for groups of 10 to 100+. Full event coordination, catering, and convoy experiences.",
+                color: "text-pink-400",
+              },
+            ].map(s => (
+              <div class="p-5 bg-black/30 border border-yellow-400/10 rounded-xl hover:border-yellow-400/30 transition-all group">
+                <div class="flex items-center gap-3 mb-3">
+                  <i class={`${s.icon} ${s.color} text-xl`}></i>
+                  <div>
+                    <h3 class="text-white font-semibold text-sm group-hover:text-yellow-400 transition-colors">{s.title}</h3>
+                    <div class="text-yellow-400/60 text-xs">{s.duration}</div>
+                  </div>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 class="font-racing text-3xl text-white mb-4">Why Our Dubai Desert Safari Stands Out</h2>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            Unlike traditional <strong class="text-white">desert safari Dubai</strong> tours where you sit passively in a 4x4,
+            Buggy Sahara DXB puts you in the driver's seat of a high-performance dune buggy.
+            You control the throttle, feel the sand under your wheels, and conquer the dunes yourself —
+            with a certified guide always alongside to keep you safe and to get you the best shots.
+          </p>
+          <p class="text-gray-400 leading-relaxed">
+            Our safari routes traverse the finest dunes at Al Lahbab (Big Red), a protected desert reserve
+            with towering red iron-oxide dunes — the most visually spectacular safari terrain in the UAE.
+          </p>
+        </section>
+
+        <div class="glass border border-yellow-400/20 rounded-2xl p-8 text-center">
+          <h2 class="font-display text-2xl text-white mb-2">Ready for Your Dubai Desert Safari?</h2>
+          <p class="text-gray-400 text-sm mb-6">Slots fill fast — especially on weekends and during school holidays.</p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="/#pricing" class="btn-gold flex items-center gap-2 px-8 py-4 rounded-xl shine">
+              <i class="fas fa-credit-card"></i>
+              <span class="font-display tracking-wide">Book & Pay Online</span>
+            </a>
+            <a href="https://wa.me/971505371693?text=Hi! I want to book a desert safari in Dubai"
+               target="_blank" rel="noopener"
+               class="btn-outline flex items-center gap-2 px-8 py-4 rounded-xl">
+              <i class="fab fa-whatsapp text-green-400"></i>
+              <span class="font-display">WhatsApp to Book</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TouristTrip",
+        "name": "Desert Safari Dubai — Buggy Sahara DXB",
+        "description": "Self-drive desert safari buggy tours in Dubai. Sunrise, sunset and night safari packages from AED 499.",
+        "url": "https://buggysaharadxb.com/safari-rental-dubai",
+        "touristType": "Adventure",
+        "itinerary": {
+          "@type": "ItemList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Sunrise Dune Safari — AED 499" },
+            { "@type": "ListItem", "position": 2, "name": "Sunset Desert Safari — AED 699" },
+            { "@type": "ListItem", "position": 3, "name": "VIP Full Day Safari — AED 1,999" }
+          ]
+        }
+      }
+      </script>
+    </div>
+  </main>
+  <Footer />
+</Layout>

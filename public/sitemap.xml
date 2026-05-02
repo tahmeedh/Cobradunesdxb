@@ -3,32 +3,62 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://buggysaharadxb.com/</loc>
-    <lastmod>2024-10-01</lastmod>
+    <lastmod>2025-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://buggysaharadxb.com/dune-buggy-dubai</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://buggysaharadxb.com/buggy-rental-dubai</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://buggysaharadxb.com/safari-rental-dubai</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://buggysaharadxb.com/4x4-rental-uae</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://buggysaharadxb.com/#fleet</loc>
-    <lastmod>2024-10-01</lastmod>
+    <lastmod>2025-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://buggysaharadxb.com/#experiences</loc>
-    <lastmod>2024-10-01</lastmod>
+    <lastmod>2025-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://buggysaharadxb.com/#celebrations</loc>
-    <lastmod>2024-10-01</lastmod>
+    <lastmod>2025-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://buggysaharadxb.com/#pricing</loc>
-    <lastmod>2024-10-01</lastmod>
+    <lastmod>2025-05-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://buggysaharadxb.com/#testimonials</loc>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 </urlset>

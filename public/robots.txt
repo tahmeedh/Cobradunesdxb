@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://buggysaharadxb.com/sitemap.xml
+
+# Block admin/api paths from indexing
+Disallow: /api/
