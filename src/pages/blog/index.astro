@@ -1,0 +1,107 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const allPosts = await Astro.glob('./*.md');
+const posts = allPosts
+  .map(p => ({
+    url: p.url,
+    title: p.frontmatter.title,
+    description: p.frontmatter.description,
+    pubDate: p.frontmatter.pubDate,
+    keywords: p.frontmatter.keywords,
+  }))
+  .sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dune Buggy Dubai Blog — Tips, Guides & Desert Adventure Advice | Buggy Sahara DXB</title>
+  <meta name="description" content="Expert guides on dune buggy rentals in Dubai, desert buggy tours, pricing, safety tips and the best sand dune experiences in the UAE. Updated weekly." />
+  <meta name="keywords" content="dune buggy dubai, buggy rental dubai, desert buggy dubai, sand dunes dubai buggy, buggy tour dubai, dubai buggy blog" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://buggysaharadxb.com/blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dune Buggy Dubai Blog | Buggy Sahara DXB" />
+  <meta property="og:description" content="Expert guides on dune buggy rentals, tours and desert adventures in Dubai." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <link rel="icon" type="image/svg+xml" href="/logo/Svg/SourceFiles-01.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    body { margin:0; background:#0a0a0a; color:#e5e7eb; font-family:'Inter',sans-serif; }
+    * { box-sizing:border-box; }
+  </style>
+</head>
+<body>
+  <Header />
+
+  <!-- Hero -->
+  <section style="background:linear-gradient(135deg,#1a1200 0%,#0a0a0a 100%);padding:4rem 1.5rem 3rem;text-align:center;border-bottom:1px solid rgba(250,204,21,0.1)">
+    <div style="max-width:700px;margin:0 auto">
+      <div style="font-family:'Oswald',sans-serif;font-size:0.75rem;color:#facc15;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.8rem">Desert Knowledge Hub</div>
+      <h1 style="font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:#fff;margin:0 0 1rem;line-height:1.05">
+        Dune Buggy Dubai <span style="color:#facc15">Blog</span>
+      </h1>
+      <p style="color:#9ca3af;font-size:1rem;line-height:1.7;margin:0 0 2rem">
+        Expert guides on dune buggy rentals, desert tours, pricing and everything you need to know before hitting Dubai's legendary sand dunes.
+      </p>
+      <a href="/booking" style="display:inline-block;background:#facc15;color:#000;padding:0.85rem 2rem;border-radius:0.75rem;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;text-decoration:none;letter-spacing:0.05em">
+        <i class="fas fa-flag-checkered" style="margin-right:0.4rem"></i> Book a Buggy
+      </a>
+    </div>
+  </section>
+
+  <!-- Articles grid -->
+  <main style="max-width:1100px;margin:0 auto;padding:3rem 1.5rem">
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.8rem">
+      {posts.map((post, i) => {
+        const date = post.pubDate ? new Date(post.pubDate).toLocaleDateString('en-AE', { year:'numeric', month:'long', day:'numeric' }) : '';
+        return (
+          <article style={`background:${i === 0 ? 'linear-gradient(135deg,rgba(250,204,21,0.08),rgba(0,0,0,0))' : 'rgba(255,255,255,0.02)'};border:1px solid ${i === 0 ? 'rgba(250,204,21,0.3)' : 'rgba(255,255,255,0.07)'};border-radius:1rem;padding:1.6rem;display:flex;flex-direction:column;gap:0.8rem;transition:border-color 0.2s`}>
+            {i === 0 && (
+              <span style="font-size:0.65rem;font-weight:700;color:#facc15;text-transform:uppercase;letter-spacing:0.12em;background:rgba(250,204,21,0.12);padding:0.2rem 0.6rem;border-radius:9999px;width:fit-content">Latest</span>
+            )}
+            <h2 style="font-family:'Oswald',sans-serif;font-size:1.2rem;color:#fff;margin:0;line-height:1.35;font-weight:600">
+              <a href={post.url} style="color:inherit;text-decoration:none">{post.title}</a>
+            </h2>
+            <p style="font-size:0.85rem;color:#9ca3af;line-height:1.65;margin:0;flex-grow:1">{post.description}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.06)">
+              <span style="font-size:0.75rem;color:#6b7280"><i class="fas fa-calendar-alt" style="margin-right:0.35rem;color:rgba(250,204,21,0.4)"></i>{date}</span>
+              <a href={post.url} style="font-size:0.8rem;color:#facc15;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:0.04em">Read →</a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+
+    {posts.length === 0 && (
+      <div style="text-align:center;color:#6b7280;padding:4rem 0">
+        <i class="fas fa-newspaper" style="font-size:2rem;margin-bottom:1rem;display:block;color:rgba(250,204,21,0.3)"></i>
+        Articles coming soon. Check back next week.
+      </div>
+    )}
+  </main>
+
+  <!-- CTA -->
+  <div style="background:rgba(250,204,21,0.04);border-top:1px solid rgba(250,204,21,0.1);padding:3rem 1.5rem;text-align:center">
+    <div style="max-width:500px;margin:0 auto">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;margin-bottom:0.5rem">READY TO RIDE?</div>
+      <p style="color:#9ca3af;margin-bottom:1.2rem;font-size:0.9rem">Stop reading — start driving. Book your dune buggy rental in Dubai today.</p>
+      <a href="/booking" style="display:inline-block;background:#facc15;color:#000;padding:0.9rem 2.2rem;border-radius:0.75rem;font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;text-decoration:none">Book Now →</a>
+    </div>
+  </div>
+
+  <Footer />
+
+  <style is:global>
+    @media (max-width:640px) {
+      h1 { font-size:2.2rem !important; }
+    }
+  </style>
+</body>
+</html>
